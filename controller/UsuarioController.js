@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -24,10 +24,11 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -59,9 +60,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.UsuarioController = void 0;
 var BaseController_1 = require("./BaseController");
 var jsonwebtoken_1 = require("jsonwebtoken");
 var config_1 = require("../configuration/config");
+var md5 = require("md5");
 var Usuarios_1 = require("../entity/Usuarios");
 var nodemailer = require("nodemailer");
 var crypto = require('crypto');
@@ -76,24 +79,24 @@ var UsuarioController = /** @class */ (function (_super) {
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        console.log("teste");
                         _a = request.body, email = _a.email, senha = _a.senha;
                         if (!email || !senha)
                             return [2 /*return*/, { status: 400, message: 'Informe o email e a senha para efetuar o login' }];
-                        return [4 /*yield*/, this.repository.findOne({ usLogin: email, usSenha: senha })];
+                        return [4 /*yield*/, this.repository.findOne({ email: email, senha: md5(senha) })];
                     case 1:
                         user = _b.sent();
+                        // let user = await this.repository.findOne({ email: email, senha: senha });
                         if (user) {
                             _payload = {
-                                US_ID: user.usId,
-                                US_NOME: user.usNome,
-                                US_LOGIN: user.usLogin,
+                                id: user.id,
+                                nome: user.nome,
+                                email: user.email,
                             };
                             return [2 /*return*/, {
                                     status: 200,
                                     message: {
                                         user: _payload,
-                                        token: jsonwebtoken_1.sign(__assign({}, _payload, { tm: new Date().getTime() }), config_1.default.secretyKey)
+                                        token: jsonwebtoken_1.sign(__assign(__assign({}, _payload), { tm: new Date().getTime() }), config_1.default.secretyKey)
                                     }
                                 }];
                         }
@@ -107,50 +110,50 @@ var UsuarioController = /** @class */ (function (_super) {
     };
     UsuarioController.prototype.CriarUsuario = function (request) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, US_NOME, US_LOGIN, US_EMAIL, US_DATA, US_SENHA, US_DEPTO, US_STATUS, US_APROV, US_MASTER, US_OPERADOR_CC, confirmaSenha, user, _user;
+            var _a, nome, email, celular, status, aceiteTermos, senha, confirmaSenha, perfil, user, _user;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        _a = request.body, US_NOME = _a.US_NOME, US_LOGIN = _a.US_LOGIN, US_EMAIL = _a.US_EMAIL, US_DATA = _a.US_DATA, US_SENHA = _a.US_SENHA, US_DEPTO = _a.US_DEPTO, US_STATUS = _a.US_STATUS, US_APROV = _a.US_APROV, US_MASTER = _a.US_MASTER, US_OPERADOR_CC = _a.US_OPERADOR_CC, confirmaSenha = _a.confirmaSenha;
-                        _super.prototype.isRequired.call(this, US_NOME, 'O nome do usuário é obrigatório');
+                        _a = request.body, nome = _a.nome, email = _a.email, celular = _a.celular, status = _a.status, aceiteTermos = _a.aceiteTermos, senha = _a.senha, confirmaSenha = _a.confirmaSenha, perfil = _a.perfil;
+                        _super.prototype.isRequired.call(this, nome, 'O nome do usuário é obrigatório');
                         // super.isRequired(email, 'A foto do usuário é obrigatório');
-                        _super.prototype.isRequired.call(this, US_LOGIN, 'o login do usuário é obrigatória');
-                        // super.isRequired(foto, 'A foto do usuário é obrigatória');
-                        _super.prototype.isRequired.call(this, US_SENHA, 'A senha do usuário é obrigatória');
-                        return [4 /*yield*/, this.repository.findOne({ usEmail: US_EMAIL })];
+                        _super.prototype.isRequired.call(this, email, 'o login do usuário é obrigatória');
+                        _super.prototype.isRequired.call(this, celular, 'o celular do usuário é obrigatória');
+                        _super.prototype.isRequired.call(this, perfil, 'o perfil do usuário é obrigatório');
+                        return [4 /*yield*/, this.repository.findOne({ email: email })];
                     case 1:
                         user = _b.sent();
                         if (!user) {
+                            _super.prototype.isRequired.call(this, senha, 'A senha do usuário é obrigatória');
                             _super.prototype.isRequired.call(this, confirmaSenha, 'confirma senha é obrigatório');
-                            _super.prototype.isTrue.call(this, US_SENHA != confirmaSenha, 'senha e confirma senha deve ser iguais');
+                            _super.prototype.isTrue.call(this, senha != confirmaSenha, 'senha e confirma senha deve ser iguais');
                         }
-                        if (user && !user.usId)
-                            _super.prototype.isTrue.call(this, user.usLogin == US_EMAIL, 'usuário já cadastrado');
-                        if (user && user.usId) {
-                            user.usNome = US_NOME;
-                            user.usLogin = US_LOGIN;
-                            user.usSenha = US_SENHA;
-                            user.usData = US_DATA;
-                            user.usDepto = US_DEPTO;
-                            user.usStatus = US_STATUS;
-                            user.usEmail = US_EMAIL;
-                            user.usAprov = US_APROV;
-                            user.usMaster = US_MASTER;
-                            user.usOperadorCc = US_OPERADOR_CC;
+                        if (user && !user.id)
+                            _super.prototype.isTrue.call(this, user.email == email, 'usuário já cadastrado');
+                        if (user && user.id) {
+                            user.nome = nome;
+                            user.email = email;
+                            user.celular = celular;
+                            user.status = status;
+                            user.perfil = perfil;
+                            if (senha) {
+                                user.senha = md5(senha);
+                            }
+                            else {
+                                user.senha = user.senha;
+                            }
                             return [2 /*return*/, _super.prototype.save.call(this, user, request)];
                         }
                         else {
                             _user = new Usuarios_1.Usuarios();
-                            _user.usNome = US_NOME;
-                            _user.usLogin = US_LOGIN;
-                            _user.usSenha = US_SENHA;
-                            _user.usData = US_DATA;
-                            _user.usDepto = US_DEPTO;
-                            _user.usStatus = US_STATUS;
-                            _user.usEmail = US_EMAIL;
-                            _user.usAprov = US_APROV;
-                            _user.usMaster = US_MASTER;
-                            _user.usOperadorCc = US_OPERADOR_CC;
+                            _user.nome = nome;
+                            _user.email = email;
+                            _user.celular = celular;
+                            _user.senha = senha;
+                            _user.status = status;
+                            _user.perfil = perfil;
+                            _user.aceiteTermos = aceiteTermos;
+                            _user.senha = md5(senha);
                             return [2 /*return*/, _super.prototype.save.call(this, _user, request)];
                         }
                         return [2 /*return*/];

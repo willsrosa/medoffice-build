@@ -1,9 +1,10 @@
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -34,7 +35,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 require("reflect-metadata");
 var typeorm_1 = require("typeorm");
@@ -45,6 +45,12 @@ var routes_1 = require("./routes");
 var config_1 = require("./configuration/config");
 var auth_1 = require("./middlaware/auth");
 var xml2js = require('xml2js');
+var https = require('https');
+var http = require('http');
+var fs = require('fs');
+var privateKey = fs.readFileSync('selfsigned.key', 'utf8');
+var certificate = fs.readFileSync('selfsigned.crt', 'utf8');
+var credentials = { key: privateKey, cert: certificate };
 // create express app
 var app = express();
 app.use(bodyParser.json({ limit: '50mb' }));
@@ -76,7 +82,9 @@ routes_1.Routes.forEach(function (route) {
     });
 });
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
-app.listen(config_1.default.port, '0.0.0.0', function () { return __awaiter(_this, void 0, void 0, function () {
+var httpServer = http.createServer(app);
+var httpsServer = https.createServer(credentials, app);
+httpsServer.listen(config_1.default.port, '0.0.0.0', function () { return __awaiter(void 0, void 0, void 0, function () {
     var error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {

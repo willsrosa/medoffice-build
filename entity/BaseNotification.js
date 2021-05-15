@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.BaseNotification = void 0;
 var BaseNotification = /** @class */ (function () {
     function BaseNotification() {
         this.notifications = new Array();
@@ -36,7 +37,7 @@ var BaseNotification = /** @class */ (function () {
         get: function () {
             return this.notifications;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     BaseNotification.prototype.valid = function () {

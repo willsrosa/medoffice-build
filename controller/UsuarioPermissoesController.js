@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -13,10 +13,11 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -48,6 +49,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.UsuarioPermissoesController = void 0;
 var UsuariosPermissoes_1 = require("../entity/UsuariosPermissoes");
 var BaseController_1 = require("./BaseController");
 var UsuarioPermissoesController = /** @class */ (function (_super) {
@@ -60,9 +62,8 @@ var UsuarioPermissoesController = /** @class */ (function (_super) {
             var _obj;
             return __generator(this, function (_a) {
                 _obj = request.body;
-                console.log(_obj);
-                _super.prototype.isRequired.call(this, _obj.Permissao, 'a permissão é obrigatório');
-                _super.prototype.isRequired.call(this, _obj.UsuarioId, 'o usuário é obrigatório');
+                _super.prototype.isRequired.call(this, _obj.permissao, 'a permissão é obrigatório');
+                _super.prototype.isRequired.call(this, _obj.usuario, 'o usuário é obrigatório');
                 return [2 /*return*/, _super.prototype.save.call(this, _obj, request)];
             });
         });
@@ -71,7 +72,7 @@ var UsuarioPermissoesController = /** @class */ (function (_super) {
         var itemId = request.params.id;
         return this.repository.find({
             where: {
-                UsuarioId: itemId,
+                usuario: itemId,
             }
         });
     };

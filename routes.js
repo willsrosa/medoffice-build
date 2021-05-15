@@ -1,44 +1,85 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var ClientesController_1 = require("./controller/ClientesController");
-var DepartamentoController_1 = require("./controller/DepartamentoController");
-var LoteamentoController_1 = require("./controller/LoteamentoController");
-var LotesCondicoesController_1 = require("./controller/LotesCondicoesController");
-var LotesController_1 = require("./controller/LotesController");
-var PermissoesUsuarioController_1 = require("./controller/PermissoesUsuarioController");
+exports.Routes = void 0;
+var AgendasConsultasController_1 = require("./controller/AgendasConsultasController");
+var ConselhosRegionaisController_1 = require("./controller/ConselhosRegionaisController");
+var ConveniosController_1 = require("./controller/ConveniosController");
+var EmpresasController_1 = require("./controller/EmpresasController");
+var PacientesController_1 = require("./controller/PacientesController");
+var PermissoesController_1 = require("./controller/PermissoesController");
+var ProfissionaisAgendasController_1 = require("./controller/ProfissionaisAgendasController");
+var ProfissionaisAgendasHorariosController_1 = require("./controller/ProfissionaisAgendasHorariosController");
+var ProfissionaisController_1 = require("./controller/ProfissionaisController");
+var ProfissionaisConveniosController_1 = require("./controller/ProfissionaisConveniosController");
 var UsuarioController_1 = require("./controller/UsuarioController");
 var UsuarioPermissoesController_1 = require("./controller/UsuarioPermissoesController");
+var UsuariosAgendasController_1 = require("./controller/UsuariosAgendasController");
+var UsuariosEmpresasController_1 = require("./controller/UsuariosEmpresasController");
 exports.Routes = [
     { method: "get", route: "/usuario", controller: UsuarioController_1.UsuarioController, action: "all" },
     { method: "get", route: "/usuario/:id", controller: UsuarioController_1.UsuarioController, action: "one" },
-    { method: "post", route: "/usuario", controller: UsuarioController_1.UsuarioController, action: "save" },
+    { method: "post", route: "/usuario", controller: UsuarioController_1.UsuarioController, action: "CriarUsuario" },
     { method: "post", route: "/usuario/Cadastrar", controller: UsuarioController_1.UsuarioController, action: "CriarUsuario" },
     { method: "post", route: "/usuario/autenticar", controller: UsuarioController_1.UsuarioController, action: "auth" },
     { method: "delete", route: "/usuario", controller: UsuarioController_1.UsuarioController, action: "remove" },
-    { method: "get", route: "/departamento", controller: DepartamentoController_1.DepartamentoController, action: "all" },
-    { method: "get", route: "/departamento/:id", controller: DepartamentoController_1.DepartamentoController, action: "one" },
-    { method: "post", route: "/departamento", controller: DepartamentoController_1.DepartamentoController, action: "save" },
-    { method: "delete", route: "/departamento/:id", controller: DepartamentoController_1.DepartamentoController, action: "remove" },
-    { method: "get", route: "/loteamento", controller: LoteamentoController_1.LoteamentoController, action: "all" },
-    { method: "get", route: "/loteamento/:id", controller: LoteamentoController_1.LoteamentoController, action: "one" },
-    { method: "post", route: "/loteamento", controller: LoteamentoController_1.LoteamentoController, action: "save" },
-    { method: "delete", route: "/loteamento/:id", controller: LoteamentoController_1.LoteamentoController, action: "remove" },
-    { method: "get", route: "/lotes", controller: LotesController_1.LotesController, action: "all" },
-    { method: "get", route: "/lotes/:id", controller: LotesController_1.LotesController, action: "one" },
-    { method: "post", route: "/lotes", controller: LotesController_1.LotesController, action: "save" },
-    { method: "delete", route: "/lotes/:id", controller: LotesController_1.LotesController, action: "remove" },
-    { method: "get", route: "/lotescondicoes", controller: LotesCondicoesController_1.LotesCondicoesController, action: "all" },
-    { method: "get", route: "/lotescondicoes/:id", controller: LotesCondicoesController_1.LotesCondicoesController, action: "one" },
-    { method: "post", route: "/lotescondicoes", controller: LotesCondicoesController_1.LotesCondicoesController, action: "save" },
-    { method: "delete", route: "/lotescondicoes/:id", controller: LotesCondicoesController_1.LotesCondicoesController, action: "remove" },
-    { method: "get", route: "/permissoesusuarios", controller: PermissoesUsuarioController_1.PermissoesUsuariosController, action: "all" },
-    { method: "get", route: "/permissoesusuarios/:id", controller: PermissoesUsuarioController_1.PermissoesUsuariosController, action: "one" },
-    { method: "post", route: "/permissoesusuarios", controller: PermissoesUsuarioController_1.PermissoesUsuariosController, action: "save" },
-    { method: "delete", route: "/permissoesusuarios/:id", controller: PermissoesUsuarioController_1.PermissoesUsuariosController, action: "remove" },
-    { method: "get", route: "/clientes", controller: ClientesController_1.ClientesController, action: "all" },
-    { method: "get", route: "/clientes/:id", controller: ClientesController_1.ClientesController, action: "one" },
-    { method: "post", route: "/clientes", controller: ClientesController_1.ClientesController, action: "save" },
-    { method: "delete", route: "/clientes/:id", controller: ClientesController_1.ClientesController, action: "remove" },
+    { method: "get", route: "/agenda", controller: AgendasConsultasController_1.AgendaConsultasController, action: "all" },
+    { method: "get", route: "/agenda/:id", controller: AgendasConsultasController_1.AgendaConsultasController, action: "one" },
+    { method: "get", route: "/agenda/:id/profissional", controller: AgendasConsultasController_1.AgendaConsultasController, action: "getAgendas" },
+    { method: "get", route: "/agenda/:profissional/:data/profissional", controller: AgendasConsultasController_1.AgendaConsultasController, action: "getProfissionalAgendas" },
+    { method: "get", route: "/agenda/:profissionalagenda/pesquisarconsultas", controller: AgendasConsultasController_1.AgendaConsultasController, action: "getconsultas" },
+    { method: "get", route: "/agenda/:profissionalagenda/:inicio/:termino", controller: AgendasConsultasController_1.AgendaConsultasController, action: "getDisponibilidade" },
+    { method: "post", route: "/agenda", controller: AgendasConsultasController_1.AgendaConsultasController, action: "save" },
+    { method: "delete", route: "/agenda/:id", controller: AgendasConsultasController_1.AgendaConsultasController, action: "remove" },
+    { method: "get", route: "/convenio", controller: ConveniosController_1.ConveniosController, action: "all" },
+    { method: "get", route: "/convenio/:id", controller: ConveniosController_1.ConveniosController, action: "one" },
+    { method: "post", route: "/convenio", controller: ConveniosController_1.ConveniosController, action: "save" },
+    { method: "delete", route: "/convenio/:id", controller: ConveniosController_1.ConveniosController, action: "remove" },
+    { method: "get", route: "/empresa", controller: EmpresasController_1.EmpresasController, action: "all" },
+    { method: "get", route: "/empresa/:id", controller: EmpresasController_1.EmpresasController, action: "one" },
+    { method: "post", route: "/empresa", controller: EmpresasController_1.EmpresasController, action: "save" },
+    { method: "delete", route: "/empresa/:id", controller: EmpresasController_1.EmpresasController, action: "remove" },
+    { method: "get", route: "/paciente", controller: PacientesController_1.PacientesController, action: "all" },
+    { method: "get", route: "/paciente/:id", controller: PacientesController_1.PacientesController, action: "one" },
+    { method: "get", route: "/paciente/:id/profissional", controller: PacientesController_1.PacientesController, action: "getProfissionalPacientes" },
+    { method: "post", route: "/paciente", controller: PacientesController_1.PacientesController, action: "save" },
+    { method: "delete", route: "/paciente/:id", controller: PacientesController_1.PacientesController, action: "remove" },
+    { method: "get", route: "/permissao", controller: PermissoesController_1.PermissoesController, action: "all" },
+    { method: "get", route: "/permissao/:id", controller: PermissoesController_1.PermissoesController, action: "one" },
+    { method: "post", route: "/permissao", controller: PermissoesController_1.PermissoesController, action: "save" },
+    { method: "delete", route: "/permissao/:id", controller: PermissoesController_1.PermissoesController, action: "remove" },
+    { method: "get", route: "/profissional", controller: ProfissionaisController_1.ProfissionaisController, action: "all" },
+    { method: "get", route: "/profissional/:id", controller: ProfissionaisController_1.ProfissionaisController, action: "one" },
+    { method: "post", route: "/profissional", controller: ProfissionaisController_1.ProfissionaisController, action: "save" },
+    { method: "delete", route: "/profissional/:id", controller: ProfissionaisController_1.ProfissionaisController, action: "remove" },
+    { method: "get", route: "/profissionaisagenda", controller: ProfissionaisAgendasController_1.ProfissionaisAgendasController, action: "all" },
+    { method: "get", route: "/profissionaisagenda/:id", controller: ProfissionaisAgendasController_1.ProfissionaisAgendasController, action: "one" },
+    { method: "get", route: "/profissionaisagenda/:id/agenda", controller: ProfissionaisAgendasController_1.ProfissionaisAgendasController, action: "getAgenda" },
+    { method: "post", route: "/profissionaisagenda", controller: ProfissionaisAgendasController_1.ProfissionaisAgendasController, action: "save" },
+    { method: "delete", route: "/profissionaisagenda/:id", controller: ProfissionaisAgendasController_1.ProfissionaisAgendasController, action: "remove" },
+    { method: "get", route: "/profissionaisagendaHorario", controller: ProfissionaisAgendasHorariosController_1.ProfissionaisAgendasHorariosController, action: "all" },
+    { method: "get", route: "/profissionaisagendaHorario/:id", controller: ProfissionaisAgendasHorariosController_1.ProfissionaisAgendasHorariosController, action: "one" },
+    { method: "get", route: "/profissionaisagendaHorario/:id/horarios", controller: ProfissionaisAgendasHorariosController_1.ProfissionaisAgendasHorariosController, action: "getHorario" },
+    { method: "post", route: "/profissionaisagendaHorario", controller: ProfissionaisAgendasHorariosController_1.ProfissionaisAgendasHorariosController, action: "save" },
+    { method: "delete", route: "/profissionaisagendaHorario/:id", controller: ProfissionaisAgendasHorariosController_1.ProfissionaisAgendasHorariosController, action: "remove" },
+    { method: "get", route: "/profissionaisconvenios", controller: ProfissionaisConveniosController_1.ProfissionaisConveniosController, action: "all" },
+    { method: "get", route: "/profissionaisconvenios/:id", controller: ProfissionaisConveniosController_1.ProfissionaisConveniosController, action: "one" },
+    { method: "get", route: "/profissionaisconvenios/:id/convenios", controller: ProfissionaisConveniosController_1.ProfissionaisConveniosController, action: "getConvenio" },
+    { method: "post", route: "/profissionaisconvenios", controller: ProfissionaisConveniosController_1.ProfissionaisConveniosController, action: "save" },
+    { method: "delete", route: "/profissionaisconvenios/:id", controller: ProfissionaisConveniosController_1.ProfissionaisConveniosController, action: "remove" },
+    { method: "get", route: "/usuariosagenda", controller: UsuariosAgendasController_1.UsuariosAgendasController, action: "all" },
+    { method: "get", route: "/usuariosagenda/:id", controller: UsuariosAgendasController_1.UsuariosAgendasController, action: "one" },
+    { method: "get", route: "/usuariosagenda/:id/agenda", controller: UsuariosAgendasController_1.UsuariosAgendasController, action: "getAgenda" },
+    { method: "post", route: "/usuariosagenda", controller: UsuariosAgendasController_1.UsuariosAgendasController, action: "save" },
+    { method: "delete", route: "/usuariosagenda/:id", controller: UsuariosAgendasController_1.UsuariosAgendasController, action: "remove" },
+    { method: "get", route: "/usuariosempresa", controller: UsuariosEmpresasController_1.UsuariosEmpresasController, action: "all" },
+    { method: "get", route: "/usuariosempresa/:id", controller: UsuariosEmpresasController_1.UsuariosEmpresasController, action: "one" },
+    { method: "get", route: "/usuariosempresa/:id/empresas", controller: UsuariosEmpresasController_1.UsuariosEmpresasController, action: "getAgenda" },
+    { method: "post", route: "/usuariosempresa", controller: UsuariosEmpresasController_1.UsuariosEmpresasController, action: "save" },
+    { method: "delete", route: "/usuariosempresa/:id", controller: UsuariosEmpresasController_1.UsuariosEmpresasController, action: "remove" },
+    { method: "get", route: "/conselhoregional", controller: ConselhosRegionaisController_1.ConselhosRegionaisController, action: "all" },
+    { method: "get", route: "/conselhoregional/:id", controller: ConselhosRegionaisController_1.ConselhosRegionaisController, action: "one" },
+    { method: "post", route: "/conselhoregional", controller: ConselhosRegionaisController_1.ConselhosRegionaisController, action: "save" },
+    { method: "delete", route: "/conselhoregional/:id", controller: ConselhosRegionaisController_1.ConselhosRegionaisController, action: "remove" },
     { method: "get", route: "/usuariospermissoes", controller: UsuarioPermissoesController_1.UsuarioPermissoesController, action: "all" },
     { method: "get", route: "/usuariospermissoes/:id/permissoes", controller: UsuarioPermissoesController_1.UsuarioPermissoesController, action: "getAllPermissoes" },
     { method: "get", route: "/usuariospermissoes/:id", controller: UsuarioPermissoesController_1.UsuarioPermissoesController, action: "one" },

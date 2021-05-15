@@ -9,29 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.UsuariosPermissoes = void 0;
 var typeorm_1 = require("typeorm");
+var Permissoes_1 = require("./Permissoes");
+var Usuarios_1 = require("./Usuarios");
 var UsuariosPermissoes = /** @class */ (function () {
     function UsuariosPermissoes() {
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "Id" }),
         __metadata("design:type", Number)
-    ], UsuariosPermissoes.prototype, "Id", void 0);
+    ], UsuariosPermissoes.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column("varchar", {
-            name: "Permissao",
-            nullable: true,
-            length: 60,
-            default: function () { return "''"; },
-        }),
-        __metadata("design:type", String)
-    ], UsuariosPermissoes.prototype, "Permissao", void 0);
+        typeorm_1.ManyToOne(function () { return Permissoes_1.Permissoes; }, function (permissoes) { return permissoes.usuariosPermissoes; }),
+        typeorm_1.JoinColumn([{ name: "PermissaoId", referencedColumnName: "id" }]),
+        __metadata("design:type", Permissoes_1.Permissoes)
+    ], UsuariosPermissoes.prototype, "permissao", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "UsuarioId", nullable: true }),
-        __metadata("design:type", Number)
-    ], UsuariosPermissoes.prototype, "UsuarioId", void 0);
+        typeorm_1.ManyToOne(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.usuariosPermissoes; }),
+        typeorm_1.JoinColumn([{ name: "UsuarioId", referencedColumnName: "id" }]),
+        __metadata("design:type", Usuarios_1.Usuarios)
+    ], UsuariosPermissoes.prototype, "usuario", void 0);
     UsuariosPermissoes = __decorate([
-        typeorm_1.Index("PK_UsuariosPermissoes", ["Id"], { unique: true }),
+        typeorm_1.Index("PK_USUARIOSPERMISSOES", ["id"], { unique: true }),
         typeorm_1.Entity("UsuariosPermissoes", { schema: "dbo" })
     ], UsuariosPermissoes);
     return UsuariosPermissoes;

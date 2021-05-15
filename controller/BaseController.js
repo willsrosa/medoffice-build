@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -13,10 +13,11 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -48,6 +49,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.BaseController = void 0;
 var typeorm_1 = require("typeorm");
 var BaseNotification_1 = require("../entity/BaseNotification");
 var Usuarios_1 = require("../entity/Usuarios");
@@ -63,9 +65,9 @@ var BaseController = /** @class */ (function (_super) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 return [2 /*return*/, this._repository.find({
-                    // where: {
-                    //   deletado: false
-                    // }
+                        where: {
+                            dataExclusao: typeorm_1.IsNull()
+                        }
                     })];
             });
         });
@@ -79,24 +81,30 @@ var BaseController = /** @class */ (function (_super) {
     };
     BaseController.prototype.save = function (model, request) {
         return __awaiter(this, void 0, void 0, function () {
-            var uid, _modelInDB;
+            var id, user, uid, _modelInDB;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (!model.uid) return [3 /*break*/, 2];
-                        uid = model.uid;
-                        return [4 /*yield*/, this._repository.findOne(uid)];
+                        model.dataHora = new Date();
+                        id = this.numeros(request.headers['x-user-include']);
+                        return [4 /*yield*/, this._usuario.findOne(id)];
                     case 1:
+                        user = _a.sent();
+                        model.usuarioId = user.id;
+                        if (!model.id) return [3 /*break*/, 3];
+                        uid = model.id;
+                        return [4 /*yield*/, this._repository.findOne(uid)];
+                    case 2:
                         _modelInDB = _a.sent();
                         if (_modelInDB) {
                             Object.assign(_modelInDB, model);
                         }
-                        _a.label = 2;
-                    case 2:
-                        if (!this.valid()) return [3 /*break*/, 4];
+                        _a.label = 3;
+                    case 3:
+                        if (!this.valid()) return [3 /*break*/, 5];
                         return [4 /*yield*/, this._repository.save(model)];
-                    case 3: return [2 /*return*/, _a.sent()];
-                    case 4: return [2 /*return*/, {
+                    case 4: return [2 /*return*/, _a.sent()];
+                    case 5: return [2 /*return*/, {
                             status: 400,
                             errors: this.allNotifications
                         }];
@@ -106,26 +114,35 @@ var BaseController = /** @class */ (function (_super) {
     };
     BaseController.prototype.remove = function (request) {
         return __awaiter(this, void 0, void 0, function () {
-            var model;
+            var model, id, user;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this._repository.findOne(request.params.id)];
                     case 1:
                         model = _a.sent();
-                        if (model) {
-                            // model.deletado = true;
-                            // model.ativo = false;
-                        }
-                        return [2 /*return*/, this._repository.remove(model)];
+                        if (!model) return [3 /*break*/, 3];
+                        model.dataExclusao = new Date();
+                        id = this.numeros(request.headers['x-user-include']);
+                        return [4 /*yield*/, this._usuario.findOne(id)];
+                    case 2:
+                        user = _a.sent();
+                        model.usuarioExclusao = user;
+                        _a.label = 3;
+                    case 3: return [2 /*return*/, this._repository.save(model)];
                 }
             });
         });
+    };
+    BaseController.prototype.numeros = function (param) {
+        var numb = param.match(/\d/g);
+        numb = numb.join("");
+        return (numb);
     };
     Object.defineProperty(BaseController.prototype, "repository", {
         get: function () {
             return this._repository;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return BaseController;

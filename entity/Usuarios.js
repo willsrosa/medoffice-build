@@ -1,17 +1,4 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -22,61 +9,174 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Usuarios = void 0;
 var typeorm_1 = require("typeorm");
-var Usuarios = /** @class */ (function (_super) {
-    __extends(Usuarios, _super);
+var AgendasConsultas_1 = require("./AgendasConsultas");
+var ConselhosRegionais_1 = require("./ConselhosRegionais");
+var Convenios_1 = require("./Convenios");
+var Empresas_1 = require("./Empresas");
+var Pacientes_1 = require("./Pacientes");
+var Profissionais_1 = require("./Profissionais");
+var ProfissionaisAgendas_1 = require("./ProfissionaisAgendas");
+var ProfissionaisAgendasHorarios_1 = require("./ProfissionaisAgendasHorarios");
+var ProfissionaisConvenios_1 = require("./ProfissionaisConvenios");
+var UsuariosAgendas_1 = require("./UsuariosAgendas");
+var UsuariosEmpresas_1 = require("./UsuariosEmpresas");
+var UsuariosPermissoes_1 = require("./UsuariosPermissoes");
+var Usuarios = /** @class */ (function () {
     function Usuarios() {
-        return _super !== null && _super.apply(this, arguments) || this;
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "US_ID" }),
+        typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "Id" }),
         __metadata("design:type", Number)
-    ], Usuarios.prototype, "usId", void 0);
+    ], Usuarios.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "US_NOME", nullable: true, length: 60 }),
+        typeorm_1.Column("varchar", { name: "Nome", length: 80 }),
         __metadata("design:type", String)
-    ], Usuarios.prototype, "usNome", void 0);
+    ], Usuarios.prototype, "nome", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "US_LOGIN", nullable: true, length: 10 }),
+        typeorm_1.Column("varchar", { name: "Email", length: 100 }),
         __metadata("design:type", String)
-    ], Usuarios.prototype, "usLogin", void 0);
+    ], Usuarios.prototype, "email", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "US_SENHA", nullable: true, length: 6 }),
+        typeorm_1.Column("char", { name: "Celular", length: 20 }),
         __metadata("design:type", String)
-    ], Usuarios.prototype, "usSenha", void 0);
+    ], Usuarios.prototype, "celular", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "US_DATA", nullable: true }),
+        typeorm_1.Column("varchar", { name: "Senha", length: 128 }),
+        __metadata("design:type", String)
+    ], Usuarios.prototype, "senha", void 0);
+    __decorate([
+        typeorm_1.Column("char", { name: "Status", nullable: true, length: 1 }),
+        __metadata("design:type", String)
+    ], Usuarios.prototype, "status", void 0);
+    __decorate([
+        typeorm_1.Column("smalldatetime", { name: "DataHora", nullable: true }),
         __metadata("design:type", Date)
-    ], Usuarios.prototype, "usData", void 0);
+    ], Usuarios.prototype, "dataHora", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "US_DEPTO", nullable: true }),
+        typeorm_1.Column("int", { name: "UsuarioId", nullable: true }),
         __metadata("design:type", Number)
-    ], Usuarios.prototype, "usDepto", void 0);
+    ], Usuarios.prototype, "usuarioId", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "US_STATUS", nullable: true }),
-        __metadata("design:type", Number)
-    ], Usuarios.prototype, "usStatus", void 0);
+        typeorm_1.Column("smalldatetime", { name: "DataExclusao", nullable: true }),
+        __metadata("design:type", Date)
+    ], Usuarios.prototype, "dataExclusao", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "US_EMAIL", nullable: true, length: 60 }),
+        typeorm_1.Column("smalldatetime", { name: "AceiteTermos" }),
+        __metadata("design:type", Date)
+    ], Usuarios.prototype, "aceiteTermos", void 0);
+    __decorate([
+        typeorm_1.Column("char", { name: "Perfil", nullable: true, length: 3 }),
         __metadata("design:type", String)
-    ], Usuarios.prototype, "usEmail", void 0);
+    ], Usuarios.prototype, "perfil", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "US_APROV", nullable: true, default: function () { return "(0)"; } }),
-        __metadata("design:type", Number)
-    ], Usuarios.prototype, "usAprov", void 0);
+        typeorm_1.OneToMany(function () { return AgendasConsultas_1.AgendasConsultas; }, function (agendasConsultas) { return agendasConsultas.usuarioAgendamento; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "agendasConsultas", void 0);
     __decorate([
-        typeorm_1.Column("smallint", { name: "US_MASTER", nullable: true }),
-        __metadata("design:type", Number)
-    ], Usuarios.prototype, "usMaster", void 0);
+        typeorm_1.OneToMany(function () { return AgendasConsultas_1.AgendasConsultas; }, function (agendasConsultas) { return agendasConsultas.usuarioCancelamento; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "agendasConsultas2", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "US_OPERADOR_CC", nullable: true }),
-        __metadata("design:type", Number)
-    ], Usuarios.prototype, "usOperadorCc", void 0);
+        typeorm_1.OneToMany(function () { return AgendasConsultas_1.AgendasConsultas; }, function (agendasConsultas) { return agendasConsultas.usuarioExclusao; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "agendasConsultas3", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return ConselhosRegionais_1.ConselhosRegionais; }, function (conselhosRegionais) { return conselhosRegionais.usuario; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "conselhosRegionais", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return ConselhosRegionais_1.ConselhosRegionais; }, function (conselhosRegionais) { return conselhosRegionais.usuarioExclusao; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "conselhosRegionais2", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return Convenios_1.Convenios; }, function (convenios) { return convenios.usuario; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "convenios", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return Convenios_1.Convenios; }, function (convenios) { return convenios.usuarioExclusao; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "convenios2", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return Empresas_1.Empresas; }, function (empresas) { return empresas.usuario; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "empresas", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return Empresas_1.Empresas; }, function (empresas) { return empresas.usuarioExclusao; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "empresas2", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return Pacientes_1.Pacientes; }, function (pacientes) { return pacientes.usuario; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "pacientes", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return Pacientes_1.Pacientes; }, function (pacientes) { return pacientes.usuarioExclusao; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "pacientes2", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return Profissionais_1.Profissionais; }, function (profissionais) { return profissionais.usuario; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "profissionais", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return Profissionais_1.Profissionais; }, function (profissionais) { return profissionais.usuarioExclusao; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "profissionais2", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return ProfissionaisAgendas_1.ProfissionaisAgendas; }, function (profissionaisAgendas) { return profissionaisAgendas.usuario; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "profissionaisAgendas", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return ProfissionaisAgendas_1.ProfissionaisAgendas; }, function (profissionaisAgendas) { return profissionaisAgendas.usuarioExclusao; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "profissionaisAgendas2", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return ProfissionaisAgendasHorarios_1.ProfissionaisAgendasHorarios; }, function (profissionaisAgendasHorarios) { return profissionaisAgendasHorarios.usuario; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "profissionaisAgendasHorarios", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return ProfissionaisAgendasHorarios_1.ProfissionaisAgendasHorarios; }, function (profissionaisAgendasHorarios) {
+            return profissionaisAgendasHorarios.usuarioExclusao;
+        }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "profissionaisAgendasHorarios2", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return ProfissionaisConvenios_1.ProfissionaisConvenios; }, function (profissionaisConvenios) { return profissionaisConvenios.usuario; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "profissionaisConvenios", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return ProfissionaisConvenios_1.ProfissionaisConvenios; }, function (profissionaisConvenios) { return profissionaisConvenios.usuarioExclusao; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "profissionaisConvenios2", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return UsuariosAgendas_1.UsuariosAgendas; }, function (usuariosAgendas) { return usuariosAgendas.usuario2; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "usuariosAgendas", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return UsuariosAgendas_1.UsuariosAgendas; }, function (usuariosAgendas) { return usuariosAgendas.usuarioExclusao; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "usuariosAgendas2", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return UsuariosEmpresas_1.UsuariosEmpresas; }, function (usuariosEmpresas) { return usuariosEmpresas.usuario; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "usuariosEmpresas", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return UsuariosEmpresas_1.UsuariosEmpresas; }, function (usuariosEmpresas) { return usuariosEmpresas.usuario2; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "usuariosEmpresas2", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return UsuariosEmpresas_1.UsuariosEmpresas; }, function (usuariosEmpresas) { return usuariosEmpresas.usuarioExclusao; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "usuariosEmpresas3", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return UsuariosPermissoes_1.UsuariosPermissoes; }, function (usuariosPermissoes) { return usuariosPermissoes.usuario; }),
+        __metadata("design:type", Array)
+    ], Usuarios.prototype, "usuariosPermissoes", void 0);
     Usuarios = __decorate([
-        typeorm_1.Index("PK_USUARIOS", ["usId"], { unique: true }),
-        typeorm_1.Entity("USUARIOS", { schema: "dbo" })
+        typeorm_1.Index("PK_USUARIOS", ["id"], { unique: true }),
+        typeorm_1.Entity("Usuarios", { schema: "dbo" })
     ], Usuarios);
     return Usuarios;
-}(typeorm_1.BaseEntity));
+}());
 exports.Usuarios = Usuarios;
 //# sourceMappingURL=Usuarios.js.map

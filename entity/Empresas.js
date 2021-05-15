@@ -9,74 +9,103 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Empresas = void 0;
 var typeorm_1 = require("typeorm");
+var Usuarios_1 = require("./Usuarios");
+var Profissionais_1 = require("./Profissionais");
+var UsuariosEmpresas_1 = require("./UsuariosEmpresas");
 var Empresas = /** @class */ (function () {
     function Empresas() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "EM_ID" }),
+        typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "Id" }),
         __metadata("design:type", Number)
-    ], Empresas.prototype, "emId", void 0);
+    ], Empresas.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "EM_RAZAO", nullable: true, length: 60 }),
+        typeorm_1.Column("varchar", { name: "RazaoSocial", length: 80 }),
         __metadata("design:type", String)
-    ], Empresas.prototype, "emRazao", void 0);
+    ], Empresas.prototype, "razaoSocial", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "EM_LOGRA", nullable: true, length: 60 }),
+        typeorm_1.Column("varchar", { name: "NomeFantasia", nullable: true, length: 40 }),
         __metadata("design:type", String)
-    ], Empresas.prototype, "emLogra", void 0);
+    ], Empresas.prototype, "nomeFantasia", void 0);
     __decorate([
-        typeorm_1.Column("char", { name: "EM_CEP", nullable: true, length: 8 }),
+        typeorm_1.Column("char", { name: "CpfCnpj", nullable: true, length: 14 }),
         __metadata("design:type", String)
-    ], Empresas.prototype, "emCep", void 0);
+    ], Empresas.prototype, "cpfCnpj", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "EM_CIDADE", nullable: true }),
-        __metadata("design:type", Number)
-    ], Empresas.prototype, "emCidade", void 0);
-    __decorate([
-        typeorm_1.Column("char", { name: "EM_CNPJ", nullable: true, length: 15 }),
+        typeorm_1.Column("char", { name: "Cep", nullable: true, length: 8 }),
         __metadata("design:type", String)
-    ], Empresas.prototype, "emCnpj", void 0);
+    ], Empresas.prototype, "cep", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "EM_IE", nullable: true, length: 15 }),
+        typeorm_1.Column("varchar", { name: "Endereco", nullable: true, length: 60 }),
         __metadata("design:type", String)
-    ], Empresas.prototype, "emIe", void 0);
+    ], Empresas.prototype, "endereco", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "EM_TEL1", nullable: true, length: 20 }),
+        typeorm_1.Column("char", { name: "Numero", nullable: true, length: 20 }),
         __metadata("design:type", String)
-    ], Empresas.prototype, "emTel1", void 0);
+    ], Empresas.prototype, "numero", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "EM_TEL2", nullable: true, length: 20 }),
+        typeorm_1.Column("varchar", { name: "Complemento", nullable: true, length: 40 }),
         __metadata("design:type", String)
-    ], Empresas.prototype, "emTel2", void 0);
+    ], Empresas.prototype, "complemento", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "EM_TEL3", nullable: true, length: 20 }),
+        typeorm_1.Column("varchar", { name: "Bairro", nullable: true, length: 60 }),
         __metadata("design:type", String)
-    ], Empresas.prototype, "emTel3", void 0);
+    ], Empresas.prototype, "bairro", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "EM_DATA_CAD", nullable: true }),
+        typeorm_1.Column("varchar", { name: "Cidade", nullable: true, length: 80 }),
+        __metadata("design:type", String)
+    ], Empresas.prototype, "cidade", void 0);
+    __decorate([
+        typeorm_1.Column("char", { name: "Uf", nullable: true, length: 2 }),
+        __metadata("design:type", String)
+    ], Empresas.prototype, "uf", void 0);
+    __decorate([
+        typeorm_1.Column("char", { name: "Fone", nullable: true, length: 20 }),
+        __metadata("design:type", String)
+    ], Empresas.prototype, "fone", void 0);
+    __decorate([
+        typeorm_1.Column("char", { name: "Celular", nullable: true, length: 20 }),
+        __metadata("design:type", String)
+    ], Empresas.prototype, "celular", void 0);
+    __decorate([
+        typeorm_1.Column("char", { name: "Whatsapp", nullable: true, length: 20 }),
+        __metadata("design:type", String)
+    ], Empresas.prototype, "whatsapp", void 0);
+    __decorate([
+        typeorm_1.Column("char", { name: "Status", nullable: true, length: 1 }),
+        __metadata("design:type", String)
+    ], Empresas.prototype, "status", void 0);
+    __decorate([
+        typeorm_1.Column("smalldatetime", { name: "DataHora", nullable: true }),
         __metadata("design:type", Date)
-    ], Empresas.prototype, "emDataCad", void 0);
+    ], Empresas.prototype, "dataHora", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "EM_EMAIL", nullable: true, length: 50 }),
-        __metadata("design:type", String)
-    ], Empresas.prototype, "emEmail", void 0);
+        typeorm_1.Column("smalldatetime", { name: "DataExclusao", nullable: true }),
+        __metadata("design:type", Date)
+    ], Empresas.prototype, "dataExclusao", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "EM_HOME", nullable: true, length: 50 }),
-        __metadata("design:type", String)
-    ], Empresas.prototype, "emHome", void 0);
+        typeorm_1.ManyToOne(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.empresas; }),
+        typeorm_1.JoinColumn([{ name: "UsuarioId", referencedColumnName: "id" }]),
+        __metadata("design:type", Usuarios_1.Usuarios)
+    ], Empresas.prototype, "usuario", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "EM_NUMERO", nullable: true, length: 10 }),
-        __metadata("design:type", String)
-    ], Empresas.prototype, "emNumero", void 0);
+        typeorm_1.ManyToOne(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.empresas2; }),
+        typeorm_1.JoinColumn([{ name: "UsuarioExclusao", referencedColumnName: "id" }]),
+        __metadata("design:type", Usuarios_1.Usuarios)
+    ], Empresas.prototype, "usuarioExclusao", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "EM_BAIRRO", nullable: true, length: 60 }),
-        __metadata("design:type", String)
-    ], Empresas.prototype, "emBairro", void 0);
+        typeorm_1.OneToMany(function () { return Profissionais_1.Profissionais; }, function (profissionais) { return profissionais.empresa; }),
+        __metadata("design:type", Array)
+    ], Empresas.prototype, "profissionais", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return UsuariosEmpresas_1.UsuariosEmpresas; }, function (usuariosEmpresas) { return usuariosEmpresas.empresa; }),
+        __metadata("design:type", Array)
+    ], Empresas.prototype, "usuariosEmpresas", void 0);
     Empresas = __decorate([
-        typeorm_1.Index("EMPRESAS_IDX1", ["emId"], {}),
-        typeorm_1.Index("EMPRESAS_IDX2", ["emRazao"], {}),
-        typeorm_1.Entity("EMPRESAS", { schema: "dbo" })
+        typeorm_1.Index("PK_EMPRESAS", ["id"], { unique: true }),
+        typeorm_1.Entity("Empresas", { schema: "dbo" })
     ], Empresas);
     return Empresas;
 }());
