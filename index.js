@@ -59,8 +59,8 @@ var corsOptions = {
     origin: origins,
     optionsSuccessStatus: 200,
 };
-app.use(cors(corsOptions));
-//app.use(cors());
+// app.use(cors(corsOptions));
+app.use(cors());
 app.use(auth_1.default);
 // register express routes from defined application routes
 routes_1.Routes.forEach(function (route) {
