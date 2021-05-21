@@ -134,6 +134,10 @@ var Pacientes = /** @class */ (function () {
         __metadata("design:type", String)
     ], Pacientes.prototype, "cep", void 0);
     __decorate([
+        typeorm_1.Column("varchar", { name: "imagem", nullable: true, length: 200 }),
+        __metadata("design:type", String)
+    ], Pacientes.prototype, "imagem", void 0);
+    __decorate([
         typeorm_1.OneToMany(function () { return AgendasConsultas_1.AgendasConsultas; }, function (agendasConsultas) { return agendasConsultas.paciente; }),
         __metadata("design:type", Array)
     ], Pacientes.prototype, "agendasConsultas", void 0);
