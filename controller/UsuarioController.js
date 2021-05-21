@@ -91,6 +91,7 @@ var UsuarioController = /** @class */ (function (_super) {
                                 id: user.id,
                                 nome: user.nome,
                                 email: user.email,
+                                perfil: user.perfil
                             };
                             return [2 /*return*/, {
                                     status: 200,
