@@ -120,7 +120,7 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                     case 0:
                         usuario = request.params.id;
                         connection = typeorm_1.getConnection();
-                        return [4 /*yield*/, connection.manager.query(' select p.Nome as nome,ua.AgendaConsultaId as id from Profissionais p join ProfissionaisAgendas pa on pa.ProfissionalId = p.Id join UsuariosAgendas ua on ua.AgendaConsultaId = pa.Id join Usuarios u on u.Id = ua.Usuario where  u.Id = ' + usuario)];
+                        return [4 /*yield*/, connection.manager.query(' select p.Nome as nome, p.cpf as cpf, p.registroProfissional as registroProfissional, p.id as idprof, ua.AgendaConsultaId as id from Profissionais p join ProfissionaisAgendas pa on pa.ProfissionalId = p.Id join UsuariosAgendas ua on ua.AgendaConsultaId = pa.Id join Usuarios u on u.Id = ua.Usuario where  ua.DataExclusao is null and u.Id = ' + usuario)];
                     case 1:
                         ret = _a.sent();
                         return [2 /*return*/, ret];

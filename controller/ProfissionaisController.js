@@ -50,12 +50,16 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfissionaisController = void 0;
+var typeorm_1 = require("typeorm");
 var Profissionais_1 = require("../entity/Profissionais");
+var UsuariosEmpresas_1 = require("../entity/UsuariosEmpresas");
 var BaseController_1 = require("./BaseController");
 var ProfissionaisController = /** @class */ (function (_super) {
     __extends(ProfissionaisController, _super);
     function ProfissionaisController() {
-        return _super.call(this, Profissionais_1.Profissionais) || this;
+        var _this = _super.call(this, Profissionais_1.Profissionais) || this;
+        _this._empresa = typeorm_1.getRepository(UsuariosEmpresas_1.UsuariosEmpresas);
+        return _this;
     }
     ProfissionaisController.prototype.save = function (request) {
         return __awaiter(this, void 0, void 0, function () {
@@ -76,6 +80,27 @@ var ProfissionaisController = /** @class */ (function (_super) {
                 _super.prototype.isRequired.call(this, _obj.cidade, 'a cidade é obrigatória');
                 _super.prototype.isRequired.call(this, _obj.uf, 'o UF é obrigatório');
                 return [2 /*return*/, _super.prototype.save.call(this, _obj, request)];
+            });
+        });
+    };
+    ProfissionaisController.prototype.getByProfissional = function (request) {
+        return __awaiter(this, void 0, void 0, function () {
+            var id, empresas;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        id = this.numeros(request.headers['x-user-include']);
+                        return [4 /*yield*/, this._empresa.findOne({ where: { usuario2: id } })];
+                    case 1:
+                        empresas = _a.sent();
+                        return [2 /*return*/, this.repository.find({
+                                where: {
+                                    profissionalAgenda: request.params.id,
+                                    empresaid: empresas,
+                                    dataExclusao: typeorm_1.IsNull()
+                                }
+                            })];
+                }
             });
         });
     };
