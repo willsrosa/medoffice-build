@@ -75,10 +75,6 @@ var Profissionais = /** @class */ (function () {
         __metadata("design:type", Number)
     ], Profissionais.prototype, "conselhoProfissional", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "EmpresaId", nullable: true }),
-        __metadata("design:type", Number)
-    ], Profissionais.prototype, "empresaid", void 0);
-    __decorate([
         typeorm_1.Column("varchar", {
             name: "RegistroProfissional",
             nullable: true,
@@ -102,7 +98,7 @@ var Profissionais = /** @class */ (function () {
         typeorm_1.ManyToOne(function () { return Empresas_1.Empresas; }, function (empresas) { return empresas.profissionais; }),
         typeorm_1.JoinColumn([{ name: "EmpresaId", referencedColumnName: "id" }]),
         __metadata("design:type", Empresas_1.Empresas)
-    ], Profissionais.prototype, "empresa", void 0);
+    ], Profissionais.prototype, "empresaid", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.profissionais; }),
         typeorm_1.JoinColumn([{ name: "UsuarioId", referencedColumnName: "id" }]),

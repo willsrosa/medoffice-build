@@ -26,7 +26,7 @@ var AgendasConsultas = /** @class */ (function () {
         __metadata("design:type", Number)
     ], AgendasConsultas.prototype, "sequencia", void 0);
     __decorate([
-        typeorm_1.Column("date", { name: "DataAgenda" }),
+        typeorm_1.Column("date", { name: "DataAgenda", nullable: true }),
         __metadata("design:type", Date)
     ], AgendasConsultas.prototype, "dataAgenda", void 0);
     __decorate([
@@ -75,7 +75,7 @@ var AgendasConsultas = /** @class */ (function () {
         __metadata("design:type", ProfissionaisAgendas_1.ProfissionaisAgendas)
     ], AgendasConsultas.prototype, "profissionaisAgendas", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return Pacientes_1.Pacientes; }, function (pacientes) { return pacientes.agendasConsultas; }),
+        typeorm_1.ManyToOne(function () { return Pacientes_1.Pacientes; }, function (pacientes) { return pacientes.agendasConsultas; }, { eager: true }),
         typeorm_1.JoinColumn([{ name: "PacienteId", referencedColumnName: "id" }]),
         __metadata("design:type", Pacientes_1.Pacientes)
     ], AgendasConsultas.prototype, "paciente", void 0);

@@ -51,62 +51,103 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProfissionaisController = void 0;
+exports.AplicacoesController = void 0;
 var typeorm_1 = require("typeorm");
-var Profissionais_1 = require("../entity/Profissionais");
-var UsuariosEmpresas_1 = require("../entity/UsuariosEmpresas");
+var AgendasConsultas_1 = require("../entity/AgendasConsultas");
 var BaseController_1 = require("./BaseController");
-var ProfissionaisController = /** @class */ (function (_super) {
-    __extends(ProfissionaisController, _super);
-    function ProfissionaisController() {
-        var _this = _super.call(this, Profissionais_1.Profissionais) || this;
-        _this._empresa = typeorm_1.getRepository(UsuariosEmpresas_1.UsuariosEmpresas);
+var moment = require("moment");
+var Aplicacoes_1 = require("../entity/Aplicacoes");
+var AplicacoesController = /** @class */ (function (_super) {
+    __extends(AplicacoesController, _super);
+    function AplicacoesController() {
+        var _this = _super.call(this, Aplicacoes_1.Aplicacoes) || this;
+        _this._aplicacoes = typeorm_1.getRepository(Aplicacoes_1.Aplicacoes);
+        _this._agendas = typeorm_1.getRepository(AgendasConsultas_1.AgendasConsultas);
         return _this;
     }
-    ProfissionaisController.prototype.save = function (request) {
+    AplicacoesController.prototype.save = function (request) {
         return __awaiter(this, void 0, void 0, function () {
             var _obj;
             return __generator(this, function (_a) {
                 _obj = request.body;
-                _super.prototype.isRequired.call(this, _obj.nome, 'o nome é obrigatório');
-                _super.prototype.isRequired.call(this, _obj.cpf, 'o CPF é obrigatório');
-                _super.prototype.isRequired.call(this, _obj.rg, 'o RG é obrigatório');
-                _super.prototype.isRequired.call(this, _obj.dtNasc, 'a data de nascimento é obrigatória');
-                _super.prototype.isRequired.call(this, _obj.empresaid, 'a empresa é obrigatória');
-                _super.prototype.isRequired.call(this, _obj.conselhoProfissional, 'o conselho é obrigatório');
-                _super.prototype.isRequired.call(this, _obj.registroProfissional, 'o registro profissional é obrigatório');
-                _super.prototype.isRequired.call(this, _obj.cep, 'o cep é obrigatório');
-                _super.prototype.isRequired.call(this, _obj.endereco, 'o endereço é obrigatório');
-                _super.prototype.isRequired.call(this, _obj.numero, 'o numero é obrigatório');
-                _super.prototype.isRequired.call(this, _obj.bairro, 'o bairro é obrigatório');
-                _super.prototype.isRequired.call(this, _obj.cidade, 'a cidade é obrigatória');
-                _super.prototype.isRequired.call(this, _obj.uf, 'o UF é obrigatório');
+                // super.isRequired(_obj.tipo, 'o tipo  é obrigatório');
+                // super.isRequired(_obj.obs, 'a observação é obrigatória');
                 return [2 /*return*/, _super.prototype.save.call(this, _obj, request)];
             });
         });
     };
-    ProfissionaisController.prototype.getByProfissional = function (request) {
+    AplicacoesController.prototype.ImportarAgenda = function (request) {
         return __awaiter(this, void 0, void 0, function () {
-            var id, empresas;
+            var _obj, agenda, all, data, agendaall, _i, agendaall_1, item, obj;
+            var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        id = this.numeros(request.headers['x-user-include']);
-                        return [4 /*yield*/, this._empresa.findOne({ where: { usuario2: id } })];
-                    case 1:
-                        empresas = _a.sent();
-                        return [2 /*return*/, this.repository.find({
-                                where: {
-                                    profissionalAgenda: request.params.id,
-                                    empresaid: empresas,
-                                    dataExclusao: typeorm_1.IsNull()
-                                }
+                        _obj = request.body;
+                        agenda = _obj.profissionaisAgendas;
+                        return [4 /*yield*/, this._aplicacoes.find({
+                                profissionaisAgendas: agenda
                             })];
+                    case 1:
+                        all = _a.sent();
+                        data = moment(new Date()).format("YYYY-MM-DD");
+                        // for (var item in all) {
+                        //     this._aplicacoes.delete(item[0]);
+                        // }
+                        return [4 /*yield*/, all.forEach(function (element) {
+                                _this._aplicacoes.delete(element.id);
+                            })];
+                    case 2:
+                        // for (var item in all) {
+                        //     this._aplicacoes.delete(item[0]);
+                        // }
+                        _a.sent();
+                        return [4 /*yield*/, this._agendas.find({
+                                dataAgenda: data
+                            })];
+                    case 3:
+                        agendaall = _a.sent();
+                        for (_i = 0, agendaall_1 = agendaall; _i < agendaall_1.length; _i++) {
+                            item = agendaall_1[_i];
+                            obj = new Aplicacoes_1.Aplicacoes();
+                            obj.paciente = item.pacienteNome;
+                            obj.profissionaisAgendas = agenda;
+                            if (item.paciente) {
+                                obj.pacienteId = item.paciente.id;
+                            }
+                            obj.horario = item.hora;
+                            obj.tipo = 1;
+                            this._aplicacoes.save(obj);
+                        }
+                        // await agendaall.asyncForEach(element => {
+                        //     var obj = new Aplicacoes();
+                        //      obj.paciente = element.pacienteNome;
+                        //      obj.profissionaisAgendas = agenda;
+                        //      if(element.paciente){
+                        //         obj.pacienteId = element.paciente.id;
+                        //      }
+                        //      obj.horario = element.hora;
+                        //      obj.tipo = 1;
+                        //     // console.log(obj)
+                        //      this._aplicacoes.save(obj);
+                        // }).then();
+                        return [2 /*return*/, {
+                                status: 200,
+                                success: true,
+                                message: "Importado com sucesso"
+                            }];
                 }
             });
         });
     };
-    return ProfissionaisController;
+    AplicacoesController.prototype.getProfissionalAgenda = function (request) {
+        return this.repository.find({
+            where: {
+                profissionaisAgendas: request.params.id,
+            }
+        });
+    };
+    return AplicacoesController;
 }(BaseController_1.BaseController));
-exports.ProfissionaisController = ProfissionaisController;
-//# sourceMappingURL=ProfissionaisController.js.map
+exports.AplicacoesController = AplicacoesController;
+//# sourceMappingURL=AplicacoesController.js.map

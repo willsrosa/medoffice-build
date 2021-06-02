@@ -34,7 +34,7 @@ var UsuariosEmpresas = /** @class */ (function () {
         __metadata("design:type", Usuarios_1.Usuarios)
     ], UsuariosEmpresas.prototype, "usuario", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return Empresas_1.Empresas; }, function (empresas) { return empresas.usuariosEmpresas; }, { eager: true }),
+        typeorm_1.ManyToOne(function () { return Empresas_1.Empresas; }, function (empresas) { return empresas.usuariosEmpresas; }),
         typeorm_1.JoinColumn([{ name: "EmpresaId", referencedColumnName: "id" }]),
         __metadata("design:type", Empresas_1.Empresas)
     ], UsuariosEmpresas.prototype, "empresa", void 0);

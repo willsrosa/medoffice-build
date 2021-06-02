@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Routes = void 0;
 var AgendasConsultasController_1 = require("./controller/AgendasConsultasController");
+var AplicacoesController_1 = require("./controller/AplicacoesController");
 var ConselhosRegionaisController_1 = require("./controller/ConselhosRegionaisController");
 var ConveniosController_1 = require("./controller/ConveniosController");
 var EmpresasController_1 = require("./controller/EmpresasController");
@@ -11,6 +12,7 @@ var ProfissionaisAgendasController_1 = require("./controller/ProfissionaisAgenda
 var ProfissionaisAgendasHorariosController_1 = require("./controller/ProfissionaisAgendasHorariosController");
 var ProfissionaisController_1 = require("./controller/ProfissionaisController");
 var ProfissionaisConveniosController_1 = require("./controller/ProfissionaisConveniosController");
+var SalasAplicacoesController_1 = require("./controller/SalasAplicacoesController");
 var UsuarioController_1 = require("./controller/UsuarioController");
 var UsuarioPermissoesController_1 = require("./controller/UsuarioPermissoesController");
 var UsuariosAgendasController_1 = require("./controller/UsuariosAgendasController");
@@ -38,6 +40,18 @@ exports.Routes = [
     { method: "get", route: "/empresa/:id", controller: EmpresasController_1.EmpresasController, action: "one" },
     { method: "post", route: "/empresa", controller: EmpresasController_1.EmpresasController, action: "save" },
     { method: "delete", route: "/empresa/:id", controller: EmpresasController_1.EmpresasController, action: "remove" },
+    { method: "get", route: "/aplicacoes", controller: AplicacoesController_1.AplicacoesController, action: "all" },
+    { method: "get", route: "/aplicacoes/:id", controller: AplicacoesController_1.AplicacoesController, action: "one" },
+    { method: "get", route: "/aplicacoes/:id/aplicacoes", controller: AplicacoesController_1.AplicacoesController, action: "getProfissionalAgenda" },
+    { method: "post", route: "/aplicacoes", controller: AplicacoesController_1.AplicacoesController, action: "save" },
+    { method: "post", route: "/aplicacoes/salvar", controller: AplicacoesController_1.AplicacoesController, action: "ImportarAgenda" },
+    { method: "delete", route: "/aplicacoes/:id", controller: AplicacoesController_1.AplicacoesController, action: "remove" },
+    { method: "get", route: "/salaaplicacoes", controller: SalasAplicacoesController_1.SalaAplicacoesController, action: "all" },
+    { method: "get", route: "/salaaplicacoes/:id", controller: SalasAplicacoesController_1.SalaAplicacoesController, action: "one" },
+    { method: "get", route: "/salaaplicacoes/:id/salaaplicacoes", controller: SalasAplicacoesController_1.SalaAplicacoesController, action: "getProfissionalAgenda" },
+    { method: "post", route: "/salaaplicacoes", controller: SalasAplicacoesController_1.SalaAplicacoesController, action: "save" },
+    { method: "post", route: "/salaaplicacoes/salvar", controller: SalasAplicacoesController_1.SalaAplicacoesController, action: "ImportarAgenda" },
+    { method: "delete", route: "/salaaplicacoes/:id", controller: SalasAplicacoesController_1.SalaAplicacoesController, action: "remove" },
     { method: "get", route: "/paciente", controller: PacientesController_1.PacientesController, action: "all" },
     { method: "get", route: "/paciente/:id", controller: PacientesController_1.PacientesController, action: "one" },
     { method: "get", route: "/paciente/:id/profissional", controller: PacientesController_1.PacientesController, action: "getProfissionalPacientes" },

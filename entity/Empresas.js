@@ -96,7 +96,7 @@ var Empresas = /** @class */ (function () {
         __metadata("design:type", Usuarios_1.Usuarios)
     ], Empresas.prototype, "usuarioExclusao", void 0);
     __decorate([
-        typeorm_1.OneToMany(function () { return Profissionais_1.Profissionais; }, function (profissionais) { return profissionais.empresa; }),
+        typeorm_1.OneToMany(function () { return Profissionais_1.Profissionais; }, function (profissionais) { return profissionais.empresaid; }),
         __metadata("design:type", Array)
     ], Empresas.prototype, "profissionais", void 0);
     __decorate([

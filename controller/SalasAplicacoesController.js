@@ -51,37 +51,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UsuariosAgendasController = void 0;
-var typeorm_1 = require("typeorm");
-var UsuariosAgendas_1 = require("../entity/UsuariosAgendas");
+exports.SalaAplicacoesController = void 0;
 var BaseController_1 = require("./BaseController");
-var UsuariosAgendasController = /** @class */ (function (_super) {
-    __extends(UsuariosAgendasController, _super);
-    function UsuariosAgendasController() {
-        var _this = _super.call(this, UsuariosAgendas_1.UsuariosAgendas) || this;
-        _this._agenda = typeorm_1.getRepository(UsuariosAgendas_1.UsuariosAgendas);
-        return _this;
+var SalasAplicacoes_1 = require("../entity/SalasAplicacoes");
+var SalaAplicacoesController = /** @class */ (function (_super) {
+    __extends(SalaAplicacoesController, _super);
+    function SalaAplicacoesController() {
+        return _super.call(this, SalasAplicacoes_1.SalasAplicacoes) || this;
     }
-    UsuariosAgendasController.prototype.save = function (request) {
+    SalaAplicacoesController.prototype.save = function (request) {
         return __awaiter(this, void 0, void 0, function () {
             var _obj;
             return __generator(this, function (_a) {
                 _obj = request.body;
-                _super.prototype.isRequired.call(this, _obj.usuario, 'o usuario é obrigatório');
-                _super.prototype.isRequired.call(this, _obj.agendaConsulta, 'a agenda é obrigatória');
+                _super.prototype.isRequired.call(this, _obj.sala, 'a sala é obrigatória');
+                // super.isRequired(_obj.tipo, 'o tipo  é obrigatório');
+                // super.isRequired(_obj.obs, 'a observação é obrigatória');
                 return [2 /*return*/, _super.prototype.save.call(this, _obj, request)];
             });
         });
     };
-    UsuariosAgendasController.prototype.getAgenda = function (request) {
-        return this._agenda.find({
+    SalaAplicacoesController.prototype.getProfissionalAgenda = function (request) {
+        return this.repository.find({
             where: {
-                usuario: request.params.id,
-                dataExclusao: typeorm_1.IsNull()
+                profissionaisAgendas: request.params.id,
             }
         });
     };
-    return UsuariosAgendasController;
+    return SalaAplicacoesController;
 }(BaseController_1.BaseController));
-exports.UsuariosAgendasController = UsuariosAgendasController;
-//# sourceMappingURL=UsuariosAgendasController.js.map
+exports.SalaAplicacoesController = SalaAplicacoesController;
+//# sourceMappingURL=SalasAplicacoesController.js.map

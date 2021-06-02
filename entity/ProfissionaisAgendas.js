@@ -12,9 +12,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfissionaisAgendas = void 0;
 var typeorm_1 = require("typeorm");
 var AgendasConsultas_1 = require("./AgendasConsultas");
+var Aplicacoes_1 = require("./Aplicacoes");
 var Profissionais_1 = require("./Profissionais");
 var Usuarios_1 = require("./Usuarios");
 var ProfissionaisAgendasHorarios_1 = require("./ProfissionaisAgendasHorarios");
+var SalasAplicacoes_1 = require("./SalasAplicacoes");
 var UsuariosAgendas_1 = require("./UsuariosAgendas");
 var ProfissionaisAgendas = /** @class */ (function () {
     function ProfissionaisAgendas() {
@@ -44,9 +46,21 @@ var ProfissionaisAgendas = /** @class */ (function () {
         __metadata("design:type", Date)
     ], ProfissionaisAgendas.prototype, "dataExclusao", void 0);
     __decorate([
+        typeorm_1.Column("int", { name: "HorarioPadraoAplicacao", nullable: true }),
+        __metadata("design:type", Number)
+    ], ProfissionaisAgendas.prototype, "horarioPadraoAplicacao", void 0);
+    __decorate([
+        typeorm_1.Column("char", { name: "PossuiAgendaAplicacao", nullable: true, length: 1 }),
+        __metadata("design:type", String)
+    ], ProfissionaisAgendas.prototype, "possuiAgendaAplicacao", void 0);
+    __decorate([
         typeorm_1.OneToMany(function () { return AgendasConsultas_1.AgendasConsultas; }, function (agendasConsultas) { return agendasConsultas.profissionaisAgendas; }),
         __metadata("design:type", Array)
     ], ProfissionaisAgendas.prototype, "agendasConsultas", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return Aplicacoes_1.Aplicacoes; }, function (aplicacoes) { return aplicacoes.profissionaisAgendas; }),
+        __metadata("design:type", Array)
+    ], ProfissionaisAgendas.prototype, "aplicacoes", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return Profissionais_1.Profissionais; }, function (profissionais) { return profissionais.profissionaisAgendas; }, { eager: true }),
         typeorm_1.JoinColumn([{ name: "ProfissionalId", referencedColumnName: "id" }]),
@@ -65,11 +79,15 @@ var ProfissionaisAgendas = /** @class */ (function () {
     __decorate([
         typeorm_1.OneToMany(function () { return ProfissionaisAgendasHorarios_1.ProfissionaisAgendasHorarios; }, function (profissionaisAgendasHorarios) {
             return profissionaisAgendasHorarios.profissionalAgenda;
-        }),
+        }, { eager: true }),
         __metadata("design:type", Array)
     ], ProfissionaisAgendas.prototype, "profissionaisAgendasHorarios", void 0);
     __decorate([
-        typeorm_1.OneToMany(function () { return UsuariosAgendas_1.UsuariosAgendas; }, function (usuariosAgendas) { return usuariosAgendas.agendaConsulta; }),
+        typeorm_1.OneToMany(function () { return SalasAplicacoes_1.SalasAplicacoes; }, function (SalasAplicacoes) { return SalasAplicacoes.profissionaisAgendas; }, { eager: true }),
+        __metadata("design:type", Array)
+    ], ProfissionaisAgendas.prototype, "salasAplicacoes", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return UsuariosAgendas_1.UsuariosAgendas; }, function (usuariosAgendas) { return usuariosAgendas.agendaConsulta; }, { eager: true }),
         __metadata("design:type", Array)
     ], ProfissionaisAgendas.prototype, "usuariosAgendas", void 0);
     ProfissionaisAgendas = __decorate([
