@@ -38,7 +38,7 @@ var ProfissionaisConvenios = /** @class */ (function () {
         __metadata("design:type", Date)
     ], ProfissionaisConvenios.prototype, "dataExclusao", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return Profissionais_1.Profissionais; }, function (profissionais) { return profissionais.profissionaisConvenios; }),
+        typeorm_1.ManyToOne(function () { return Profissionais_1.Profissionais; }, function (profissionais) { return profissionais.profissionaisConvenios; }, { eager: true }),
         typeorm_1.JoinColumn([{ name: "ProfissionalId", referencedColumnName: "id" }]),
         __metadata("design:type", Profissionais_1.Profissionais)
     ], ProfissionaisConvenios.prototype, "profissional", void 0);

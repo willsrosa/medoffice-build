@@ -142,7 +142,7 @@ var Pacientes = /** @class */ (function () {
         __metadata("design:type", Array)
     ], Pacientes.prototype, "agendasConsultas", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return Convenios_1.Convenios; }, function (convenios) { return convenios.pacientes; }),
+        typeorm_1.ManyToOne(function () { return Convenios_1.Convenios; }, function (convenios) { return convenios.pacientes; }, { eager: true }),
         typeorm_1.JoinColumn([{ name: "ConvenioId", referencedColumnName: "id" }]),
         __metadata("design:type", Convenios_1.Convenios)
     ], Pacientes.prototype, "convenio", void 0);
