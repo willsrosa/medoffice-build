@@ -47,9 +47,9 @@ var Usuarios = /** @class */ (function () {
         __metadata("design:type", String)
     ], Usuarios.prototype, "senha", void 0);
     __decorate([
-        typeorm_1.Column("char", { name: "Status", nullable: true, length: 1 }),
+        typeorm_1.Column("varchar", { name: "Situacao", nullable: true, length: 1 }),
         __metadata("design:type", String)
-    ], Usuarios.prototype, "status", void 0);
+    ], Usuarios.prototype, "situacao", void 0);
     __decorate([
         typeorm_1.Column("smalldatetime", { name: "DataHora", nullable: true }),
         __metadata("design:type", Date)

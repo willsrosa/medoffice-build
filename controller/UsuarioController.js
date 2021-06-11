@@ -137,7 +137,7 @@ var UsuarioController = /** @class */ (function (_super) {
                             user.nome = nome;
                             user.email = email;
                             user.celular = celular;
-                            user.status = status;
+                            user.situacao = status;
                             user.perfil = perfil;
                             if (senha) {
                                 user.senha = md5(senha);
@@ -153,7 +153,7 @@ var UsuarioController = /** @class */ (function (_super) {
                             _user.email = email;
                             _user.celular = celular;
                             _user.senha = senha;
-                            _user.status = status;
+                            _user.situacao = status;
                             _user.perfil = perfil;
                             _user.aceiteTermos = aceiteTermos;
                             _user.senha = md5(senha);
