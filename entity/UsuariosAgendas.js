@@ -33,7 +33,7 @@ var UsuariosAgendas = /** @class */ (function () {
         __metadata("design:type", Date)
     ], UsuariosAgendas.prototype, "dataExclusao", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return ProfissionaisAgendas_1.ProfissionaisAgendas; }, function (profissionaisAgendas) { return profissionaisAgendas.usuariosAgendas; }),
+        typeorm_1.ManyToOne(function () { return ProfissionaisAgendas_1.ProfissionaisAgendas; }, function (profissionaisAgendas) { return profissionaisAgendas.usuariosAgendas; }, { eager: true }),
         typeorm_1.JoinColumn([{ name: "AgendaConsultaId", referencedColumnName: "id" }]),
         __metadata("design:type", ProfissionaisAgendas_1.ProfissionaisAgendas)
     ], UsuariosAgendas.prototype, "agendaConsulta", void 0);

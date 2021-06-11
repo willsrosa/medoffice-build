@@ -87,7 +87,7 @@ var ProfissionaisAgendas = /** @class */ (function () {
         __metadata("design:type", Array)
     ], ProfissionaisAgendas.prototype, "salasAplicacoes", void 0);
     __decorate([
-        typeorm_1.OneToMany(function () { return UsuariosAgendas_1.UsuariosAgendas; }, function (usuariosAgendas) { return usuariosAgendas.agendaConsulta; }, { eager: true }),
+        typeorm_1.OneToMany(function () { return UsuariosAgendas_1.UsuariosAgendas; }, function (usuariosAgendas) { return usuariosAgendas.agendaConsulta; }),
         __metadata("design:type", Array)
     ], ProfissionaisAgendas.prototype, "usuariosAgendas", void 0);
     ProfissionaisAgendas = __decorate([
