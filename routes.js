@@ -6,6 +6,7 @@ var AplicacoesController_1 = require("./controller/AplicacoesController");
 var ConselhosRegionaisController_1 = require("./controller/ConselhosRegionaisController");
 var ConveniosController_1 = require("./controller/ConveniosController");
 var EmpresasController_1 = require("./controller/EmpresasController");
+var ListaEsperaController_1 = require("./controller/ListaEsperaController");
 var PacientesController_1 = require("./controller/PacientesController");
 var PermissoesController_1 = require("./controller/PermissoesController");
 var ProfissionaisAgendasController_1 = require("./controller/ProfissionaisAgendasController");
@@ -46,6 +47,11 @@ exports.Routes = [
     { method: "post", route: "/aplicacoes", controller: AplicacoesController_1.AplicacoesController, action: "save" },
     { method: "post", route: "/aplicacoes/salvar", controller: AplicacoesController_1.AplicacoesController, action: "ImportarAgenda" },
     { method: "delete", route: "/aplicacoes/:id", controller: AplicacoesController_1.AplicacoesController, action: "remove" },
+    { method: "get", route: "/listaespera", controller: ListaEsperaController_1.ListaEsperaController, action: "all" },
+    { method: "get", route: "/listaespera/:id", controller: ListaEsperaController_1.ListaEsperaController, action: "one" },
+    { method: "get", route: "/listaespera/:id/agenda", controller: ListaEsperaController_1.ListaEsperaController, action: "getListaEspera" },
+    { method: "post", route: "/listaespera", controller: ListaEsperaController_1.ListaEsperaController, action: "save" },
+    { method: "delete", route: "/listaespera/:id", controller: ListaEsperaController_1.ListaEsperaController, action: "remove" },
     { method: "get", route: "/salaaplicacoes", controller: SalasAplicacoesController_1.SalaAplicacoesController, action: "all" },
     { method: "get", route: "/salaaplicacoes/:id", controller: SalasAplicacoesController_1.SalaAplicacoesController, action: "one" },
     { method: "get", route: "/salaaplicacoes/:id/salaaplicacoes", controller: SalasAplicacoesController_1.SalaAplicacoesController, action: "getProfissionalAgenda" },
