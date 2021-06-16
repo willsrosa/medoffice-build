@@ -95,7 +95,7 @@ var Profissionais = /** @class */ (function () {
         __metadata("design:type", Date)
     ], Profissionais.prototype, "dataExclusao", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "EmpresaId", nullable: true }),
+        typeorm_1.Column("int", { name: "EmpresaId", nullable: true }),
         __metadata("design:type", Empresas_1.Empresas)
     ], Profissionais.prototype, "empresaid", void 0);
     __decorate([
