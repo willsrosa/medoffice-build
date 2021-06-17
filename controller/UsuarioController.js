@@ -93,7 +93,8 @@ var UsuarioController = /** @class */ (function (_super) {
                                 id: user.id,
                                 nome: user.nome,
                                 email: user.email,
-                                perfil: user.perfil
+                                perfil: user.perfil,
+                                aplicacao: user.aplicacao
                             };
                             return [2 /*return*/, {
                                     status: 200,
@@ -113,11 +114,11 @@ var UsuarioController = /** @class */ (function (_super) {
     };
     UsuarioController.prototype.CriarUsuario = function (request) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, nome, email, celular, status, aceiteTermos, senha, confirmaSenha, perfil, user, _user;
+            var _a, nome, email, celular, status, aceiteTermos, senha, confirmaSenha, perfil, aplicacao, user, _user;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        _a = request.body, nome = _a.nome, email = _a.email, celular = _a.celular, status = _a.status, aceiteTermos = _a.aceiteTermos, senha = _a.senha, confirmaSenha = _a.confirmaSenha, perfil = _a.perfil;
+                        _a = request.body, nome = _a.nome, email = _a.email, celular = _a.celular, status = _a.status, aceiteTermos = _a.aceiteTermos, senha = _a.senha, confirmaSenha = _a.confirmaSenha, perfil = _a.perfil, aplicacao = _a.aplicacao;
                         _super.prototype.isRequired.call(this, nome, 'O nome do usuário é obrigatório');
                         // super.isRequired(email, 'A foto do usuário é obrigatório');
                         _super.prototype.isRequired.call(this, email, 'o login do usuário é obrigatória');
@@ -139,6 +140,7 @@ var UsuarioController = /** @class */ (function (_super) {
                             user.celular = celular;
                             user.situacao = status;
                             user.perfil = perfil;
+                            user.aplicacao = aplicacao;
                             if (senha) {
                                 user.senha = md5(senha);
                             }
@@ -155,6 +157,7 @@ var UsuarioController = /** @class */ (function (_super) {
                             _user.senha = senha;
                             _user.situacao = status;
                             _user.perfil = perfil;
+                            _user.aplicacao = aplicacao;
                             _user.aceiteTermos = aceiteTermos;
                             _user.senha = md5(senha);
                             return [2 /*return*/, _super.prototype.save.call(this, _user, request)];
