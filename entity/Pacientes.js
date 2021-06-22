@@ -22,9 +22,9 @@ var Pacientes = /** @class */ (function () {
         __metadata("design:type", Number)
     ], Pacientes.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column("char", { name: "Status", nullable: true, length: 1 }),
+        typeorm_1.Column("char", { name: "Situacao", nullable: true, length: 1 }),
         __metadata("design:type", String)
-    ], Pacientes.prototype, "status", void 0);
+    ], Pacientes.prototype, "situacao", void 0);
     __decorate([
         typeorm_1.Column("int", { name: "ProfissionalId" }),
         __metadata("design:type", Number)

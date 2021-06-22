@@ -13,6 +13,8 @@ var ProfissionaisAgendasController_1 = require("./controller/ProfissionaisAgenda
 var ProfissionaisAgendasHorariosController_1 = require("./controller/ProfissionaisAgendasHorariosController");
 var ProfissionaisController_1 = require("./controller/ProfissionaisController");
 var ProfissionaisConveniosController_1 = require("./controller/ProfissionaisConveniosController");
+var ProntuarioAnexosController_1 = require("./controller/ProntuarioAnexosController");
+var ProntuarioController_1 = require("./controller/ProntuarioController");
 var SalasAplicacoesController_1 = require("./controller/SalasAplicacoesController");
 var UsuarioController_1 = require("./controller/UsuarioController");
 var UsuarioPermissoesController_1 = require("./controller/UsuarioPermissoesController");
@@ -105,5 +107,13 @@ exports.Routes = [
     { method: "get", route: "/usuariospermissoes/:id", controller: UsuarioPermissoesController_1.UsuarioPermissoesController, action: "one" },
     { method: "post", route: "/usuariospermissoes", controller: UsuarioPermissoesController_1.UsuarioPermissoesController, action: "save" },
     { method: "delete", route: "/usuariospermissoes/:id", controller: UsuarioPermissoesController_1.UsuarioPermissoesController, action: "remove" },
+    { method: "get", route: "/prontuario", controller: ProntuarioController_1.ProntuariosController, action: "all" },
+    { method: "get", route: "/prontuario/:id", controller: ProntuarioController_1.ProntuariosController, action: "one" },
+    { method: "post", route: "/prontuario", controller: ProntuarioController_1.ProntuariosController, action: "save" },
+    { method: "delete", route: "/prontuario/:id", controller: ProntuarioController_1.ProntuariosController, action: "remove" },
+    { method: "get", route: "/prontuarioanexo", controller: ProntuarioAnexosController_1.ProntuariosAnexosController, action: "all" },
+    { method: "get", route: "/prontuarioanexo/:id", controller: ProntuarioAnexosController_1.ProntuariosAnexosController, action: "one" },
+    { method: "post", route: "/prontuarioanexo", controller: ProntuarioAnexosController_1.ProntuariosAnexosController, action: "save" },
+    { method: "delete", route: "/prontuarioanexo/:id", controller: ProntuarioAnexosController_1.ProntuariosAnexosController, action: "remove" }
 ];
 //# sourceMappingURL=routes.js.map
