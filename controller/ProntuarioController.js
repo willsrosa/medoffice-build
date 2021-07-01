@@ -75,7 +75,7 @@ var ProntuariosController = /** @class */ (function (_super) {
             where: {
                 pacienteId: request.params.id,
             }, order: {
-                dataLancamento: 'DESC',
+                id: 'DESC',
             },
         });
     };
