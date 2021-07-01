@@ -70,6 +70,13 @@ var ProntuariosAnexosController = /** @class */ (function (_super) {
             });
         });
     };
+    ProntuariosAnexosController.prototype.getProntuario = function (request) {
+        return this.repository.find({
+            where: {
+                prontuarioId: request.params.id,
+            }
+        });
+    };
     return ProntuariosAnexosController;
 }(BaseController_1.BaseController));
 exports.ProntuariosAnexosController = ProntuariosAnexosController;

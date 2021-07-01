@@ -87,6 +87,10 @@ var Profissionais = /** @class */ (function () {
         __metadata("design:type", String)
     ], Profissionais.prototype, "status", void 0);
     __decorate([
+        typeorm_1.Column("int", { name: "NrProntuarioAut", nullable: true }),
+        __metadata("design:type", Number)
+    ], Profissionais.prototype, "nrProntuarioAut", void 0);
+    __decorate([
         typeorm_1.Column("smalldatetime", { name: "DataHora", nullable: true }),
         __metadata("design:type", Date)
     ], Profissionais.prototype, "dataHora", void 0);

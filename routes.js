@@ -109,10 +109,12 @@ exports.Routes = [
     { method: "delete", route: "/usuariospermissoes/:id", controller: UsuarioPermissoesController_1.UsuarioPermissoesController, action: "remove" },
     { method: "get", route: "/prontuario", controller: ProntuarioController_1.ProntuariosController, action: "all" },
     { method: "get", route: "/prontuario/:id", controller: ProntuarioController_1.ProntuariosController, action: "one" },
+    { method: "get", route: "/prontuario/:id/paciente", controller: ProntuarioController_1.ProntuariosController, action: "getProntuario" },
     { method: "post", route: "/prontuario", controller: ProntuarioController_1.ProntuariosController, action: "save" },
     { method: "delete", route: "/prontuario/:id", controller: ProntuarioController_1.ProntuariosController, action: "remove" },
     { method: "get", route: "/prontuarioanexo", controller: ProntuarioAnexosController_1.ProntuariosAnexosController, action: "all" },
     { method: "get", route: "/prontuarioanexo/:id", controller: ProntuarioAnexosController_1.ProntuariosAnexosController, action: "one" },
+    { method: "get", route: "/prontuarioanexo/:id/prontuario", controller: ProntuarioAnexosController_1.ProntuariosAnexosController, action: "getProntuario" },
     { method: "post", route: "/prontuarioanexo", controller: ProntuarioAnexosController_1.ProntuariosAnexosController, action: "save" },
     { method: "delete", route: "/prontuarioanexo/:id", controller: ProntuarioAnexosController_1.ProntuariosAnexosController, action: "remove" }
 ];

@@ -27,6 +27,14 @@ var ProntuarioEletronicoPacienteAnexos = /** @class */ (function () {
         __metadata("design:type", String)
     ], ProntuarioEletronicoPacienteAnexos.prototype, "anexo", void 0);
     __decorate([
+        typeorm_1.Column("varchar", { name: "TipoAnexo", nullable: true, length: 1 }),
+        __metadata("design:type", String)
+    ], ProntuarioEletronicoPacienteAnexos.prototype, "tipoanexo", void 0);
+    __decorate([
+        typeorm_1.Column("varchar", { name: "Descricao", nullable: true, length: 200 }),
+        __metadata("design:type", String)
+    ], ProntuarioEletronicoPacienteAnexos.prototype, "descricao", void 0);
+    __decorate([
         typeorm_1.Column("smalldatetime", { name: "DataHora", nullable: true }),
         __metadata("design:type", Date)
     ], ProntuarioEletronicoPacienteAnexos.prototype, "dataHora", void 0);

@@ -65,10 +65,18 @@ var ProntuariosController = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 _obj = request.body;
                 _super.prototype.isRequired.call(this, _obj.pacienteId, 'o paciente é obrigatório');
-                _super.prototype.isRequired.call(this, _obj.empresaId, 'a empresa é obrigatória');
                 _super.prototype.isRequired.call(this, _obj.descritivoAtendimento, 'o observação é obrigatória');
                 return [2 /*return*/, _super.prototype.save.call(this, _obj, request)];
             });
+        });
+    };
+    ProntuariosController.prototype.getProntuario = function (request) {
+        return this.repository.find({
+            where: {
+                pacienteId: request.params.id,
+            }, order: {
+                dataLancamento: 'DESC',
+            },
         });
     };
     return ProntuariosController;
