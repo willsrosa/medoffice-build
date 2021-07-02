@@ -27,7 +27,7 @@ var ProntuarioEletronicoPaciente = /** @class */ (function () {
         __metadata("design:type", Number)
     ], ProntuarioEletronicoPaciente.prototype, "profissionalId", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "DataLancamento", nullable: true }),
+        typeorm_1.Column("smalldatetime", { name: "DataLancamento", nullable: true, default: 'CURRENT_TIMESTAMP' }),
         __metadata("design:type", Date)
     ], ProntuarioEletronicoPaciente.prototype, "dataLancamento", void 0);
     __decorate([

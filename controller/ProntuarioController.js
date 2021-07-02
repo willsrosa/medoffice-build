@@ -66,6 +66,7 @@ var ProntuariosController = /** @class */ (function (_super) {
                 _obj = request.body;
                 _super.prototype.isRequired.call(this, _obj.pacienteId, 'o paciente é obrigatório');
                 _super.prototype.isRequired.call(this, _obj.descritivoAtendimento, 'o observação é obrigatória');
+                _obj.dataLancamento = new Date();
                 return [2 /*return*/, _super.prototype.save.call(this, _obj, request)];
             });
         });
