@@ -50,6 +50,10 @@ var AgendasConsultas = /** @class */ (function () {
         __metadata("design:type", Date)
     ], AgendasConsultas.prototype, "confirmado", void 0);
     __decorate([
+        typeorm_1.Column("int", { name: "ProcedimentoPrincipal ", nullable: true }),
+        __metadata("design:type", Number)
+    ], AgendasConsultas.prototype, "procedimentoPrincipal", void 0);
+    __decorate([
         typeorm_1.Column("int", { name: "FaseAtendimento", nullable: true }),
         __metadata("design:type", Number)
     ], AgendasConsultas.prototype, "faseAtendimento", void 0);

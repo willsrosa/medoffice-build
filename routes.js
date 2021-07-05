@@ -9,6 +9,7 @@ var EmpresasController_1 = require("./controller/EmpresasController");
 var ListaEsperaController_1 = require("./controller/ListaEsperaController");
 var PacientesController_1 = require("./controller/PacientesController");
 var PermissoesController_1 = require("./controller/PermissoesController");
+var ProcedimentosOdontoController_1 = require("./controller/ProcedimentosOdontoController");
 var ProfissionaisAgendasController_1 = require("./controller/ProfissionaisAgendasController");
 var ProfissionaisAgendasHorariosController_1 = require("./controller/ProfissionaisAgendasHorariosController");
 var ProfissionaisController_1 = require("./controller/ProfissionaisController");
@@ -43,6 +44,10 @@ exports.Routes = [
     { method: "get", route: "/empresa/:id", controller: EmpresasController_1.EmpresasController, action: "one" },
     { method: "post", route: "/empresa", controller: EmpresasController_1.EmpresasController, action: "save" },
     { method: "delete", route: "/empresa/:id", controller: EmpresasController_1.EmpresasController, action: "remove" },
+    { method: "get", route: "/procedimentosodonto", controller: ProcedimentosOdontoController_1.ProcedimentosOdontoController, action: "all" },
+    { method: "get", route: "/procedimentosodonto/:id", controller: ProcedimentosOdontoController_1.ProcedimentosOdontoController, action: "one" },
+    { method: "post", route: "/procedimentosodonto", controller: ProcedimentosOdontoController_1.ProcedimentosOdontoController, action: "save" },
+    { method: "delete", route: "/procedimentosodonto/:id", controller: ProcedimentosOdontoController_1.ProcedimentosOdontoController, action: "remove" },
     { method: "get", route: "/aplicacoes", controller: AplicacoesController_1.AplicacoesController, action: "all" },
     { method: "get", route: "/aplicacoes/:id", controller: AplicacoesController_1.AplicacoesController, action: "one" },
     { method: "get", route: "/aplicacoes/:id/aplicacoes", controller: AplicacoesController_1.AplicacoesController, action: "getProfissionalAgenda" },

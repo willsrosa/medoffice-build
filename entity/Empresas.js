@@ -86,6 +86,10 @@ var Empresas = /** @class */ (function () {
         __metadata("design:type", Date)
     ], Empresas.prototype, "dataExclusao", void 0);
     __decorate([
+        typeorm_1.Column("int", { name: "NrProntEmpresaAut", nullable: true }),
+        __metadata("design:type", Number)
+    ], Empresas.prototype, "nrProntEmpresaAut", void 0);
+    __decorate([
         typeorm_1.ManyToOne(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.empresas; }),
         typeorm_1.JoinColumn([{ name: "UsuarioId", referencedColumnName: "id" }]),
         __metadata("design:type", Usuarios_1.Usuarios)
