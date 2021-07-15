@@ -50,9 +50,13 @@ var AgendasConsultas = /** @class */ (function () {
         __metadata("design:type", Date)
     ], AgendasConsultas.prototype, "confirmado", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "ProcedimentoPrincipal ", nullable: true }),
+        typeorm_1.Column("int", { name: "ProcedimentoPrincipal", nullable: true }),
         __metadata("design:type", Number)
     ], AgendasConsultas.prototype, "procedimentoPrincipal", void 0);
+    __decorate([
+        typeorm_1.Column("int", { name: "ConvenioId", nullable: true }),
+        __metadata("design:type", Number)
+    ], AgendasConsultas.prototype, "convenio", void 0);
     __decorate([
         typeorm_1.Column("int", { name: "FaseAtendimento", nullable: true }),
         __metadata("design:type", Number)
@@ -73,6 +77,10 @@ var AgendasConsultas = /** @class */ (function () {
         typeorm_1.Column("smalldatetime", { name: "DataExclusao", nullable: true }),
         __metadata("design:type", Date)
     ], AgendasConsultas.prototype, "dataExclusao", void 0);
+    __decorate([
+        typeorm_1.Column("varchar", { name: "Observacao", length: 200 }),
+        __metadata("design:type", String)
+    ], AgendasConsultas.prototype, "observacao", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return ProfissionaisAgendas_1.ProfissionaisAgendas; }, function (profissionaisAgendas) { return profissionaisAgendas.agendasConsultas; }),
         typeorm_1.JoinColumn([{ name: "ProfissionaisAgendasId", referencedColumnName: "id" }]),
