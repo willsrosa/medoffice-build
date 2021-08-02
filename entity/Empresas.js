@@ -62,6 +62,10 @@ var Empresas = /** @class */ (function () {
         __metadata("design:type", String)
     ], Empresas.prototype, "uf", void 0);
     __decorate([
+        typeorm_1.Column("char", { name: "PacienteEmpresa", nullable: true, length: 1 }),
+        __metadata("design:type", String)
+    ], Empresas.prototype, "pacienteEmpresa", void 0);
+    __decorate([
         typeorm_1.Column("char", { name: "Fone", nullable: true, length: 20 }),
         __metadata("design:type", String)
     ], Empresas.prototype, "fone", void 0);

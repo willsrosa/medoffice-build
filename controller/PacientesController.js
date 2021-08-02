@@ -84,11 +84,61 @@ var PacientesController = /** @class */ (function (_super) {
         });
     };
     PacientesController.prototype.getProfissionalPacientes = function (request) {
-        return this._paciente.find({
-            where: {
-                profissionalId: request.params.id,
-                dataExclusao: typeorm_1.IsNull()
-            }
+        return __awaiter(this, void 0, void 0, function () {
+            var data, connection, ret, lista, _i, ret_1, data_1, obj;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        data = request.params.data;
+                        connection = typeorm_1.getConnection();
+                        return [4 /*yield*/, connection.manager.query("EXECUTE SP_ListarPacientes @ProfissionalId=" + request.params.id + "")];
+                    case 1:
+                        ret = _a.sent();
+                        lista = [];
+                        for (_i = 0, ret_1 = ret; _i < ret_1.length; _i++) {
+                            data_1 = ret_1[_i];
+                            obj = new Pacientes_1.Pacientes();
+                            obj.nome = data_1.Nome;
+                            obj.cpf = data_1.Cpf;
+                            // obj.rg = data.Rg;
+                            obj.prontuario = data_1.Prontuario;
+                            // obj.indicacao = data.Indicacao;
+                            obj.celular = data_1.Celular;
+                            // obj.convenio = data.ConvenioId;
+                            // obj.nomeMae = data.NomeMae;
+                            // obj.endereco = data.Endereco;
+                            // obj.numero = data.Numero;
+                            // obj.complemento = data.Complemento;
+                            // obj.bairro = data.Bairro;
+                            // obj.cidade = data.Cidade;
+                            // obj.uf = data.Uf;
+                            // obj.sexo = data.Sexo;
+                            // obj.estadoCivil = data.EstadoCivil;
+                            // obj.dtNasc = data.DtNasc;
+                            // obj.cid = data.Cid;
+                            // obj.altura = data.Altura;
+                            // obj.peso = data.Peso;
+                            // obj.corPele = data.CorPele;
+                            // obj.profissao = data.Profissao;
+                            // obj.email = data.Email;
+                            // obj.usuario = data.UsuarioId;
+                            // obj.dataHora = data.DataHora;
+                            // obj.dataExclusao = data.DataExclusao;
+                            // obj.usuarioExclusao = data.UsuarioExclusao;
+                            // obj.cep = data.Cep;
+                            // obj.imagem = data.imagem;
+                            // obj.situacao = data.Situacao;
+                            // obj.responsavel = data.Responsavel;
+                            // obj.responsavel = data.Responsavel;
+                            // obj.cpfResponsavel = data.CpfResponsavel;
+                            // obj.cpfResponsavel = data.CpfResponsavel;
+                            // obj.nomeMae = data.Mae;
+                            // obj.carteirinha = data.Carteirinha;
+                            lista.push(obj);
+                        }
+                        return [2 /*return*/, lista];
+                }
+            });
         });
     };
     return PacientesController;

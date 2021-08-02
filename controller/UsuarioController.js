@@ -84,7 +84,7 @@ var UsuarioController = /** @class */ (function (_super) {
                         _a = request.body, email = _a.email, senha = _a.senha;
                         if (!email || !senha)
                             return [2 /*return*/, { status: 400, message: 'Informe o email e a senha para efetuar o login' }];
-                        return [4 /*yield*/, this.repository.findOne({ email: email, senha: md5(senha) })];
+                        return [4 /*yield*/, this.repository.findOne({ email: email.trim(), senha: md5(senha.trim()) })];
                     case 1:
                         user = _b.sent();
                         // let user = await this.repository.findOne({ email: email, senha: senha });
@@ -114,19 +114,26 @@ var UsuarioController = /** @class */ (function (_super) {
     };
     UsuarioController.prototype.CriarUsuario = function (request) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, nome, email, celular, status, aceiteTermos, senha, confirmaSenha, perfil, aplicacao, user, _user;
+            var _a, id, nome, email, celular, status, aceiteTermos, senha, confirmaSenha, perfil, aplicacao, user, _user;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        _a = request.body, nome = _a.nome, email = _a.email, celular = _a.celular, status = _a.status, aceiteTermos = _a.aceiteTermos, senha = _a.senha, confirmaSenha = _a.confirmaSenha, perfil = _a.perfil, aplicacao = _a.aplicacao;
+                        _a = request.body, id = _a.id, nome = _a.nome, email = _a.email, celular = _a.celular, status = _a.status, aceiteTermos = _a.aceiteTermos, senha = _a.senha, confirmaSenha = _a.confirmaSenha, perfil = _a.perfil, aplicacao = _a.aplicacao;
                         _super.prototype.isRequired.call(this, nome, 'O nome do usuário é obrigatório');
                         // super.isRequired(email, 'A foto do usuário é obrigatório');
                         _super.prototype.isRequired.call(this, email, 'o login do usuário é obrigatória');
                         _super.prototype.isRequired.call(this, celular, 'o celular do usuário é obrigatória');
                         _super.prototype.isRequired.call(this, perfil, 'o perfil do usuário é obrigatório');
-                        return [4 /*yield*/, this.repository.findOne({ email: email })];
+                        if (!id) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.repository.findOne({ id: id })];
                     case 1:
                         user = _b.sent();
+                        return [3 /*break*/, 4];
+                    case 2: return [4 /*yield*/, this.repository.findOne({ email: email })];
+                    case 3:
+                        user = _b.sent();
+                        _b.label = 4;
+                    case 4:
                         if (!user) {
                             _super.prototype.isRequired.call(this, senha, 'A senha do usuário é obrigatória');
                             _super.prototype.isRequired.call(this, confirmaSenha, 'confirma senha é obrigatório');
