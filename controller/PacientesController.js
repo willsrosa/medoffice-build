@@ -98,6 +98,7 @@ var PacientesController = /** @class */ (function (_super) {
                         for (_i = 0, ret_1 = ret; _i < ret_1.length; _i++) {
                             data_1 = ret_1[_i];
                             obj = new Pacientes_1.Pacientes();
+                            obj.id = data_1.Id;
                             obj.nome = data_1.Nome;
                             obj.cpf = data_1.Cpf;
                             // obj.rg = data.Rg;
