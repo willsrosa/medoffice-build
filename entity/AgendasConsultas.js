@@ -82,6 +82,10 @@ var AgendasConsultas = /** @class */ (function () {
         __metadata("design:type", String)
     ], AgendasConsultas.prototype, "observacao", void 0);
     __decorate([
+        typeorm_1.Column("varchar", { name: "Vinculo", length: 200 }),
+        __metadata("design:type", String)
+    ], AgendasConsultas.prototype, "vinculo", void 0);
+    __decorate([
         typeorm_1.ManyToOne(function () { return ProfissionaisAgendas_1.ProfissionaisAgendas; }, function (profissionaisAgendas) { return profissionaisAgendas.agendasConsultas; }),
         typeorm_1.JoinColumn([{ name: "ProfissionaisAgendasId", referencedColumnName: "id" }]),
         __metadata("design:type", ProfissionaisAgendas_1.ProfissionaisAgendas)
