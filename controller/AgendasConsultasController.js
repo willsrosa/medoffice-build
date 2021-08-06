@@ -128,6 +128,17 @@ var AgendaConsultasController = /** @class */ (function (_super) {
             });
         });
     };
+    AgendaConsultasController.prototype.GetVinculos = function (request) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, this.repository.find({
+                        where: {
+                            vinculo: request.params.id,
+                        }
+                    })];
+            });
+        });
+    };
     AgendaConsultasController.prototype.getconsultas = function (request) {
         return __awaiter(this, void 0, void 0, function () {
             var data, profissionalagenda, agenda;

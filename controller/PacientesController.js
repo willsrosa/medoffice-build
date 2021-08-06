@@ -105,6 +105,7 @@ var PacientesController = /** @class */ (function (_super) {
                             obj.prontuario = data_1.Prontuario;
                             // obj.indicacao = data.Indicacao;
                             obj.celular = data_1.Celular;
+                            obj.profissionalId = data_1.ProfissionalId;
                             // obj.convenio = data.ConvenioId;
                             // obj.nomeMae = data.NomeMae;
                             // obj.endereco = data.Endereco;
