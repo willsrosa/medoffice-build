@@ -38,6 +38,10 @@ var AgendasConsultas = /** @class */ (function () {
         __metadata("design:type", Number)
     ], AgendasConsultas.prototype, "tipoAtendimento", void 0);
     __decorate([
+        typeorm_1.Column("int", { name: "DuracaoConsulta", nullable: true }),
+        __metadata("design:type", Number)
+    ], AgendasConsultas.prototype, "duracaoConsulta", void 0);
+    __decorate([
         typeorm_1.Column("varchar", { name: "PacienteNome", length: 80 }),
         __metadata("design:type", String)
     ], AgendasConsultas.prototype, "pacienteNome", void 0);
@@ -86,7 +90,7 @@ var AgendasConsultas = /** @class */ (function () {
         __metadata("design:type", String)
     ], AgendasConsultas.prototype, "vinculo", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return ProfissionaisAgendas_1.ProfissionaisAgendas; }, function (profissionaisAgendas) { return profissionaisAgendas.agendasConsultas; }),
+        typeorm_1.ManyToOne(function () { return ProfissionaisAgendas_1.ProfissionaisAgendas; }, function (profissionaisAgendas) { return profissionaisAgendas.agendasConsultas; }, { eager: true }),
         typeorm_1.JoinColumn([{ name: "ProfissionaisAgendasId", referencedColumnName: "id" }]),
         __metadata("design:type", ProfissionaisAgendas_1.ProfissionaisAgendas)
     ], AgendasConsultas.prototype, "profissionaisAgendas", void 0);

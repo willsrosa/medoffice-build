@@ -66,7 +66,7 @@ var Pacientes = /** @class */ (function () {
         __metadata("design:type", String)
     ], Pacientes.prototype, "endereco", void 0);
     __decorate([
-        typeorm_1.Column("char", { name: "Numero", nullable: true, length: 20 }),
+        typeorm_1.Column("char", { name: "Numero", nullable: true, length: 20, default: "S/N" }),
         __metadata("design:type", String)
     ], Pacientes.prototype, "numero", void 0);
     __decorate([
@@ -149,6 +149,14 @@ var Pacientes = /** @class */ (function () {
         typeorm_1.Column("varchar", { name: "imagem", nullable: true, length: 200 }),
         __metadata("design:type", String)
     ], Pacientes.prototype, "imagem", void 0);
+    __decorate([
+        typeorm_1.Column("int", { name: "Escolaridade" }),
+        __metadata("design:type", Number)
+    ], Pacientes.prototype, "escolaridade", void 0);
+    __decorate([
+        typeorm_1.Column("int", { name: "TipoSanguineo" }),
+        __metadata("design:type", Number)
+    ], Pacientes.prototype, "tipoSanguineo", void 0);
     __decorate([
         typeorm_1.OneToMany(function () { return AgendasConsultas_1.AgendasConsultas; }, function (agendasConsultas) { return agendasConsultas.paciente; }),
         __metadata("design:type", Array)

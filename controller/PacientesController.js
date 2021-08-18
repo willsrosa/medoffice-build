@@ -69,8 +69,7 @@ var PacientesController = /** @class */ (function (_super) {
                 _obj = request.body;
                 _super.prototype.isRequired.call(this, _obj.nome, 'o nome é obrigatório');
                 _super.prototype.isRequired.call(this, _obj.cpf, 'o cpf é obrigatório');
-                _super.prototype.isRequired.call(this, _obj.cpf, 'o rg é obrigatório');
-                _super.prototype.isRequired.call(this, _obj.cpf, 'o nome da mãe é obrigatório');
+                _super.prototype.isRequired.call(this, _obj.rg, 'o rg é obrigatório');
                 _super.prototype.isRequired.call(this, _obj.celular, 'o celular é obrigatório');
                 _super.prototype.isRequired.call(this, _obj.cep, 'o cep é obrigatório');
                 _super.prototype.isRequired.call(this, _obj.endereco, 'o logradouro é obrigatório');

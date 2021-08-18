@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Routes = void 0;
 var AgendasConsultasController_1 = require("./controller/AgendasConsultasController");
+var AgendasCoresOdontoController_1 = require("./controller/AgendasCoresOdontoController");
 var AplicacoesController_1 = require("./controller/AplicacoesController");
 var ConselhosRegionaisController_1 = require("./controller/ConselhosRegionaisController");
 var ConveniosController_1 = require("./controller/ConveniosController");
@@ -55,6 +56,11 @@ exports.Routes = [
     { method: "post", route: "/aplicacoes", controller: AplicacoesController_1.AplicacoesController, action: "save" },
     { method: "post", route: "/aplicacoes/salvar", controller: AplicacoesController_1.AplicacoesController, action: "ImportarAgenda" },
     { method: "delete", route: "/aplicacoes/:id", controller: AplicacoesController_1.AplicacoesController, action: "remove" },
+    { method: "get", route: "/agendacores", controller: AgendasCoresOdontoController_1.AgendasCoresOdontoController, action: "all" },
+    { method: "get", route: "/agendacores/:id", controller: AgendasCoresOdontoController_1.AgendasCoresOdontoController, action: "one" },
+    { method: "get", route: "/agendacores/:id/agenda", controller: AgendasCoresOdontoController_1.AgendasCoresOdontoController, action: "GetAgendaCores" },
+    { method: "post", route: "/agendacores", controller: AgendasCoresOdontoController_1.AgendasCoresOdontoController, action: "save" },
+    { method: "delete", route: "/agendacores/:id", controller: AgendasCoresOdontoController_1.AgendasCoresOdontoController, action: "remove" },
     { method: "get", route: "/listaespera", controller: ListaEsperaController_1.ListaEsperaController, action: "all" },
     { method: "get", route: "/listaespera/:id", controller: ListaEsperaController_1.ListaEsperaController, action: "one" },
     { method: "get", route: "/listaespera/:id/agenda", controller: ListaEsperaController_1.ListaEsperaController, action: "getListaEspera" },
