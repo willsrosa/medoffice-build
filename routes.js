@@ -8,6 +8,7 @@ var ConselhosRegionaisController_1 = require("./controller/ConselhosRegionaisCon
 var ConveniosController_1 = require("./controller/ConveniosController");
 var EmpresasController_1 = require("./controller/EmpresasController");
 var ListaEsperaController_1 = require("./controller/ListaEsperaController");
+var PacientePendenciasController_1 = require("./controller/PacientePendenciasController");
 var PacientesController_1 = require("./controller/PacientesController");
 var PermissoesController_1 = require("./controller/PermissoesController");
 var ProcedimentosOdontoController_1 = require("./controller/ProcedimentosOdontoController");
@@ -18,6 +19,7 @@ var ProfissionaisConveniosController_1 = require("./controller/ProfissionaisConv
 var ProntuarioAnexosController_1 = require("./controller/ProntuarioAnexosController");
 var ProntuarioController_1 = require("./controller/ProntuarioController");
 var SalasAplicacoesController_1 = require("./controller/SalasAplicacoesController");
+var TipoPendenciaController_1 = require("./controller/TipoPendenciaController");
 var UsuarioController_1 = require("./controller/UsuarioController");
 var UsuarioPermissoesController_1 = require("./controller/UsuarioPermissoesController");
 var UsuariosAgendasController_1 = require("./controller/UsuariosAgendasController");
@@ -42,6 +44,11 @@ exports.Routes = [
     { method: "get", route: "/convenio/:id", controller: ConveniosController_1.ConveniosController, action: "one" },
     { method: "post", route: "/convenio", controller: ConveniosController_1.ConveniosController, action: "save" },
     { method: "delete", route: "/convenio/:id", controller: ConveniosController_1.ConveniosController, action: "remove" },
+    { method: "get", route: "/pacientependencias", controller: PacientePendenciasController_1.PacientePendenciasController, action: "all" },
+    { method: "get", route: "/pacientependencias/:id", controller: PacientePendenciasController_1.PacientePendenciasController, action: "one" },
+    { method: "get", route: "/pacientependencias/:id/:agenda", controller: PacientePendenciasController_1.PacientePendenciasController, action: "getPendencias" },
+    { method: "post", route: "/pacientependencias", controller: PacientePendenciasController_1.PacientePendenciasController, action: "save" },
+    { method: "delete", route: "/pacientependencias/:id", controller: PacientePendenciasController_1.PacientePendenciasController, action: "remove" },
     { method: "get", route: "/empresa", controller: EmpresasController_1.EmpresasController, action: "all" },
     { method: "get", route: "/empresa/:id", controller: EmpresasController_1.EmpresasController, action: "one" },
     { method: "post", route: "/empresa", controller: EmpresasController_1.EmpresasController, action: "save" },
@@ -50,6 +57,10 @@ exports.Routes = [
     { method: "get", route: "/procedimentosodonto/:id", controller: ProcedimentosOdontoController_1.ProcedimentosOdontoController, action: "one" },
     { method: "post", route: "/procedimentosodonto", controller: ProcedimentosOdontoController_1.ProcedimentosOdontoController, action: "save" },
     { method: "delete", route: "/procedimentosodonto/:id", controller: ProcedimentosOdontoController_1.ProcedimentosOdontoController, action: "remove" },
+    { method: "get", route: "/tipoPendencia", controller: TipoPendenciaController_1.TiposPendenciasController, action: "all" },
+    { method: "get", route: "/tipoPendencia/:id", controller: TipoPendenciaController_1.TiposPendenciasController, action: "one" },
+    { method: "post", route: "/tipoPendencia", controller: TipoPendenciaController_1.TiposPendenciasController, action: "save" },
+    { method: "delete", route: "/tipoPendencia/:id", controller: TipoPendenciaController_1.TiposPendenciasController, action: "remove" },
     { method: "get", route: "/aplicacoes", controller: AplicacoesController_1.AplicacoesController, action: "all" },
     { method: "get", route: "/aplicacoes/:id", controller: AplicacoesController_1.AplicacoesController, action: "one" },
     { method: "get", route: "/aplicacoes/:id/aplicacoes", controller: AplicacoesController_1.AplicacoesController, action: "getProfissionalAgenda" },
