@@ -154,7 +154,7 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                                 where: {
                                     profissionaisAgendas: agenda,
                                     // pacienteNome: Like(`%${nome}%`),
-                                    dataAgenda: typeorm_1.MoreThanOrEqual(data),
+                                    // dataAgenda: MoreThanOrEqual(data),
                                     dataExclusao: typeorm_1.IsNull()
                                 }
                             })
