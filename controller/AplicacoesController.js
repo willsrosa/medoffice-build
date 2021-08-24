@@ -78,10 +78,9 @@ var AplicacoesController = /** @class */ (function (_super) {
     };
     AplicacoesController.prototype.ImportarAgenda = function (request) {
         return __awaiter(this, void 0, void 0, function () {
-            var _obj, agenda, all, data, agendaall, _i, agendaall_1, item, obj;
-            var _this = this;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
+            var _obj, agenda, all, data, _i, all_1, item, agendaall, _a, agendaall_1, item, obj;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0:
                         _obj = request.body;
                         agenda = _obj.profissionaisAgendas;
@@ -89,26 +88,25 @@ var AplicacoesController = /** @class */ (function (_super) {
                                 profissionaisAgendas: agenda
                             })];
                     case 1:
-                        all = _a.sent();
+                        all = _b.sent();
                         data = moment(new Date()).format("YYYY-MM-DD");
                         // for (var item in all) {
                         //     this._aplicacoes.delete(item[0]);
                         // }
-                        return [4 /*yield*/, all.forEach(function (element) {
-                                _this._aplicacoes.delete(element.id);
-                            })];
-                    case 2:
-                        // for (var item in all) {
-                        //     this._aplicacoes.delete(item[0]);
-                        // }
-                        _a.sent();
+                        // await all.forEach(element => {
+                        //     this._aplicacoes.delete(element.id);
+                        // });
+                        for (_i = 0, all_1 = all; _i < all_1.length; _i++) {
+                            item = all_1[_i];
+                            this._aplicacoes.delete(item.id);
+                        }
                         return [4 /*yield*/, this._agendas.find({
                                 dataAgenda: data
                             })];
-                    case 3:
-                        agendaall = _a.sent();
-                        for (_i = 0, agendaall_1 = agendaall; _i < agendaall_1.length; _i++) {
-                            item = agendaall_1[_i];
+                    case 2:
+                        agendaall = _b.sent();
+                        for (_a = 0, agendaall_1 = agendaall; _a < agendaall_1.length; _a++) {
+                            item = agendaall_1[_a];
                             obj = new Aplicacoes_1.Aplicacoes();
                             obj.paciente = item.pacienteNome;
                             obj.profissionaisAgendas = agenda;
