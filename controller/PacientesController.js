@@ -104,6 +104,9 @@ var PacientesController = /** @class */ (function (_super) {
                             obj.prontuario = data_1.Prontuario;
                             // obj.indicacao = data.Indicacao;
                             obj.celular = data_1.Celular;
+                            obj.fone = data_1.Fone;
+                            console.log(data_1.Fone);
+                            console.log(data_1);
                             obj.profissionalId = data_1.ProfissionalId;
                             obj.convenio = data_1.ConvenioId;
                             // obj.nomeMae = data.NomeMae;
@@ -137,6 +140,7 @@ var PacientesController = /** @class */ (function (_super) {
                             // obj.carteirinha = data.Carteirinha;
                             lista.push(obj);
                         }
+                        console.log(lista);
                         return [2 /*return*/, lista];
                 }
             });
