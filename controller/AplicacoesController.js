@@ -101,7 +101,9 @@ var AplicacoesController = /** @class */ (function (_super) {
                             this._aplicacoes.delete(item.id);
                         }
                         return [4 /*yield*/, this._agendas.find({
-                                dataAgenda: data
+                                dataAgenda: data,
+                                profissionaisAgendas: agenda,
+                                dataExclusao: typeorm_1.IsNull()
                             })];
                     case 2:
                         agendaall = _b.sent();
