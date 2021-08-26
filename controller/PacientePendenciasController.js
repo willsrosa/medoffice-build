@@ -79,7 +79,7 @@ var PacientePendenciasController = /** @class */ (function (_super) {
                         _super.prototype.isRequired.call(this, _obj.tipo, 'o tipo é obrigatório');
                         _super.prototype.isRequired.call(this, _obj.pacienteId, 'o paciente é obrigatório');
                         _super.prototype.isRequired.call(this, _obj.profissionalId, 'o profissional é obrigatório');
-                        _super.prototype.isRequired.call(this, _obj.obs, 'a observação é obrigatória');
+                        // super.isRequired(_obj.obs, 'a observação é obrigatória');
                         return [2 /*return*/, _super.prototype.save.call(this, _obj, request)];
                 }
             });
