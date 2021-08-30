@@ -103,6 +103,7 @@ var AplicacoesController = /** @class */ (function (_super) {
                         return [4 /*yield*/, this._agendas.find({
                                 dataAgenda: data,
                                 profissionaisAgendas: agenda,
+                                tipoAtendimento: 1,
                                 dataExclusao: typeorm_1.IsNull()
                             })];
                     case 2:
