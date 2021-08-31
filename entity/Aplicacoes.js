@@ -33,9 +33,9 @@ var Aplicacoes = /** @class */ (function () {
         __metadata("design:type", Number)
     ], Aplicacoes.prototype, "minutos", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "Status", nullable: true, default: 0 }),
+        typeorm_1.Column("int", { name: "Situacao", nullable: true, default: 0 }),
         __metadata("design:type", Number)
-    ], Aplicacoes.prototype, "status", void 0);
+    ], Aplicacoes.prototype, "situacao", void 0);
     __decorate([
         typeorm_1.Column("char", { name: "HorarioIni", nullable: true, length: 4 }),
         __metadata("design:type", String)
