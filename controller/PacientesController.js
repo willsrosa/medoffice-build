@@ -143,6 +143,18 @@ var PacientesController = /** @class */ (function (_super) {
             });
         });
     };
+    PacientesController.prototype.getPacienteCadastrado = function (request) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, this._paciente.findOne({
+                        where: {
+                            profissionalId: request.params.id,
+                            cpf: request.params.cpf,
+                        }
+                    })];
+            });
+        });
+    };
     return PacientesController;
 }(BaseController_1.BaseController));
 exports.PacientesController = PacientesController;
