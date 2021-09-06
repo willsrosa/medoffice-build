@@ -73,12 +73,13 @@ var ProfissionaisAgendasHorariosController = /** @class */ (function (_super) {
         });
     };
     ProfissionaisAgendasHorariosController.prototype.getHorario = function (request) {
-        return this._horario.find({
+        var horario = this._horario.find({
             where: {
                 profissionalAgenda: request.params.id,
                 dataExclusao: typeorm_1.IsNull()
             }
         });
+        return horario;
     };
     return ProfissionaisAgendasHorariosController;
 }(BaseController_1.BaseController));

@@ -111,16 +111,16 @@ var AplicacoesController = /** @class */ (function (_super) {
                         for (_a = 0, agendaall_1 = agendaall; _a < agendaall_1.length; _a++) {
                             item = agendaall_1[_a];
                             obj = new Aplicacoes_1.Aplicacoes();
-                            obj.paciente = item.pacienteNome;
+                            obj.paciente = item.pacienteNome.trim();
                             obj.profissionaisAgendas = agenda;
                             if (item.paciente) {
                                 obj.pacienteId = item.paciente.id;
                             }
                             obj.horario = item.hora;
                             obj.tipo = 1;
-                            if (item.tipoAtendimento == 2) {
-                                obj.obs = "Consulta";
-                            }
+                            // if (item.tipoAtendimento == 2) {
+                            //     obj.obs = "Consulta";
+                            // }
                             this._aplicacoes.save(obj);
                         }
                         // await agendaall.asyncForEach(element => {
