@@ -118,9 +118,9 @@ var AplicacoesController = /** @class */ (function (_super) {
                             }
                             obj.horario = item.hora;
                             obj.tipo = 1;
-                            // if (item.tipoAtendimento == 2) {
-                            //     obj.obs = "Consulta";
-                            // }
+                            if (item.tipoAtendimento == 2) {
+                                obj.obs = "Consulta";
+                            }
                             this._aplicacoes.save(obj);
                         }
                         // await agendaall.asyncForEach(element => {
