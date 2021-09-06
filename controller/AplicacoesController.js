@@ -148,6 +148,7 @@ var AplicacoesController = /** @class */ (function (_super) {
         return this.repository.find({
             where: {
                 profissionaisAgendas: request.params.id,
+                dataExclusao: typeorm_1.IsNull()
             }
         });
     };
