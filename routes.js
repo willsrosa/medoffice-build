@@ -67,7 +67,7 @@ exports.Routes = [
     { method: "get", route: "/aplicacoes/:id/aplicacoes", controller: AplicacoesController_1.AplicacoesController, action: "getProfissionalAgenda" },
     { method: "post", route: "/aplicacoes", controller: AplicacoesController_1.AplicacoesController, action: "save" },
     { method: "post", route: "/aplicacoes/salvar", controller: AplicacoesController_1.AplicacoesController, action: "ImportarAgenda" },
-    { method: "delete", route: "/aplicacoes/:id", controller: AplicacoesController_1.AplicacoesController, action: "remove" },
+    { method: "delete", route: "/aplicacoes/:id", controller: AplicacoesController_1.AplicacoesController, action: "deleteAplicacoes" },
     { method: "get", route: "/agendacores", controller: AgendasCoresOdontoController_1.AgendasCoresOdontoController, action: "all" },
     { method: "get", route: "/agendacores/:id", controller: AgendasCoresOdontoController_1.AgendasCoresOdontoController, action: "one" },
     { method: "get", route: "/agendacores/:id/agenda", controller: AgendasCoresOdontoController_1.AgendasCoresOdontoController, action: "GetAgendaCores" },

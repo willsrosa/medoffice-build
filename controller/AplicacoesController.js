@@ -137,10 +137,21 @@ var AplicacoesController = /** @class */ (function (_super) {
                         // }).then();
                         return [2 /*return*/, {
                                 status: 200,
-                                success: true,
-                                message: "Importado com sucesso"
+                                success: true
                             }];
                 }
+            });
+        });
+    };
+    AplicacoesController.prototype.deleteAplicacoes = function (request) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                // let model: any = await this._aplicacoes.findOne(request.params.id);
+                this._aplicacoes.delete(request.params.id);
+                return [2 /*return*/, {
+                        status: 200,
+                        success: true
+                    }];
             });
         });
     };
