@@ -177,7 +177,7 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                         agenda = _a.sent();
                         return [2 /*return*/, this._agenda.find({
                                 where: {
-                                    profissionaisAgendas: agenda,
+                                    // profissionaisAgendas: agenda,
                                     paciente: request.params.paciente,
                                     // pacienteNome: Like(`%${nome}%`),
                                     // dataAgenda: MoreThanOrEqual(data),
