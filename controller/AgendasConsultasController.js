@@ -164,6 +164,32 @@ var AgendaConsultasController = /** @class */ (function (_super) {
             });
         });
     };
+    AgendaConsultasController.prototype.getconsultasPaciente = function (request) {
+        return __awaiter(this, void 0, void 0, function () {
+            var data, profissionalagenda, agenda;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        data = moment(new Date()).format("YYYY-MM-DD");
+                        profissionalagenda = request.params.profissionalagenda;
+                        return [4 /*yield*/, this._profissionalagenda.findOne(profissionalagenda)];
+                    case 1:
+                        agenda = _a.sent();
+                        return [2 /*return*/, this._agenda.find({
+                                where: {
+                                    profissionaisAgendas: agenda,
+                                    paciente: request.params.paciente,
+                                    // pacienteNome: Like(`%${nome}%`),
+                                    // dataAgenda: MoreThanOrEqual(data),
+                                    dataExclusao: typeorm_1.IsNull()
+                                }
+                            })
+                            //return nome;
+                        ];
+                }
+            });
+        });
+    };
     AgendaConsultasController.prototype.getconsultasTrintaDias = function (request) {
         return __awaiter(this, void 0, void 0, function () {
             var data, profissionalagenda, agenda;
