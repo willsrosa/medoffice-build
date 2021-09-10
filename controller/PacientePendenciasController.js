@@ -91,7 +91,7 @@ var PacientePendenciasController = /** @class */ (function (_super) {
                 pacienteId: request.params.id,
                 profissionalId: request.params.agenda
             }, order: {
-                id: 'DESC'
+                dataOcorrencia: 'DESC'
             }
         });
     };
