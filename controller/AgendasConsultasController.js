@@ -182,6 +182,9 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                                     // pacienteNome: Like(`%${nome}%`),
                                     // dataAgenda: MoreThanOrEqual(data),
                                     dataExclusao: typeorm_1.IsNull()
+                                }, order: {
+                                    dataAgenda: 'DESC',
+                                    hora: 'DESC'
                                 }
                             })
                             //return nome;
