@@ -89,7 +89,7 @@ var PacientePendenciasController = /** @class */ (function (_super) {
         return this.repository.find({
             where: {
                 pacienteId: request.params.id,
-                profissionalId: request.params.agenda
+                // profissionalId: request.params.agenda
             }, order: {
                 dataOcorrencia: 'DESC'
             }
