@@ -49,6 +49,7 @@ exports.Routes = [
     { method: "get", route: "/pacientependencias", controller: PacientePendenciasController_1.PacientePendenciasController, action: "all" },
     { method: "get", route: "/pacientependencias/:id", controller: PacientePendenciasController_1.PacientePendenciasController, action: "one" },
     { method: "get", route: "/pacientependencias/:id/:agenda", controller: PacientePendenciasController_1.PacientePendenciasController, action: "getPendencias" },
+    { method: "get", route: "/pacientependencias/:id/pendencias/all", controller: PacientePendenciasController_1.PacientePendenciasController, action: "getAllPendencias" },
     { method: "post", route: "/pacientependencias", controller: PacientePendenciasController_1.PacientePendenciasController, action: "save" },
     { method: "delete", route: "/pacientependencias/:id", controller: PacientePendenciasController_1.PacientePendenciasController, action: "remove" },
     { method: "get", route: "/empresa", controller: EmpresasController_1.EmpresasController, action: "all" },

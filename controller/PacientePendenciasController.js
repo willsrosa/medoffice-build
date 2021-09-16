@@ -85,6 +85,22 @@ var PacientePendenciasController = /** @class */ (function (_super) {
             });
         });
     };
+    PacientePendenciasController.prototype.getAllPendencias = function (request) {
+        return __awaiter(this, void 0, void 0, function () {
+            var profissional, connection, ret;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        profissional = request.params.id;
+                        connection = typeorm_1.getConnection();
+                        return [4 /*yield*/, connection.manager.query('select Pacientes.Nome as nome, Pacientes.Prontuario as prontuario, SUM(valor) as saldo from PacientesPendencias inner join Pacientes on PacientesPendencias.PacienteId = Pacientes.Id  where Pacientes.ProfissionalId =' + profissional + ' group by Pacientes.Nome, Pacientes.Prontuario having SUM(valor) <> 0 order by Pacientes.Nome')];
+                    case 1:
+                        ret = _a.sent();
+                        return [2 /*return*/, ret];
+                }
+            });
+        });
+    };
     PacientePendenciasController.prototype.getPendencias = function (request) {
         return this.repository.find({
             where: {
