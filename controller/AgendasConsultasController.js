@@ -141,25 +141,20 @@ var AgendaConsultasController = /** @class */ (function (_super) {
     };
     AgendaConsultasController.prototype.getconsultas = function (request) {
         return __awaiter(this, void 0, void 0, function () {
-            var data, profissionalagenda, agenda;
+            var data, profissionalagenda, connection, agenda, ret;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         data = moment(new Date()).format("YYYY-MM-DD");
                         profissionalagenda = request.params.profissionalagenda;
+                        connection = typeorm_1.getConnection();
                         return [4 /*yield*/, this._profissionalagenda.findOne(profissionalagenda)];
                     case 1:
                         agenda = _a.sent();
-                        return [2 /*return*/, this._agenda.find({
-                                where: {
-                                    profissionaisAgendas: agenda,
-                                    // pacienteNome: Like(`%${nome}%`),
-                                    // dataAgenda: MoreThanOrEqual(data),
-                                    dataExclusao: typeorm_1.IsNull()
-                                }
-                            })
-                            //return nome;
-                        ];
+                        return [4 /*yield*/, connection.manager.query('select DataAgenda as dataAgenda, Hora as hora,PacienteNome as pacienteNome,FaseAtendimento as faseAtendimento,Observacao as observacao from AgendasConsultas a where a.ProfissionaisAgendasId = ' + agenda.id + ' and DataExclusao is null')];
+                    case 2:
+                        ret = _a.sent();
+                        return [2 /*return*/, ret];
                 }
             });
         });
