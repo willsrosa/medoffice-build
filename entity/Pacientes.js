@@ -134,6 +134,14 @@ var Pacientes = /** @class */ (function () {
         __metadata("design:type", String)
     ], Pacientes.prototype, "responsavel", void 0);
     __decorate([
+        typeorm_1.Column("varchar", { name: "plano", nullable: true, length: 100 }),
+        __metadata("design:type", String)
+    ], Pacientes.prototype, "plano", void 0);
+    __decorate([
+        typeorm_1.Column("varchar", { name: "Observacoes", nullable: true, length: 300 }),
+        __metadata("design:type", String)
+    ], Pacientes.prototype, "observacoes", void 0);
+    __decorate([
         typeorm_1.Column("smalldatetime", { name: "DataHora", nullable: true }),
         __metadata("design:type", Date)
     ], Pacientes.prototype, "dataHora", void 0);

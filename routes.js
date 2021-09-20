@@ -3,6 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Routes = void 0;
 var AgendasConsultasController_1 = require("./controller/AgendasConsultasController");
 var AgendasCoresOdontoController_1 = require("./controller/AgendasCoresOdontoController");
+var AgendaStatusController_1 = require("./controller/AgendaStatusController");
+var AgendaStatusCoresController_1 = require("./controller/AgendaStatusCoresController");
 var AplicacoesController_1 = require("./controller/AplicacoesController");
 var ConselhosRegionaisController_1 = require("./controller/ConselhosRegionaisController");
 var ConveniosController_1 = require("./controller/ConveniosController");
@@ -46,6 +48,15 @@ exports.Routes = [
     { method: "get", route: "/convenio/:id", controller: ConveniosController_1.ConveniosController, action: "one" },
     { method: "post", route: "/convenio", controller: ConveniosController_1.ConveniosController, action: "save" },
     { method: "delete", route: "/convenio/:id", controller: ConveniosController_1.ConveniosController, action: "remove" },
+    { method: "get", route: "/agendastatus", controller: AgendaStatusController_1.AgendaStatusController, action: "all" },
+    { method: "get", route: "/agendastatus/:id", controller: AgendaStatusController_1.AgendaStatusController, action: "one" },
+    { method: "post", route: "/agendastatus", controller: AgendaStatusController_1.AgendaStatusController, action: "save" },
+    { method: "delete", route: "/agendastatus/:id", controller: AgendaStatusController_1.AgendaStatusController, action: "remove" },
+    { method: "get", route: "/agendacoresstatus", controller: AgendaStatusCoresController_1.AgendaStatusCoresController, action: "all" },
+    { method: "get", route: "/agendacoresstatus/:id", controller: AgendaStatusCoresController_1.AgendaStatusCoresController, action: "one" },
+    { method: "get", route: "/agendacoresstatus/:id/agenda", controller: AgendaStatusCoresController_1.AgendaStatusCoresController, action: "GetAgendaCores" },
+    { method: "post", route: "/agendacoresstatus", controller: AgendaStatusCoresController_1.AgendaStatusCoresController, action: "save" },
+    { method: "delete", route: "/agendacoresstatus/:id", controller: AgendaStatusCoresController_1.AgendaStatusCoresController, action: "remove" },
     { method: "get", route: "/pacientependencias", controller: PacientePendenciasController_1.PacientePendenciasController, action: "all" },
     { method: "get", route: "/pacientependencias/:id", controller: PacientePendenciasController_1.PacientePendenciasController, action: "one" },
     { method: "get", route: "/pacientependencias/:id/:agenda", controller: PacientePendenciasController_1.PacientePendenciasController, action: "getPendencias" },
