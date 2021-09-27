@@ -77,6 +77,7 @@ var PacientesController = /** @class */ (function (_super) {
                 // super.isRequired(_obj.bairro, 'o bairro é obrigatório');
                 _super.prototype.isRequired.call(this, _obj.cidade, 'a cidade é obrigatória');
                 _super.prototype.isRequired.call(this, _obj.uf, 'o uf é obrigatório');
+                _super.prototype.isRequired.call(this, _obj.convenio, 'o convenio é obrigatório');
                 _super.prototype.isRequired.call(this, _obj.profissionalId, 'o profissional é obrigatório');
                 return [2 /*return*/, _super.prototype.save.call(this, _obj, request)];
             });
@@ -152,6 +153,29 @@ var PacientesController = /** @class */ (function (_super) {
                             cpf: request.params.cpf,
                         }
                     })];
+            });
+        });
+    };
+    PacientesController.prototype.getUltimoProntuario = function (request) {
+        return __awaiter(this, void 0, void 0, function () {
+            var connection, ret, _i, ret_2, result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        connection = typeorm_1.getConnection();
+                        return [4 /*yield*/, connection.manager.query("EXECUTE sp_ultimonrprontuario " + request.params.id + "")];
+                    case 1:
+                        ret = _a.sent();
+                        for (_i = 0, ret_2 = ret; _i < ret_2.length; _i++) {
+                            result = ret_2[_i];
+                            return [2 /*return*/, {
+                                    status: 200,
+                                    success: true,
+                                    message: result
+                                }];
+                        }
+                        return [2 /*return*/];
+                }
             });
         });
     };

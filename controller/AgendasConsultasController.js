@@ -86,11 +86,13 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                         _super.prototype.isRequired.call(this, _obj.dataAgenda, 'a data do atendimento é obrigatório');
                         _super.prototype.isRequired.call(this, _obj.foneContato, 'o telefone é obrigatório');
                         id = this.numeros(request.headers['x-user-include']);
+                        if (!!_obj.id) return [3 /*break*/, 2];
                         return [4 /*yield*/, this._usuario2.findOne(id)];
                     case 1:
                         user = _a.sent();
                         _obj.usuarioAgendamento = user;
-                        return [2 /*return*/, _super.prototype.save.call(this, _obj, request)];
+                        _a.label = 2;
+                    case 2: return [2 /*return*/, _super.prototype.save.call(this, _obj, request)];
                 }
             });
         });
@@ -104,7 +106,7 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                         profissional = request.params.profissional;
                         data = request.params.data;
                         connection = typeorm_1.getConnection();
-                        return [4 /*yield*/, connection.manager.query("EXECUTE sp_listaragendaconsulta @ProfissionalAgendaId=" + profissional + ", @DataSolicitada='" + data + "'")];
+                        return [4 /*yield*/, connection.manager.query("EXECUTE sp_listaragendaconsultastatus @ProfissionalAgendaId=" + profissional + ", @DataSolicitada='" + data + "'")];
                     case 1:
                         ret = _a.sent();
                         return [2 /*return*/, ret];
@@ -190,23 +192,23 @@ var AgendaConsultasController = /** @class */ (function (_super) {
     };
     AgendaConsultasController.prototype.getconsultasTrintaDias = function (request) {
         return __awaiter(this, void 0, void 0, function () {
-            var data, profissionalagenda, agenda;
+            var dataagenda, data, profissionalagenda, agenda, connection, sql, ret;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        data = moment(new Date()).add('days', -30).format("YYYY-MM-DD");
+                        dataagenda = request.params.data;
+                        console.log(dataagenda);
+                        data = moment(new Date(dataagenda)).add('days', -30).format("YYYY-MM-DD");
                         profissionalagenda = request.params.profissionalagenda;
                         return [4 /*yield*/, this._profissionalagenda.findOne(profissionalagenda)];
                     case 1:
                         agenda = _a.sent();
-                        return [2 /*return*/, this._agenda.find({
-                                where: {
-                                    dataAgenda: typeorm_1.MoreThanOrEqual(data),
-                                    profissionaisAgendas: agenda,
-                                    paciente: request.params.id,
-                                    dataExclusao: typeorm_1.IsNull()
-                                }
-                            })];
+                        connection = typeorm_1.getConnection();
+                        sql = "select * from AgendasConsultas a where a.ProfissionaisAgendasId = " + profissionalagenda + " and PacienteId = " + request.params.id + " and DataExclusao is null and DataAgenda >= '" + data + "' and DataAgenda <'" + dataagenda + "'";
+                        return [4 /*yield*/, connection.manager.query(sql)];
+                    case 2:
+                        ret = _a.sent();
+                        return [2 /*return*/, ret];
                 }
             });
         });

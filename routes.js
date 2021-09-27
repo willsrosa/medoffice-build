@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Routes = void 0;
+var AgendaConsultasLogController_1 = require("./controller/AgendaConsultasLogController");
 var AgendasConsultasController_1 = require("./controller/AgendasConsultasController");
 var AgendasCoresOdontoController_1 = require("./controller/AgendasCoresOdontoController");
 var AgendaStatusController_1 = require("./controller/AgendaStatusController");
@@ -41,7 +42,7 @@ exports.Routes = [
     { method: "get", route: "/agenda/:profissionalagenda/:paciente/consultaspaciente", controller: AgendasConsultasController_1.AgendaConsultasController, action: "getconsultasPaciente" },
     { method: "get", route: "/agenda/:profissionalagenda/:inicio/:termino", controller: AgendasConsultasController_1.AgendaConsultasController, action: "getDisponibilidade" },
     { method: "get", route: "/agenda/:id/vinculos", controller: AgendasConsultasController_1.AgendaConsultasController, action: "GetVinculos" },
-    { method: "get", route: "/agenda/:profissionalagenda/:id/trintadias/verificar", controller: AgendasConsultasController_1.AgendaConsultasController, action: "getconsultasTrintaDias" },
+    { method: "get", route: "/agenda/:profissionalagenda/:id/:data/trintadias", controller: AgendasConsultasController_1.AgendaConsultasController, action: "getconsultasTrintaDias" },
     { method: "post", route: "/agenda", controller: AgendasConsultasController_1.AgendaConsultasController, action: "save" },
     { method: "delete", route: "/agenda/:id", controller: AgendasConsultasController_1.AgendaConsultasController, action: "remove" },
     { method: "get", route: "/convenio", controller: ConveniosController_1.ConveniosController, action: "all" },
@@ -67,6 +68,11 @@ exports.Routes = [
     { method: "get", route: "/empresa/:id", controller: EmpresasController_1.EmpresasController, action: "one" },
     { method: "post", route: "/empresa", controller: EmpresasController_1.EmpresasController, action: "save" },
     { method: "delete", route: "/empresa/:id", controller: EmpresasController_1.EmpresasController, action: "remove" },
+    { method: "get", route: "/agendaconsultaslog", controller: AgendaConsultasLogController_1.AgendaConsultasLogController, action: "all" },
+    { method: "get", route: "/agendaconsultaslog/:id", controller: AgendaConsultasLogController_1.AgendaConsultasLogController, action: "one" },
+    { method: "get", route: "/agendaconsultaslog/:id/logs", controller: AgendaConsultasLogController_1.AgendaConsultasLogController, action: "getLogs" },
+    { method: "post", route: "/agendaconsultaslog", controller: AgendaConsultasLogController_1.AgendaConsultasLogController, action: "save" },
+    { method: "delete", route: "/agendaconsultaslog/:id", controller: AgendaConsultasLogController_1.AgendaConsultasLogController, action: "remove" },
     { method: "get", route: "/procedimentosodonto", controller: ProcedimentosOdontoController_1.ProcedimentosOdontoController, action: "all" },
     { method: "get", route: "/procedimentosodonto/:id", controller: ProcedimentosOdontoController_1.ProcedimentosOdontoController, action: "one" },
     { method: "post", route: "/procedimentosodonto", controller: ProcedimentosOdontoController_1.ProcedimentosOdontoController, action: "save" },
@@ -100,6 +106,7 @@ exports.Routes = [
     { method: "get", route: "/paciente", controller: PacientesController_1.PacientesController, action: "all" },
     { method: "get", route: "/paciente/:id", controller: PacientesController_1.PacientesController, action: "one" },
     { method: "get", route: "/paciente/:id/profissional", controller: PacientesController_1.PacientesController, action: "getProfissionalPacientes" },
+    { method: "get", route: "/paciente/:id/ultimoprontuario", controller: PacientesController_1.PacientesController, action: "getUltimoProntuario" },
     { method: "get", route: "/paciente/:id/:cpf", controller: PacientesController_1.PacientesController, action: "getPacienteCadastrado" },
     { method: "post", route: "/paciente", controller: PacientesController_1.PacientesController, action: "save" },
     { method: "delete", route: "/paciente/:id", controller: PacientesController_1.PacientesController, action: "remove" },
