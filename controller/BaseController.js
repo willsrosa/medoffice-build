@@ -116,19 +116,21 @@ var BaseController = /** @class */ (function (_super) {
     };
     BaseController.prototype.remove = function (request) {
         return __awaiter(this, void 0, void 0, function () {
-            var model, id;
+            var model, id, user;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this._repository.findOne(request.params.id)];
                     case 1:
                         model = _a.sent();
-                        if (model) {
-                            model.dataExclusao = new Date();
-                            id = this.numeros(request.headers['x-user-include']);
-                            // let user = await this._usuario.findOne(id);
-                            // model.usuarioExclusao = user;
-                        }
-                        return [2 /*return*/, this._repository.save(model)];
+                        if (!model) return [3 /*break*/, 3];
+                        model.dataExclusao = new Date();
+                        id = this.numeros(request.headers['x-user-include']);
+                        return [4 /*yield*/, this._usuario.findOne(id)];
+                    case 2:
+                        user = _a.sent();
+                        model.usuarioExclusao = user;
+                        _a.label = 3;
+                    case 3: return [2 /*return*/, this._repository.save(model)];
                 }
             });
         });

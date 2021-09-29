@@ -47,14 +47,6 @@ var Usuarios = /** @class */ (function () {
         __metadata("design:type", String)
     ], Usuarios.prototype, "senha", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "Situacao", nullable: true, length: 1 }),
-        __metadata("design:type", String)
-    ], Usuarios.prototype, "situacao", void 0);
-    __decorate([
-        typeorm_1.Column("varchar", { name: "Aplicacao", nullable: true, length: 1 }),
-        __metadata("design:type", String)
-    ], Usuarios.prototype, "aplicacao", void 0);
-    __decorate([
         typeorm_1.Column("smalldatetime", { name: "DataHora", nullable: true }),
         __metadata("design:type", Date)
     ], Usuarios.prototype, "dataHora", void 0);
@@ -74,6 +66,14 @@ var Usuarios = /** @class */ (function () {
         typeorm_1.Column("char", { name: "Perfil", nullable: true, length: 3 }),
         __metadata("design:type", String)
     ], Usuarios.prototype, "perfil", void 0);
+    __decorate([
+        typeorm_1.Column("char", { name: "Situacao", nullable: true, length: 1 }),
+        __metadata("design:type", String)
+    ], Usuarios.prototype, "situacao", void 0);
+    __decorate([
+        typeorm_1.Column("char", { name: "Aplicacao", nullable: true, length: 1 }),
+        __metadata("design:type", String)
+    ], Usuarios.prototype, "aplicacao", void 0);
     __decorate([
         typeorm_1.OneToMany(function () { return AgendasConsultas_1.AgendasConsultas; }, function (agendasConsultas) { return agendasConsultas.usuarioAgendamento; }),
         __metadata("design:type", Array)
@@ -111,13 +111,9 @@ var Usuarios = /** @class */ (function () {
         __metadata("design:type", Array)
     ], Usuarios.prototype, "empresas2", void 0);
     __decorate([
-        typeorm_1.OneToMany(function () { return Pacientes_1.Pacientes; }, function (pacientes) { return pacientes; }),
-        __metadata("design:type", Array)
-    ], Usuarios.prototype, "pacientes", void 0);
-    __decorate([
         typeorm_1.OneToMany(function () { return Pacientes_1.Pacientes; }, function (pacientes) { return pacientes.usuarioExclusao; }),
         __metadata("design:type", Array)
-    ], Usuarios.prototype, "pacientes2", void 0);
+    ], Usuarios.prototype, "pacientes", void 0);
     __decorate([
         typeorm_1.OneToMany(function () { return Profissionais_1.Profissionais; }, function (profissionais) { return profissionais.usuario; }),
         __metadata("design:type", Array)
