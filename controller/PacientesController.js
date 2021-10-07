@@ -83,6 +83,21 @@ var PacientesController = /** @class */ (function (_super) {
             });
         });
     };
+    PacientesController.prototype.getPacientes = function (request) {
+        return __awaiter(this, void 0, void 0, function () {
+            var connection, ret;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        connection = typeorm_1.getConnection();
+                        return [4 /*yield*/, connection.manager.query("select p.Id as id, convert(varchar, p.Nome) COLLATE SQL_Latin1_General_Cp1251_CS_AS as nome,p.Prontuario as prontuario from Pacientes p where p.ProfissionalId = " + request.params.id + " ")];
+                    case 1:
+                        ret = _a.sent();
+                        return [2 /*return*/, ret];
+                }
+            });
+        });
+    };
     PacientesController.prototype.getProfissionalPacientes = function (request) {
         return __awaiter(this, void 0, void 0, function () {
             var data, connection, ret, lista, _i, ret_1, data_1, obj;
