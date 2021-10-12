@@ -116,15 +116,14 @@ var AgendaConsultasController = /** @class */ (function (_super) {
     };
     AgendaConsultasController.prototype.getProfissionalAgendasSemanal = function (request) {
         return __awaiter(this, void 0, void 0, function () {
-            var profissional, connection, data, sql, ret;
+            var profissional, datasolicitada, connection, sql, ret;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         profissional = request.params.id;
+                        datasolicitada = request.params.datasolicitada;
                         connection = typeorm_1.getConnection();
-                        data = moment(new Date()).format("YYYY-MM-DD");
-                        sql = "EXECUTE SP_LISTARAGENDACONSULTASTATUS7DIAS @ProfissionalAgendaId=" + profissional + ", @DataSolicitada='" + data + "'";
-                        console.log(sql);
+                        sql = "EXECUTE SP_LISTARAGENDACONSULTASTATUS7DIAS @ProfissionalAgendaId=" + profissional + ", @DataSolicitada='" + datasolicitada + "'";
                         return [4 /*yield*/, connection.manager.query(sql)];
                     case 1:
                         ret = _a.sent();
