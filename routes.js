@@ -108,7 +108,7 @@ exports.Routes = [
     { method: "get", route: "/paciente/:id", controller: PacientesController_1.PacientesController, action: "one" },
     { method: "get", route: "/paciente/:id/profissional", controller: PacientesController_1.PacientesController, action: "getProfissionalPacientes" },
     { method: "get", route: "/paciente/:id/pacientes", controller: PacientesController_1.PacientesController, action: "getPacientes" },
-    { method: "get", route: "/paciente/:id/prontuario", controller: PacientesController_1.PacientesController, action: "getPacienteProntuario" },
+    { method: "get", route: "/paciente/:id/:profissional/prontuario", controller: PacientesController_1.PacientesController, action: "getPacienteProntuario" },
     { method: "get", route: "/paciente/:id/ultimoprontuario", controller: PacientesController_1.PacientesController, action: "getUltimoProntuario" },
     { method: "get", route: "/paciente/:id/:cpf", controller: PacientesController_1.PacientesController, action: "getPacienteCadastrado" },
     { method: "post", route: "/paciente", controller: PacientesController_1.PacientesController, action: "save" },
