@@ -173,6 +173,17 @@ var PacientesController = /** @class */ (function (_super) {
             });
         });
     };
+    PacientesController.prototype.getPacienteProntuario = function (request) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, this._paciente.findOne({
+                        where: {
+                            prontuario: request.params.id,
+                        }
+                    })];
+            });
+        });
+    };
     PacientesController.prototype.getUltimoProntuario = function (request) {
         return __awaiter(this, void 0, void 0, function () {
             var connection, ret, _i, ret_2, result;
