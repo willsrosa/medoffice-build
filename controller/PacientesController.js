@@ -176,7 +176,6 @@ var PacientesController = /** @class */ (function (_super) {
     PacientesController.prototype.getPacienteProntuario = function (request) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                console.log(request.params.profissional);
                 return [2 /*return*/, this._paciente.findOne({
                         where: {
                             profissionalId: request.params.profissional,

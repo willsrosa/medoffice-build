@@ -135,6 +135,24 @@ var BaseController = /** @class */ (function (_super) {
             });
         });
     };
+    BaseController.prototype.removeId = function (request) {
+        return __awaiter(this, void 0, void 0, function () {
+            var model, id;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this._repository.findOne(request.params.id)];
+                    case 1:
+                        model = _a.sent();
+                        if (model) {
+                            model.dataExclusao = new Date();
+                            id = this.numeros(request.headers['x-user-include']);
+                            model.usuarioExclusao = id;
+                        }
+                        return [2 /*return*/, this._repository.save(model)];
+                }
+            });
+        });
+    };
     BaseController.prototype.numeros = function (param) {
         var numb = param.match(/\d/g);
         numb = numb.join("");

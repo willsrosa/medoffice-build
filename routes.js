@@ -97,7 +97,7 @@ exports.Routes = [
     { method: "get", route: "/listaespera/:id", controller: ListaEsperaController_1.ListaEsperaController, action: "one" },
     { method: "get", route: "/listaespera/:id/agenda", controller: ListaEsperaController_1.ListaEsperaController, action: "getListaEspera" },
     { method: "post", route: "/listaespera", controller: ListaEsperaController_1.ListaEsperaController, action: "save" },
-    { method: "delete", route: "/listaespera/:id", controller: ListaEsperaController_1.ListaEsperaController, action: "remove" },
+    { method: "delete", route: "/listaespera/:id", controller: ListaEsperaController_1.ListaEsperaController, action: "removeId" },
     { method: "get", route: "/salaaplicacoes", controller: SalasAplicacoesController_1.SalaAplicacoesController, action: "all" },
     { method: "get", route: "/salaaplicacoes/:id", controller: SalasAplicacoesController_1.SalaAplicacoesController, action: "one" },
     { method: "get", route: "/salaaplicacoes/:id/salaaplicacoes", controller: SalasAplicacoesController_1.SalaAplicacoesController, action: "getProfissionalAgenda" },
