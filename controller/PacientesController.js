@@ -90,7 +90,7 @@ var PacientesController = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         connection = typeorm_1.getConnection();
-                        return [4 /*yield*/, connection.manager.query("select p.Id as id, convert(varchar, p.Nome) COLLATE SQL_Latin1_General_Cp1251_CS_AS as nome,p.Prontuario as prontuario from Pacientes p where p.ProfissionalId = " + request.params.id + " ")];
+                        return [4 /*yield*/, connection.manager.query("select  convert(varchar, p.PacienteNome) COLLATE SQL_Latin1_General_Cp1251_CS_AS as nome from AgendasConsultas p  where p.ProfissionaisAgendasId =" + request.params.id + " group by p.PacienteNome ")];
                     case 1:
                         ret = _a.sent();
                         return [2 /*return*/, ret];
