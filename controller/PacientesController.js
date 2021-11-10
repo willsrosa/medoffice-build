@@ -85,11 +85,13 @@ var PacientesController = /** @class */ (function (_super) {
     };
     PacientesController.prototype.getPacientes = function (request) {
         return __awaiter(this, void 0, void 0, function () {
-            var connection, ret;
+            var connection, sql, ret;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         connection = typeorm_1.getConnection();
+                        sql = "select  convert(varchar, p.PacienteNome) COLLATE SQL_Latin1_General_Cp1251_CS_AS as nome from AgendasConsultas p  where p.ProfissionaisAgendasId =" + request.params.id + " group by p.PacienteNome ";
+                        console.log(sql);
                         return [4 /*yield*/, connection.manager.query("select  convert(varchar, p.PacienteNome) COLLATE SQL_Latin1_General_Cp1251_CS_AS as nome from AgendasConsultas p  where p.ProfissionaisAgendasId =" + request.params.id + " group by p.PacienteNome ")];
                     case 1:
                         ret = _a.sent();
