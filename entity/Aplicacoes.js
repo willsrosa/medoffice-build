@@ -71,6 +71,10 @@ var Aplicacoes = /** @class */ (function () {
         __metadata("design:type", Number)
     ], Aplicacoes.prototype, "tipo", void 0);
     __decorate([
+        typeorm_1.Column("int", { name: "IdAgenda" }),
+        __metadata("design:type", Number)
+    ], Aplicacoes.prototype, "idagenda", void 0);
+    __decorate([
         typeorm_1.Column("smalldatetime", { name: "Dataref", nullable: true }),
         __metadata("design:type", Date)
     ], Aplicacoes.prototype, "dataref", void 0);

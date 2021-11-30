@@ -171,7 +171,7 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                         return [4 /*yield*/, this._profissionalagenda.findOne(profissionalagenda)];
                     case 1:
                         agenda = _a.sent();
-                        return [4 /*yield*/, connection.manager.query("select DataAgenda as dataAgenda, Hora as hora,PacienteNome as pacienteNome,FaseAtendimento as faseAtendimento,Observacao as observacao from AgendasConsultas a where a.ProfissionaisAgendasId = " + agenda.id + " and PacienteNome like'%" + request.params.id + "%' and DataExclusao is null order by dataAgenda desc")];
+                        return [4 /*yield*/, connection.manager.query("select DataAgenda as dataAgenda, Hora as hora,PacienteNome as pacienteNome,FaseAtendimento as faseAtendimento,TipoAtendimento as tipoatendimento,Observacao as observacao from AgendasConsultas a where a.ProfissionaisAgendasId = " + agenda.id + " and PacienteNome like'%" + request.params.id + "%' and DataExclusao is null order by dataAgenda desc")];
                     case 2:
                         ret = _a.sent();
                         return [2 /*return*/, ret];

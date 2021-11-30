@@ -113,6 +113,8 @@ var AplicacoesController = /** @class */ (function (_super) {
                             obj = new Aplicacoes_1.Aplicacoes();
                             obj.paciente = item.pacienteNome.trim();
                             obj.profissionaisAgendas = agenda;
+                            obj.idagenda = item.id;
+                            obj.dataref = new Date();
                             if (item.paciente) {
                                 obj.pacienteId = item.paciente.id;
                             }
