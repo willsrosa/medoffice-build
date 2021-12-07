@@ -74,7 +74,7 @@ var AgendaConsultasController = /** @class */ (function (_super) {
     }
     AgendaConsultasController.prototype.save = function (request) {
         return __awaiter(this, void 0, void 0, function () {
-            var _obj, id, user;
+            var _obj, id, Verifica, user;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -86,13 +86,32 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                         _super.prototype.isRequired.call(this, _obj.dataAgenda, 'a data do atendimento é obrigatório');
                         _super.prototype.isRequired.call(this, _obj.foneContato, 'o telefone é obrigatório');
                         id = this.numeros(request.headers['x-user-include']);
-                        if (!!_obj.id) return [3 /*break*/, 2];
-                        return [4 /*yield*/, this._usuario2.findOne(id)];
+                        return [4 /*yield*/, this._agenda.findOne({
+                                where: {
+                                    dataAgenda: moment(_obj.dataAgenda).format("YYYY-MM-DD"),
+                                    profissionaisAgendas: _obj.profissionaisAgendas,
+                                    hora: _obj.hora
+                                }
+                            })];
                     case 1:
+                        Verifica = _a.sent();
+                        console.log(_obj.id);
+                        if (Verifica && _obj.id == null) {
+                            return [2 /*return*/, {
+                                    status: 200,
+                                    success: true,
+                                    message: {
+                                        agendado: true
+                                    }
+                                }];
+                        }
+                        if (!!_obj.id) return [3 /*break*/, 3];
+                        return [4 /*yield*/, this._usuario2.findOne(id)];
+                    case 2:
                         user = _a.sent();
                         _obj.usuarioAgendamento = user;
-                        _a.label = 2;
-                    case 2: return [2 /*return*/, _super.prototype.save.call(this, _obj, request)];
+                        _a.label = 3;
+                    case 3: return [2 /*return*/, _super.prototype.save.call(this, _obj, request)];
                 }
             });
         });
