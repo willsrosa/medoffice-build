@@ -103,6 +103,10 @@ var Profissionais = /** @class */ (function () {
         __metadata("design:type", Empresas_1.Empresas)
     ], Profissionais.prototype, "empresaid", void 0);
     __decorate([
+        typeorm_1.Column("int", { name: "ModeloAgendaConsulta", nullable: true }),
+        __metadata("design:type", Number)
+    ], Profissionais.prototype, "modeloAgendaConsulta", void 0);
+    __decorate([
         typeorm_1.ManyToOne(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.profissionais; }),
         typeorm_1.JoinColumn([{ name: "UsuarioId", referencedColumnName: "id" }]),
         __metadata("design:type", Usuarios_1.Usuarios)

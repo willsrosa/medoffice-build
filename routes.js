@@ -15,6 +15,7 @@ var PacientePendenciasController_1 = require("./controller/PacientePendenciasCon
 var PacientesController_1 = require("./controller/PacientesController");
 var PermissoesController_1 = require("./controller/PermissoesController");
 var ProcedimentosOdontoController_1 = require("./controller/ProcedimentosOdontoController");
+var ProcedimentosOdontologicoController_1 = require("./controller/ProcedimentosOdontologicoController");
 var ProfissionaisAgendasController_1 = require("./controller/ProfissionaisAgendasController");
 var ProfissionaisAgendasHorariosController_1 = require("./controller/ProfissionaisAgendasHorariosController");
 var ProfissionaisController_1 = require("./controller/ProfissionaisController");
@@ -33,7 +34,7 @@ exports.Routes = [
     { method: "post", route: "/usuario", controller: UsuarioController_1.UsuarioController, action: "CriarUsuario" },
     { method: "post", route: "/usuario/Cadastrar", controller: UsuarioController_1.UsuarioController, action: "CriarUsuario" },
     { method: "post", route: "/usuario/autenticar", controller: UsuarioController_1.UsuarioController, action: "auth" },
-    { method: "delete", route: "/usuario", controller: UsuarioController_1.UsuarioController, action: "remove" },
+    { method: "delete", route: "/usuario/:id", controller: UsuarioController_1.UsuarioController, action: "remove" },
     { method: "get", route: "/agenda", controller: AgendasConsultasController_1.AgendaConsultasController, action: "all" },
     { method: "get", route: "/agenda/:id", controller: AgendasConsultasController_1.AgendaConsultasController, action: "one" },
     { method: "get", route: "/agenda/:id/profissional", controller: AgendasConsultasController_1.AgendaConsultasController, action: "getAgendas" },
@@ -78,6 +79,11 @@ exports.Routes = [
     { method: "get", route: "/procedimentosodonto/:id", controller: ProcedimentosOdontoController_1.ProcedimentosOdontoController, action: "one" },
     { method: "post", route: "/procedimentosodonto", controller: ProcedimentosOdontoController_1.ProcedimentosOdontoController, action: "save" },
     { method: "delete", route: "/procedimentosodonto/:id", controller: ProcedimentosOdontoController_1.ProcedimentosOdontoController, action: "remove" },
+    { method: "get", route: "/procedimentosodontologico", controller: ProcedimentosOdontologicoController_1.ProcedimentosOdontologicoController, action: "all" },
+    { method: "get", route: "/procedimentosodontologico/:id/empresa", controller: ProcedimentosOdontologicoController_1.ProcedimentosOdontologicoController, action: "getbyempresa" },
+    { method: "get", route: "/procedimentosodontologico/:id", controller: ProcedimentosOdontologicoController_1.ProcedimentosOdontologicoController, action: "one" },
+    { method: "post", route: "/procedimentosodontologico", controller: ProcedimentosOdontologicoController_1.ProcedimentosOdontologicoController, action: "save" },
+    { method: "delete", route: "/procedimentosodontologico/:id", controller: ProcedimentosOdontologicoController_1.ProcedimentosOdontologicoController, action: "removeId" },
     { method: "get", route: "/tipoPendencia", controller: TipoPendenciaController_1.TiposPendenciasController, action: "all" },
     { method: "get", route: "/tipoPendencia/:id", controller: TipoPendenciaController_1.TiposPendenciasController, action: "one" },
     { method: "post", route: "/tipoPendencia", controller: TipoPendenciaController_1.TiposPendenciasController, action: "save" },

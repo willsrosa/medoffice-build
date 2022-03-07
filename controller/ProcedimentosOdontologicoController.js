@@ -51,38 +51,35 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ListaEsperaController = void 0;
+exports.ProcedimentosOdontologicoController = void 0;
 var typeorm_1 = require("typeorm");
-var ListaEspera_1 = require("../entity/ListaEspera");
+var ProcedimentosOdontologicos_1 = require("../entity/ProcedimentosOdontologicos");
 var BaseController_1 = require("./BaseController");
-var ListaEsperaController = /** @class */ (function (_super) {
-    __extends(ListaEsperaController, _super);
-    function ListaEsperaController() {
-        return _super.call(this, ListaEspera_1.ListaEspera) || this;
+var ProcedimentosOdontologicoController = /** @class */ (function (_super) {
+    __extends(ProcedimentosOdontologicoController, _super);
+    function ProcedimentosOdontologicoController() {
+        return _super.call(this, ProcedimentosOdontologicos_1.ProcedimentosOdontologico) || this;
     }
-    ListaEsperaController.prototype.save = function (request) {
+    ProcedimentosOdontologicoController.prototype.save = function (request) {
         return __awaiter(this, void 0, void 0, function () {
             var _obj;
             return __generator(this, function (_a) {
                 _obj = request.body;
-                _super.prototype.isRequired.call(this, _obj.paciente, 'o nome é obrigatório');
-                _super.prototype.isRequired.call(this, _obj.convenioId, 'o contato é obrigatório');
-                _super.prototype.isRequired.call(this, _obj.celular, 'o telefone é obrigatório');
+                _super.prototype.isRequired.call(this, _obj.descricao, 'a descrição é obrigatória');
+                _super.prototype.isRequired.call(this, _obj.tempoPadraoAgenda, 'o tempo padrão é obrigatório');
                 return [2 /*return*/, _super.prototype.save.call(this, _obj, request)];
             });
         });
     };
-    ListaEsperaController.prototype.getListaEspera = function (request) {
+    ProcedimentosOdontologicoController.prototype.getbyempresa = function (request) {
         return this.repository.find({
             where: {
-                profissionalAgendaId: request.params.id,
+                empresaId: request.params.id,
                 dataExclusao: typeorm_1.IsNull()
-            }, order: {
-                dataAgendamento: "ASC"
             }
         });
     };
-    return ListaEsperaController;
+    return ProcedimentosOdontologicoController;
 }(BaseController_1.BaseController));
-exports.ListaEsperaController = ListaEsperaController;
-//# sourceMappingURL=ListaEsperaController.js.map
+exports.ProcedimentosOdontologicoController = ProcedimentosOdontologicoController;
+//# sourceMappingURL=ProcedimentosOdontologicoController.js.map
