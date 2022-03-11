@@ -88,6 +88,7 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                         id = this.numeros(request.headers['x-user-include']);
                         return [4 /*yield*/, this._agenda.findOne({
                                 where: {
+                                    dataExclusao: typeorm_1.IsNull(),
                                     dataAgenda: moment(_obj.dataAgenda).format("YYYY-MM-DD"),
                                     profissionaisAgendas: _obj.profissionaisAgendas,
                                     hora: _obj.hora
