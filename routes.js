@@ -145,6 +145,7 @@ exports.Routes = [
     { method: "get", route: "/usuariosagenda", controller: UsuariosAgendasController_1.UsuariosAgendasController, action: "all" },
     { method: "get", route: "/usuariosagenda/:id", controller: UsuariosAgendasController_1.UsuariosAgendasController, action: "one" },
     { method: "get", route: "/usuariosagenda/:id/agenda", controller: UsuariosAgendasController_1.UsuariosAgendasController, action: "getAgenda" },
+    { method: "get", route: "/usuariosagenda/:id/usuario", controller: UsuariosAgendasController_1.UsuariosAgendasController, action: "getUsuariosAgenda" },
     { method: "post", route: "/usuariosagenda", controller: UsuariosAgendasController_1.UsuariosAgendasController, action: "save" },
     { method: "delete", route: "/usuariosagenda/:id", controller: UsuariosAgendasController_1.UsuariosAgendasController, action: "remove" },
     { method: "get", route: "/usuariosempresa", controller: UsuariosEmpresasController_1.UsuariosEmpresasController, action: "all" },

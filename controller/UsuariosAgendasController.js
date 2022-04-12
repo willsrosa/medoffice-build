@@ -81,6 +81,14 @@ var UsuariosAgendasController = /** @class */ (function (_super) {
             }
         });
     };
+    UsuariosAgendasController.prototype.getUsuariosAgenda = function (request) {
+        return this._agenda.find({
+            where: {
+                agendaConsulta: request.params.id,
+                dataExclusao: typeorm_1.IsNull(),
+            }
+        });
+    };
     return UsuariosAgendasController;
 }(BaseController_1.BaseController));
 exports.UsuariosAgendasController = UsuariosAgendasController;

@@ -62,6 +62,10 @@ var ProfissionaisAgendas = /** @class */ (function () {
         __metadata("design:type", String)
     ], ProfissionaisAgendas.prototype, "tipoAgenda", void 0);
     __decorate([
+        typeorm_1.Column("char", { name: "ControlePorSenha", nullable: true, length: 1 }),
+        __metadata("design:type", String)
+    ], ProfissionaisAgendas.prototype, "controlePorSenha", void 0);
+    __decorate([
         typeorm_1.OneToMany(function () { return AgendasConsultas_1.AgendasConsultas; }, function (agendasConsultas) { return agendasConsultas.profissionaisAgendas; }),
         __metadata("design:type", Array)
     ], ProfissionaisAgendas.prototype, "agendasConsultas", void 0);

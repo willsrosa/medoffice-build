@@ -85,7 +85,13 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                         _super.prototype.isRequired.call(this, _obj.hora, 'a hora do atendimento é obrigatório');
                         _super.prototype.isRequired.call(this, _obj.dataAgenda, 'a data do atendimento é obrigatório');
                         _super.prototype.isRequired.call(this, _obj.foneContato, 'o telefone é obrigatório');
-                        id = this.numeros(request.headers['x-user-include']);
+                        id = 0;
+                        if (_obj.usuarioAgendamento) {
+                            id = _obj.usuarioAgendamento.id;
+                        }
+                        else {
+                            id = this.numeros(request.headers['x-user-include']);
+                        }
                         return [4 /*yield*/, this._agenda.findOne({
                                 where: {
                                     dataExclusao: typeorm_1.IsNull(),
@@ -96,8 +102,7 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                             })];
                     case 1:
                         Verifica = _a.sent();
-                        console.log(_obj.id);
-                        if (Verifica && _obj.id == null) {
+                        if (Verifica && !_obj.id) {
                             return [2 /*return*/, {
                                     status: 200,
                                     success: true,
@@ -160,7 +165,7 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                     case 0:
                         usuario = request.params.id;
                         connection = typeorm_1.getConnection();
-                        return [4 /*yield*/, connection.manager.query('select pa.NomeAgenda as nome, p.cpf as cpf, p.registroProfissional as registroProfissional, p.id as idprof, ua.AgendaConsultaId as id, pa.PossuiAgendaAplicacao as possuiAgendaAplicacao, pa.TipoAgenda as tipoAgenda  from Profissionais p join ProfissionaisAgendas pa on pa.ProfissionalId = p.Id join UsuariosAgendas ua on ua.AgendaConsultaId = pa.Id join Usuarios u on u.Id = ua.Usuario where  ua.DataExclusao is null and u.Id = ' + usuario)];
+                        return [4 /*yield*/, connection.manager.query('select pa.NomeAgenda as nome, p.cpf as cpf, p.registroProfissional as registroProfissional, p.id as idprof, ua.AgendaConsultaId as id, pa.PossuiAgendaAplicacao as possuiAgendaAplicacao, pa.TipoAgenda as tipoAgenda,p.ModeloAgendaConsulta as modeloAgendaConsulta  from Profissionais p join ProfissionaisAgendas pa on pa.ProfissionalId = p.Id join UsuariosAgendas ua on ua.AgendaConsultaId = pa.Id join Usuarios u on u.Id = ua.Usuario where  ua.DataExclusao is null and u.Id = ' + usuario)];
                     case 1:
                         ret = _a.sent();
                         return [2 /*return*/, ret];
@@ -235,7 +240,6 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         dataagenda = request.params.data;
-                        console.log(dataagenda);
                         data = moment(new Date(dataagenda)).add('days', -30).format("YYYY-MM-DD");
                         profissionalagenda = request.params.profissionalagenda;
                         return [4 /*yield*/, this._profissionalagenda.findOne(profissionalagenda)];
