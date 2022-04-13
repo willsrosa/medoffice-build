@@ -47,6 +47,7 @@ exports.Routes = [
     { method: "get", route: "/agenda/:profissionalagenda/:id/:data/trintadias", controller: AgendasConsultasController_1.AgendaConsultasController, action: "getconsultasTrintaDias" },
     { method: "post", route: "/agenda", controller: AgendasConsultasController_1.AgendaConsultasController, action: "save" },
     { method: "delete", route: "/agenda/:id", controller: AgendasConsultasController_1.AgendaConsultasController, action: "remove" },
+    { method: "delete", route: "/agenda/:id/:usuario", controller: AgendasConsultasController_1.AgendaConsultasController, action: "removeSenha" },
     { method: "get", route: "/convenio", controller: ConveniosController_1.ConveniosController, action: "all" },
     { method: "get", route: "/convenio/:id", controller: ConveniosController_1.ConveniosController, action: "one" },
     { method: "post", route: "/convenio", controller: ConveniosController_1.ConveniosController, action: "save" },

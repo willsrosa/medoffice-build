@@ -299,6 +299,26 @@ var AgendaConsultasController = /** @class */ (function (_super) {
             });
         });
     };
+    AgendaConsultasController.prototype.removeSenha = function (request) {
+        return __awaiter(this, void 0, void 0, function () {
+            var model, user;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.repository.findOne(request.params.id)];
+                    case 1:
+                        model = _a.sent();
+                        if (!model) return [3 /*break*/, 3];
+                        model.dataExclusao = new Date();
+                        return [4 /*yield*/, this._usuario2.findOne(request.params.usuario)];
+                    case 2:
+                        user = _a.sent();
+                        model.usuarioExclusao = user;
+                        _a.label = 3;
+                    case 3: return [2 /*return*/, this.repository.save(model)];
+                }
+            });
+        });
+    };
     AgendaConsultasController.prototype.pegardias = function (startDate, endDate) {
         var dates = [];
         var theDate = new Date(startDate);
