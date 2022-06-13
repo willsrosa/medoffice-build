@@ -75,7 +75,7 @@ var ProcedimentosOdontologicoController = /** @class */ (function (_super) {
         return this.repository.find({
             where: {
                 empresaId: request.params.id,
-                dataExclusao: typeorm_1.IsNull()
+                dataExclusao: (0, typeorm_1.IsNull)()
             }
         });
     };

@@ -76,7 +76,7 @@ var AgendaStatusCoresController = /** @class */ (function (_super) {
         return this.repository.find({
             where: {
                 agendaConsultaId: request.params.id,
-                dataExclusao: typeorm_1.IsNull()
+                dataExclusao: (0, typeorm_1.IsNull)()
             }
         });
     };

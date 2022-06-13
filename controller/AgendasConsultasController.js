@@ -50,10 +50,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AgendaConsultasController = void 0;
@@ -67,9 +71,9 @@ var AgendaConsultasController = /** @class */ (function (_super) {
     __extends(AgendaConsultasController, _super);
     function AgendaConsultasController() {
         var _this = _super.call(this, AgendasConsultas_1.AgendasConsultas) || this;
-        _this._usuario2 = typeorm_1.getRepository(Usuarios_1.Usuarios);
-        _this._agenda = typeorm_1.getRepository(AgendasConsultas_1.AgendasConsultas);
-        _this._profissionalagenda = typeorm_1.getRepository(ProfissionaisAgendas_1.ProfissionaisAgendas);
+        _this._usuario2 = (0, typeorm_1.getRepository)(Usuarios_1.Usuarios);
+        _this._agenda = (0, typeorm_1.getRepository)(AgendasConsultas_1.AgendasConsultas);
+        _this._profissionalagenda = (0, typeorm_1.getRepository)(ProfissionaisAgendas_1.ProfissionaisAgendas);
         return _this;
     }
     AgendaConsultasController.prototype.save = function (request) {
@@ -94,7 +98,7 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                         }
                         return [4 /*yield*/, this._agenda.findOne({
                                 where: {
-                                    dataExclusao: typeorm_1.IsNull(),
+                                    dataExclusao: (0, typeorm_1.IsNull)(),
                                     dataAgenda: moment(_obj.dataAgenda).format("YYYY-MM-DD"),
                                     profissionaisAgendas: _obj.profissionaisAgendas,
                                     hora: _obj.hora
@@ -130,7 +134,7 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                     case 0:
                         profissional = request.params.profissional;
                         data = request.params.data;
-                        connection = typeorm_1.getConnection();
+                        connection = (0, typeorm_1.getConnection)();
                         return [4 /*yield*/, connection.manager.query("EXECUTE sp_listaragendaconsultastatus @ProfissionalAgendaId=" + profissional + ", @DataSolicitada='" + data + "'")];
                     case 1:
                         ret = _a.sent();
@@ -147,8 +151,26 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                     case 0:
                         profissional = request.params.id;
                         datasolicitada = request.params.datasolicitada;
-                        connection = typeorm_1.getConnection();
+                        connection = (0, typeorm_1.getConnection)();
                         sql = "EXECUTE SP_LISTARAGENDACONSULTASTATUS7DIAS @ProfissionalAgendaId=" + profissional + ", @DataSolicitada='" + datasolicitada + "'";
+                        return [4 /*yield*/, connection.manager.query(sql)];
+                    case 1:
+                        ret = _a.sent();
+                        return [2 /*return*/, ret];
+                }
+            });
+        });
+    };
+    AgendaConsultasController.prototype.getProfissionalAgendaPacientesAtendidos = function (request) {
+        return __awaiter(this, void 0, void 0, function () {
+            var profissional, datasolicitada, connection, sql, ret;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        profissional = request.params.profissionalagenda;
+                        datasolicitada = request.params.dataagenda;
+                        connection = (0, typeorm_1.getConnection)();
+                        sql = "EXECUTE SP_NRAGENDAMENTOS " + profissional + ",'" + datasolicitada + "'";
                         return [4 /*yield*/, connection.manager.query(sql)];
                     case 1:
                         ret = _a.sent();
@@ -164,7 +186,7 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         usuario = request.params.id;
-                        connection = typeorm_1.getConnection();
+                        connection = (0, typeorm_1.getConnection)();
                         return [4 /*yield*/, connection.manager.query('select pa.NomeAgenda as nome, p.cpf as cpf, p.registroProfissional as registroProfissional, p.id as idprof, ua.AgendaConsultaId as id, pa.PossuiAgendaAplicacao as possuiAgendaAplicacao, pa.TipoAgenda as tipoAgenda,p.ModeloAgendaConsulta as modeloAgendaConsulta  from Profissionais p join ProfissionaisAgendas pa on pa.ProfissionalId = p.Id join UsuariosAgendas ua on ua.AgendaConsultaId = pa.Id join Usuarios u on u.Id = ua.Usuario where  ua.DataExclusao is null and p.DataExclusao is null and pa.DataExclusao is null and u.Id = ' + usuario)];
                     case 1:
                         ret = _a.sent();
@@ -192,7 +214,7 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                     case 0:
                         data = moment(new Date()).format("YYYY-MM-DD");
                         profissionalagenda = request.params.profissionalagenda;
-                        connection = typeorm_1.getConnection();
+                        connection = (0, typeorm_1.getConnection)();
                         return [4 /*yield*/, this._profissionalagenda.findOne(profissionalagenda)];
                     case 1:
                         agenda = _a.sent();
@@ -221,7 +243,7 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                                     paciente: request.params.paciente,
                                     // pacienteNome: Like(`%${nome}%`),
                                     // dataAgenda: MoreThanOrEqual(data),
-                                    dataExclusao: typeorm_1.IsNull()
+                                    dataExclusao: (0, typeorm_1.IsNull)()
                                 }, order: {
                                     dataAgenda: 'DESC',
                                     hora: 'DESC'
@@ -245,7 +267,7 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                         return [4 /*yield*/, this._profissionalagenda.findOne(profissionalagenda)];
                     case 1:
                         agenda = _a.sent();
-                        connection = typeorm_1.getConnection();
+                        connection = (0, typeorm_1.getConnection)();
                         sql = "select * from AgendasConsultas a where a.ProfissionaisAgendasId = " + profissionalagenda + " and PacienteId = " + request.params.id + " and DataExclusao is null and DataAgenda >= '" + data + "' and DataAgenda <'" + dataagenda + "'";
                         return [4 /*yield*/, connection.manager.query(sql)];
                     case 2:
@@ -261,7 +283,7 @@ var AgendaConsultasController = /** @class */ (function (_super) {
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        connection = typeorm_1.getConnection();
+                        connection = (0, typeorm_1.getConnection)();
                         profissional = request.params.profissionalagenda;
                         inicio = new Date(moment(request.params.inicio, "YYYY-MM-DD").format("YYYYY-MM-DD"));
                         termino = new Date(moment(request.params.termino, "YYYY-MM-DD").format("YYYY-MM-DD"));
@@ -323,7 +345,7 @@ var AgendaConsultasController = /** @class */ (function (_super) {
         var dates = [];
         var theDate = new Date(startDate);
         while (theDate <= endDate) {
-            dates = __spreadArray(__spreadArray([], dates), [new Date(theDate)]);
+            dates = __spreadArray(__spreadArray([], dates, true), [new Date(theDate)], false);
             theDate.setDate(theDate.getDate() + 1);
         }
         return dates;

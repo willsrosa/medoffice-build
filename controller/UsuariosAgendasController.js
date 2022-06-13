@@ -59,7 +59,7 @@ var UsuariosAgendasController = /** @class */ (function (_super) {
     __extends(UsuariosAgendasController, _super);
     function UsuariosAgendasController() {
         var _this = _super.call(this, UsuariosAgendas_1.UsuariosAgendas) || this;
-        _this._agenda = typeorm_1.getRepository(UsuariosAgendas_1.UsuariosAgendas);
+        _this._agenda = (0, typeorm_1.getRepository)(UsuariosAgendas_1.UsuariosAgendas);
         return _this;
     }
     UsuariosAgendasController.prototype.save = function (request) {
@@ -77,7 +77,7 @@ var UsuariosAgendasController = /** @class */ (function (_super) {
         return this._agenda.find({
             where: {
                 usuario: request.params.id,
-                dataExclusao: typeorm_1.IsNull()
+                dataExclusao: (0, typeorm_1.IsNull)()
             }
         });
     };
@@ -85,7 +85,7 @@ var UsuariosAgendasController = /** @class */ (function (_super) {
         return this._agenda.find({
             where: {
                 agendaConsulta: request.params.id,
-                dataExclusao: typeorm_1.IsNull(),
+                dataExclusao: (0, typeorm_1.IsNull)(),
             }
         });
     };

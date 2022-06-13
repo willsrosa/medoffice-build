@@ -15,52 +15,52 @@ var ProcedimentosOdontologico = /** @class */ (function () {
     function ProcedimentosOdontologico() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "Id" }),
+        (0, typeorm_1.PrimaryGeneratedColumn)({ type: "int", name: "Id" }),
         __metadata("design:type", Number)
     ], ProcedimentosOdontologico.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "Codigo", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "Codigo", nullable: true }),
         __metadata("design:type", Number)
     ], ProcedimentosOdontologico.prototype, "codigo", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "EmpresaId", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "EmpresaId", nullable: true }),
         __metadata("design:type", Number)
     ], ProcedimentosOdontologico.prototype, "empresaId", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "Descricao", nullable: true, length: 200 }),
+        (0, typeorm_1.Column)("varchar", { name: "Descricao", nullable: true, length: 200 }),
         __metadata("design:type", String)
     ], ProcedimentosOdontologico.prototype, "descricao", void 0);
     __decorate([
-        typeorm_1.Column("char", { name: "Situacao", nullable: true, length: 1 }),
+        (0, typeorm_1.Column)("char", { name: "Situacao", nullable: true, length: 1 }),
         __metadata("design:type", String)
     ], ProcedimentosOdontologico.prototype, "situacao", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "Abrev", nullable: true, length: 5 }),
+        (0, typeorm_1.Column)("varchar", { name: "Abrev", nullable: true, length: 5 }),
         __metadata("design:type", String)
     ], ProcedimentosOdontologico.prototype, "abrev", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "TempoPadraoAgenda", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "TempoPadraoAgenda", nullable: true }),
         __metadata("design:type", Number)
     ], ProcedimentosOdontologico.prototype, "tempoPadraoAgenda", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "Usuario", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "Usuario", nullable: true }),
         __metadata("design:type", Number)
     ], ProcedimentosOdontologico.prototype, "usuario", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "DataHora", nullable: true }),
+        (0, typeorm_1.Column)("smalldatetime", { name: "DataHora", nullable: true }),
         __metadata("design:type", Date)
     ], ProcedimentosOdontologico.prototype, "dataHora", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "UsuarioExclusao", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "UsuarioExclusao", nullable: true }),
         __metadata("design:type", Number)
     ], ProcedimentosOdontologico.prototype, "usuarioExclusao", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "DataExclusao", nullable: true }),
+        (0, typeorm_1.Column)("smalldatetime", { name: "DataExclusao", nullable: true }),
         __metadata("design:type", Date)
     ], ProcedimentosOdontologico.prototype, "dataExclusao", void 0);
     ProcedimentosOdontologico = __decorate([
-        typeorm_1.Index("ProcedimentosOdontologicos", ["id"], { unique: true }),
-        typeorm_1.Entity("ProcedimentosOdontologicos", { schema: "dbo" })
+        (0, typeorm_1.Index)("ProcedimentosOdontologicos", ["id"], { unique: true }),
+        (0, typeorm_1.Entity)("ProcedimentosOdontologicos", { schema: "dbo" })
     ], ProcedimentosOdontologico);
     return ProcedimentosOdontologico;
 }());

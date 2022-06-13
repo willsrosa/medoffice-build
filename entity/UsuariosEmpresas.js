@@ -17,40 +17,40 @@ var UsuariosEmpresas = /** @class */ (function () {
     function UsuariosEmpresas() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "Id" }),
+        (0, typeorm_1.PrimaryGeneratedColumn)({ type: "int", name: "Id" }),
         __metadata("design:type", Number)
     ], UsuariosEmpresas.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "DataHora", nullable: true }),
+        (0, typeorm_1.Column)("smalldatetime", { name: "DataHora", nullable: true }),
         __metadata("design:type", Date)
     ], UsuariosEmpresas.prototype, "dataHora", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "DataExclusao", nullable: true }),
+        (0, typeorm_1.Column)("smalldatetime", { name: "DataExclusao", nullable: true }),
         __metadata("design:type", Date)
     ], UsuariosEmpresas.prototype, "dataExclusao", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.usuariosEmpresas; }),
-        typeorm_1.JoinColumn([{ name: "Usuario", referencedColumnName: "id" }]),
+        (0, typeorm_1.ManyToOne)(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.usuariosEmpresas; }),
+        (0, typeorm_1.JoinColumn)([{ name: "Usuario", referencedColumnName: "id" }]),
         __metadata("design:type", Usuarios_1.Usuarios)
     ], UsuariosEmpresas.prototype, "usuario", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return Empresas_1.Empresas; }, function (empresas) { return empresas.usuariosEmpresas; }, { eager: true }),
-        typeorm_1.JoinColumn([{ name: "EmpresaId", referencedColumnName: "id" }]),
+        (0, typeorm_1.ManyToOne)(function () { return Empresas_1.Empresas; }, function (empresas) { return empresas.usuariosEmpresas; }, { eager: true }),
+        (0, typeorm_1.JoinColumn)([{ name: "EmpresaId", referencedColumnName: "id" }]),
         __metadata("design:type", Empresas_1.Empresas)
     ], UsuariosEmpresas.prototype, "empresa", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.usuariosEmpresas2; }),
-        typeorm_1.JoinColumn([{ name: "UsuarioId", referencedColumnName: "id" }]),
+        (0, typeorm_1.ManyToOne)(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.usuariosEmpresas2; }),
+        (0, typeorm_1.JoinColumn)([{ name: "UsuarioId", referencedColumnName: "id" }]),
         __metadata("design:type", Usuarios_1.Usuarios)
     ], UsuariosEmpresas.prototype, "usuario2", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.usuariosEmpresas3; }),
-        typeorm_1.JoinColumn([{ name: "UsuarioExclusao", referencedColumnName: "id" }]),
+        (0, typeorm_1.ManyToOne)(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.usuariosEmpresas3; }),
+        (0, typeorm_1.JoinColumn)([{ name: "UsuarioExclusao", referencedColumnName: "id" }]),
         __metadata("design:type", Usuarios_1.Usuarios)
     ], UsuariosEmpresas.prototype, "usuarioExclusao", void 0);
     UsuariosEmpresas = __decorate([
-        typeorm_1.Index("PK_USUARIOSEMPRESAS", ["id"], { unique: true }),
-        typeorm_1.Entity("UsuariosEmpresas", { schema: "dbo" })
+        (0, typeorm_1.Index)("PK_USUARIOSEMPRESAS", ["id"], { unique: true }),
+        (0, typeorm_1.Entity)("UsuariosEmpresas", { schema: "dbo" })
     ], UsuariosEmpresas);
     return UsuariosEmpresas;
 }());

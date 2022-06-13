@@ -59,7 +59,7 @@ var ProfissionaisAgendasController = /** @class */ (function (_super) {
     __extends(ProfissionaisAgendasController, _super);
     function ProfissionaisAgendasController() {
         var _this = _super.call(this, ProfissionaisAgendas_1.ProfissionaisAgendas) || this;
-        _this._agenda = typeorm_1.getRepository(ProfissionaisAgendas_1.ProfissionaisAgendas);
+        _this._agenda = (0, typeorm_1.getRepository)(ProfissionaisAgendas_1.ProfissionaisAgendas);
         return _this;
     }
     ProfissionaisAgendasController.prototype.save = function (request) {
@@ -77,7 +77,7 @@ var ProfissionaisAgendasController = /** @class */ (function (_super) {
         return this._agenda.find({
             where: {
                 profissional: request.params.id,
-                dataExclusao: typeorm_1.IsNull()
+                dataExclusao: (0, typeorm_1.IsNull)()
             }
         });
     };

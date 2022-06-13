@@ -15,40 +15,40 @@ var ProcedimentosOdonto = /** @class */ (function () {
     function ProcedimentosOdonto() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "Id" }),
+        (0, typeorm_1.PrimaryGeneratedColumn)({ type: "int", name: "Id" }),
         __metadata("design:type", Number)
     ], ProcedimentosOdonto.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "Descricao", nullable: true, length: 200 }),
+        (0, typeorm_1.Column)("varchar", { name: "Descricao", nullable: true, length: 200 }),
         __metadata("design:type", String)
     ], ProcedimentosOdonto.prototype, "descricao", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "TempoPadrao", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "TempoPadrao", nullable: true }),
         __metadata("design:type", Number)
     ], ProcedimentosOdonto.prototype, "tempoPadrao", void 0);
     __decorate([
-        typeorm_1.Column("char", { name: "Situacao", nullable: true, length: 1 }),
+        (0, typeorm_1.Column)("char", { name: "Situacao", nullable: true, length: 1 }),
         __metadata("design:type", String)
     ], ProcedimentosOdonto.prototype, "situacao", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "Usuario", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "Usuario", nullable: true }),
         __metadata("design:type", Number)
     ], ProcedimentosOdonto.prototype, "usuario", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "DataHora", nullable: true }),
+        (0, typeorm_1.Column)("smalldatetime", { name: "DataHora", nullable: true }),
         __metadata("design:type", Date)
     ], ProcedimentosOdonto.prototype, "dataHora", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "UsuarioExclusao", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "UsuarioExclusao", nullable: true }),
         __metadata("design:type", Number)
     ], ProcedimentosOdonto.prototype, "usuarioExclusao", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "DataExclusao", nullable: true }),
+        (0, typeorm_1.Column)("smalldatetime", { name: "DataExclusao", nullable: true }),
         __metadata("design:type", Date)
     ], ProcedimentosOdonto.prototype, "dataExclusao", void 0);
     ProcedimentosOdonto = __decorate([
-        typeorm_1.Index("PK_ProcedimentosOdonto", ["id"], { unique: true }),
-        typeorm_1.Entity("ProcedimentosOdonto", { schema: "dbo" })
+        (0, typeorm_1.Index)("PK_ProcedimentosOdonto", ["id"], { unique: true }),
+        (0, typeorm_1.Entity)("ProcedimentosOdonto", { schema: "dbo" })
     ], ProcedimentosOdonto);
     return ProcedimentosOdonto;
 }());

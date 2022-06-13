@@ -54,7 +54,7 @@ exports.default = (function (req, res, next) { return __awaiter(void 0, void 0, 
         else {
             if (token) {
                 try {
-                    _userAuth = jsonwebtoken_1.verify(token, config_1.default.secretyKey);
+                    _userAuth = (0, jsonwebtoken_1.verify)(token, config_1.default.secretyKey);
                     req.userAuth = _userAuth;
                     next();
                 }

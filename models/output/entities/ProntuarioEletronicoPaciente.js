@@ -16,38 +16,38 @@ var ProntuarioEletronicoPaciente = /** @class */ (function () {
     function ProntuarioEletronicoPaciente() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "Id" }),
+        (0, typeorm_1.PrimaryGeneratedColumn)({ type: "int", name: "Id" }),
         __metadata("design:type", Number)
     ], ProntuarioEletronicoPaciente.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "PacienteId" }),
+        (0, typeorm_1.Column)("int", { name: "PacienteId" }),
         __metadata("design:type", Number)
     ], ProntuarioEletronicoPaciente.prototype, "pacienteId", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "DataLancamento", nullable: true }),
+        (0, typeorm_1.Column)("smalldatetime", { name: "DataLancamento", nullable: true }),
         __metadata("design:type", Date)
     ], ProntuarioEletronicoPaciente.prototype, "dataLancamento", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "ProfissionalId", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "ProfissionalId", nullable: true }),
         __metadata("design:type", Number)
     ], ProntuarioEletronicoPaciente.prototype, "profissionalId", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "DescritivoAtendimento", nullable: true }),
+        (0, typeorm_1.Column)("varchar", { name: "DescritivoAtendimento", nullable: true }),
         __metadata("design:type", String)
     ], ProntuarioEletronicoPaciente.prototype, "descritivoAtendimento", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "TempoConsulta", nullable: true, length: 4 }),
+        (0, typeorm_1.Column)("varchar", { name: "TempoConsulta", nullable: true, length: 4 }),
         __metadata("design:type", String)
     ], ProntuarioEletronicoPaciente.prototype, "tempoConsulta", void 0);
     __decorate([
-        typeorm_1.OneToMany(function () { return ProntuarioEletronicoPacienteAnexos_1.ProntuarioEletronicoPacienteAnexos; }, function (prontuarioEletronicoPacienteAnexos) {
+        (0, typeorm_1.OneToMany)(function () { return ProntuarioEletronicoPacienteAnexos_1.ProntuarioEletronicoPacienteAnexos; }, function (prontuarioEletronicoPacienteAnexos) {
             return prontuarioEletronicoPacienteAnexos.prontuario;
         }),
         __metadata("design:type", Array)
     ], ProntuarioEletronicoPaciente.prototype, "prontuarioEletronicoPacienteAnexos", void 0);
     ProntuarioEletronicoPaciente = __decorate([
-        typeorm_1.Index("PK_ProntuarioEletronicoPaciente", ["id"], { unique: true }),
-        typeorm_1.Entity("ProntuarioEletronicoPaciente", { schema: "dbo" })
+        (0, typeorm_1.Index)("PK_ProntuarioEletronicoPaciente", ["id"], { unique: true }),
+        (0, typeorm_1.Entity)("ProntuarioEletronicoPaciente", { schema: "dbo" })
     ], ProntuarioEletronicoPaciente);
     return ProntuarioEletronicoPaciente;
 }());

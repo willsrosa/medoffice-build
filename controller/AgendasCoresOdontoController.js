@@ -59,7 +59,7 @@ var AgendasCoresOdontoController = /** @class */ (function (_super) {
     __extends(AgendasCoresOdontoController, _super);
     function AgendasCoresOdontoController() {
         var _this = _super.call(this, AgendasCoresOdondo_1.AgendasCoresOdondo) || this;
-        _this._agendacores = typeorm_1.getRepository(AgendasCoresOdondo_1.AgendasCoresOdondo);
+        _this._agendacores = (0, typeorm_1.getRepository)(AgendasCoresOdondo_1.AgendasCoresOdondo);
         return _this;
     }
     AgendasCoresOdontoController.prototype.save = function (request) {
@@ -78,7 +78,7 @@ var AgendasCoresOdontoController = /** @class */ (function (_super) {
         return this._agendacores.find({
             where: {
                 agendaConsultaId: request.params.id,
-                dataExclusao: typeorm_1.IsNull()
+                dataExclusao: (0, typeorm_1.IsNull)()
             }
         });
     };

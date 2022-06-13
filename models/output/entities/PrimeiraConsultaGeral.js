@@ -15,63 +15,63 @@ var PrimeiraConsultaGeral = /** @class */ (function () {
     function PrimeiraConsultaGeral() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "Id" }),
+        (0, typeorm_1.PrimaryGeneratedColumn)({ type: "int", name: "Id" }),
         __metadata("design:type", Number)
     ], PrimeiraConsultaGeral.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "EmpresaId" }),
+        (0, typeorm_1.Column)("int", { name: "EmpresaId" }),
         __metadata("design:type", Number)
     ], PrimeiraConsultaGeral.prototype, "empresaId", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "PacienteId" }),
+        (0, typeorm_1.Column)("int", { name: "PacienteId" }),
         __metadata("design:type", Number)
     ], PrimeiraConsultaGeral.prototype, "pacienteId", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "ProfissionalId", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "ProfissionalId", nullable: true }),
         __metadata("design:type", Number)
     ], PrimeiraConsultaGeral.prototype, "profissionalId", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "DataConsulta", nullable: true }),
+        (0, typeorm_1.Column)("smalldatetime", { name: "DataConsulta", nullable: true }),
         __metadata("design:type", Date)
     ], PrimeiraConsultaGeral.prototype, "dataConsulta", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "HistoriaAtual", nullable: true }),
+        (0, typeorm_1.Column)("varchar", { name: "HistoriaAtual", nullable: true }),
         __metadata("design:type", String)
     ], PrimeiraConsultaGeral.prototype, "historiaAtual", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "SintomasAssociados", nullable: true }),
+        (0, typeorm_1.Column)("varchar", { name: "SintomasAssociados", nullable: true }),
         __metadata("design:type", String)
     ], PrimeiraConsultaGeral.prototype, "sintomasAssociados", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "Comorbidades", nullable: true }),
+        (0, typeorm_1.Column)("varchar", { name: "Comorbidades", nullable: true }),
         __metadata("design:type", String)
     ], PrimeiraConsultaGeral.prototype, "comorbidades", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "MedicacoesEmUso", nullable: true }),
+        (0, typeorm_1.Column)("varchar", { name: "MedicacoesEmUso", nullable: true }),
         __metadata("design:type", String)
     ], PrimeiraConsultaGeral.prototype, "medicacoesEmUso", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "Cirurgias", nullable: true }),
+        (0, typeorm_1.Column)("varchar", { name: "Cirurgias", nullable: true }),
         __metadata("design:type", String)
     ], PrimeiraConsultaGeral.prototype, "cirurgias", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "Alergias", nullable: true }),
+        (0, typeorm_1.Column)("varchar", { name: "Alergias", nullable: true }),
         __metadata("design:type", String)
     ], PrimeiraConsultaGeral.prototype, "alergias", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "Hemotransfusao", nullable: true }),
+        (0, typeorm_1.Column)("varchar", { name: "Hemotransfusao", nullable: true }),
         __metadata("design:type", String)
     ], PrimeiraConsultaGeral.prototype, "hemotransfusao", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "HistoriaHAS", nullable: true, length: 2000 }),
+        (0, typeorm_1.Column)("varchar", { name: "HistoriaHAS", nullable: true, length: 2000 }),
         __metadata("design:type", String)
     ], PrimeiraConsultaGeral.prototype, "historiaHas", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "HistoriaDM", nullable: true, length: 2000 }),
+        (0, typeorm_1.Column)("varchar", { name: "HistoriaDM", nullable: true, length: 2000 }),
         __metadata("design:type", String)
     ], PrimeiraConsultaGeral.prototype, "historiaDm", void 0);
     __decorate([
-        typeorm_1.Column("varchar", {
+        (0, typeorm_1.Column)("varchar", {
             name: "HistoriaCardiovascular",
             nullable: true,
             length: 2000,
@@ -79,7 +79,7 @@ var PrimeiraConsultaGeral = /** @class */ (function () {
         __metadata("design:type", String)
     ], PrimeiraConsultaGeral.prototype, "historiaCardiovascular", void 0);
     __decorate([
-        typeorm_1.Column("varchar", {
+        (0, typeorm_1.Column)("varchar", {
             name: "HistoriaNeopasias",
             nullable: true,
             length: 2000,
@@ -87,40 +87,40 @@ var PrimeiraConsultaGeral = /** @class */ (function () {
         __metadata("design:type", String)
     ], PrimeiraConsultaGeral.prototype, "historiaNeopasias", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "HistoriaOutras", nullable: true, length: 2000 }),
+        (0, typeorm_1.Column)("varchar", { name: "HistoriaOutras", nullable: true, length: 2000 }),
         __metadata("design:type", String)
     ], PrimeiraConsultaGeral.prototype, "historiaOutras", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "TabagismoTempo", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "TabagismoTempo", nullable: true }),
         __metadata("design:type", Number)
     ], PrimeiraConsultaGeral.prototype, "tabagismoTempo", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "EtilismoTempo", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "EtilismoTempo", nullable: true }),
         __metadata("design:type", Number)
     ], PrimeiraConsultaGeral.prototype, "etilismoTempo", void 0);
     __decorate([
-        typeorm_1.Column("decimal", { name: "PA", nullable: true, precision: 5, scale: 1 }),
+        (0, typeorm_1.Column)("decimal", { name: "PA", nullable: true, precision: 5, scale: 1 }),
         __metadata("design:type", Number)
     ], PrimeiraConsultaGeral.prototype, "pa", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "FC", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "FC", nullable: true }),
         __metadata("design:type", Number)
     ], PrimeiraConsultaGeral.prototype, "fc", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "SAT", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "SAT", nullable: true }),
         __metadata("design:type", Number)
     ], PrimeiraConsultaGeral.prototype, "sat", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "ExameFisico", nullable: true }),
+        (0, typeorm_1.Column)("varchar", { name: "ExameFisico", nullable: true }),
         __metadata("design:type", String)
     ], PrimeiraConsultaGeral.prototype, "exameFisico", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "Conduta", nullable: true }),
+        (0, typeorm_1.Column)("varchar", { name: "Conduta", nullable: true }),
         __metadata("design:type", String)
     ], PrimeiraConsultaGeral.prototype, "conduta", void 0);
     PrimeiraConsultaGeral = __decorate([
-        typeorm_1.Index("PK_PrimeiraConsultaGeral", ["id"], { unique: true }),
-        typeorm_1.Entity("PrimeiraConsultaGeral", { schema: "dbo" })
+        (0, typeorm_1.Index)("PK_PrimeiraConsultaGeral", ["id"], { unique: true }),
+        (0, typeorm_1.Entity)("PrimeiraConsultaGeral", { schema: "dbo" })
     ], PrimeiraConsultaGeral);
     return PrimeiraConsultaGeral;
 }());

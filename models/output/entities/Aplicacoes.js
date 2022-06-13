@@ -16,11 +16,11 @@ var Aplicacoes = /** @class */ (function () {
     function Aplicacoes() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "Id" }),
+        (0, typeorm_1.PrimaryGeneratedColumn)({ type: "int", name: "Id" }),
         __metadata("design:type", Number)
     ], Aplicacoes.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column("varchar", {
+        (0, typeorm_1.Column)("varchar", {
             name: "Paciente",
             nullable: true,
             length: 500,
@@ -29,27 +29,27 @@ var Aplicacoes = /** @class */ (function () {
         __metadata("design:type", String)
     ], Aplicacoes.prototype, "paciente", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "Minutos", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "Minutos", nullable: true }),
         __metadata("design:type", Number)
     ], Aplicacoes.prototype, "minutos", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "Status", nullable: true, default: function () { return "(0)"; } }),
+        (0, typeorm_1.Column)("int", { name: "Status", nullable: true, default: function () { return "(0)"; } }),
         __metadata("design:type", Number)
     ], Aplicacoes.prototype, "status", void 0);
     __decorate([
-        typeorm_1.Column("char", { name: "HorarioIni", nullable: true, length: 4 }),
+        (0, typeorm_1.Column)("char", { name: "HorarioIni", nullable: true, length: 4 }),
         __metadata("design:type", String)
     ], Aplicacoes.prototype, "horarioIni", void 0);
     __decorate([
-        typeorm_1.Column("char", { name: "HorarioFinal", nullable: true, length: 4 }),
+        (0, typeorm_1.Column)("char", { name: "HorarioFinal", nullable: true, length: 4 }),
         __metadata("design:type", String)
     ], Aplicacoes.prototype, "horarioFinal", void 0);
     __decorate([
-        typeorm_1.Column("char", { name: "Local", nullable: true, length: 20 }),
+        (0, typeorm_1.Column)("char", { name: "Local", nullable: true, length: 20 }),
         __metadata("design:type", String)
     ], Aplicacoes.prototype, "local", void 0);
     __decorate([
-        typeorm_1.Column("char", {
+        (0, typeorm_1.Column)("char", {
             name: "Marcacao",
             nullable: true,
             length: 20,
@@ -58,7 +58,7 @@ var Aplicacoes = /** @class */ (function () {
         __metadata("design:type", String)
     ], Aplicacoes.prototype, "marcacao", void 0);
     __decorate([
-        typeorm_1.Column("char", {
+        (0, typeorm_1.Column)("char", {
             name: "Horario",
             nullable: true,
             length: 4,
@@ -67,33 +67,33 @@ var Aplicacoes = /** @class */ (function () {
         __metadata("design:type", String)
     ], Aplicacoes.prototype, "horario", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "Tipo" }),
+        (0, typeorm_1.Column)("int", { name: "Tipo" }),
         __metadata("design:type", Number)
     ], Aplicacoes.prototype, "tipo", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "Dataref", nullable: true }),
+        (0, typeorm_1.Column)("smalldatetime", { name: "Dataref", nullable: true }),
         __metadata("design:type", Date)
     ], Aplicacoes.prototype, "dataref", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "PacienteId", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "PacienteId", nullable: true }),
         __metadata("design:type", Number)
     ], Aplicacoes.prototype, "pacienteId", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "Obs", nullable: true, length: 100 }),
+        (0, typeorm_1.Column)("varchar", { name: "Obs", nullable: true, length: 100 }),
         __metadata("design:type", String)
     ], Aplicacoes.prototype, "obs", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "Situacao", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "Situacao", nullable: true }),
         __metadata("design:type", Number)
     ], Aplicacoes.prototype, "situacao", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return ProfissionaisAgendas_1.ProfissionaisAgendas; }, function (profissionaisAgendas) { return profissionaisAgendas.aplicacoes; }),
-        typeorm_1.JoinColumn([{ name: "ProfissionaisAgendasId", referencedColumnName: "id" }]),
+        (0, typeorm_1.ManyToOne)(function () { return ProfissionaisAgendas_1.ProfissionaisAgendas; }, function (profissionaisAgendas) { return profissionaisAgendas.aplicacoes; }),
+        (0, typeorm_1.JoinColumn)([{ name: "ProfissionaisAgendasId", referencedColumnName: "id" }]),
         __metadata("design:type", ProfissionaisAgendas_1.ProfissionaisAgendas)
     ], Aplicacoes.prototype, "profissionaisAgendas", void 0);
     Aplicacoes = __decorate([
-        typeorm_1.Index("PK_Aplicacoes", ["id"], { unique: true }),
-        typeorm_1.Entity("Aplicacoes", { schema: "dbo" })
+        (0, typeorm_1.Index)("PK_Aplicacoes", ["id"], { unique: true }),
+        (0, typeorm_1.Entity)("Aplicacoes", { schema: "dbo" })
     ], Aplicacoes);
     return Aplicacoes;
 }());

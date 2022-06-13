@@ -15,40 +15,40 @@ var AgendasCoresStatus = /** @class */ (function () {
     function AgendasCoresStatus() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "Id" }),
+        (0, typeorm_1.PrimaryGeneratedColumn)({ type: "int", name: "Id" }),
         __metadata("design:type", Number)
     ], AgendasCoresStatus.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "AgendaConsultaId", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "AgendaConsultaId", nullable: true }),
         __metadata("design:type", Number)
     ], AgendasCoresStatus.prototype, "agendaConsultaId", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "CodigoStatus", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "CodigoStatus", nullable: true }),
         __metadata("design:type", Number)
     ], AgendasCoresStatus.prototype, "codigoStatus", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "BackColor", nullable: true, length: 20 }),
+        (0, typeorm_1.Column)("varchar", { name: "BackColor", nullable: true, length: 20 }),
         __metadata("design:type", String)
     ], AgendasCoresStatus.prototype, "backColor", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "Usuario", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "Usuario", nullable: true }),
         __metadata("design:type", Number)
     ], AgendasCoresStatus.prototype, "usuario", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "DataHora", nullable: true }),
+        (0, typeorm_1.Column)("smalldatetime", { name: "DataHora", nullable: true }),
         __metadata("design:type", Date)
     ], AgendasCoresStatus.prototype, "dataHora", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "UsuarioExclusao", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "UsuarioExclusao", nullable: true }),
         __metadata("design:type", Number)
     ], AgendasCoresStatus.prototype, "usuarioExclusao", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "DataExclusao", nullable: true }),
+        (0, typeorm_1.Column)("smalldatetime", { name: "DataExclusao", nullable: true }),
         __metadata("design:type", Date)
     ], AgendasCoresStatus.prototype, "dataExclusao", void 0);
     AgendasCoresStatus = __decorate([
-        typeorm_1.Index("PK_AGENDASCORESSTATUS", ["id"], { unique: true }),
-        typeorm_1.Entity("AgendasCoresStatus", { schema: "dbo" })
+        (0, typeorm_1.Index)("PK_AGENDASCORESSTATUS", ["id"], { unique: true }),
+        (0, typeorm_1.Entity)("AgendasCoresStatus", { schema: "dbo" })
     ], AgendasCoresStatus);
     return AgendasCoresStatus;
 }());

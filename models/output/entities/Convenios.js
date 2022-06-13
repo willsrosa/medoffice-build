@@ -18,58 +18,58 @@ var Convenios = /** @class */ (function () {
     function Convenios() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "Id" }),
+        (0, typeorm_1.PrimaryGeneratedColumn)({ type: "int", name: "Id" }),
         __metadata("design:type", Number)
     ], Convenios.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "Nome", length: 60 }),
+        (0, typeorm_1.Column)("varchar", { name: "Nome", length: 60 }),
         __metadata("design:type", String)
     ], Convenios.prototype, "nome", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "Contato", nullable: true, length: 40 }),
+        (0, typeorm_1.Column)("varchar", { name: "Contato", nullable: true, length: 40 }),
         __metadata("design:type", String)
     ], Convenios.prototype, "contato", void 0);
     __decorate([
-        typeorm_1.Column("char", { name: "Fone", nullable: true, length: 20 }),
+        (0, typeorm_1.Column)("char", { name: "Fone", nullable: true, length: 20 }),
         __metadata("design:type", String)
     ], Convenios.prototype, "fone", void 0);
     __decorate([
-        typeorm_1.Column("char", { name: "Celular", nullable: true, length: 20 }),
+        (0, typeorm_1.Column)("char", { name: "Celular", nullable: true, length: 20 }),
         __metadata("design:type", String)
     ], Convenios.prototype, "celular", void 0);
     __decorate([
-        typeorm_1.Column("char", { name: "Status", nullable: true, length: 1 }),
+        (0, typeorm_1.Column)("char", { name: "Status", nullable: true, length: 1 }),
         __metadata("design:type", String)
     ], Convenios.prototype, "status", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "DataHora", nullable: true }),
+        (0, typeorm_1.Column)("smalldatetime", { name: "DataHora", nullable: true }),
         __metadata("design:type", Date)
     ], Convenios.prototype, "dataHora", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "DataExclusao", nullable: true }),
+        (0, typeorm_1.Column)("smalldatetime", { name: "DataExclusao", nullable: true }),
         __metadata("design:type", Date)
     ], Convenios.prototype, "dataExclusao", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.convenios; }),
-        typeorm_1.JoinColumn([{ name: "UsuarioId", referencedColumnName: "id" }]),
+        (0, typeorm_1.ManyToOne)(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.convenios; }),
+        (0, typeorm_1.JoinColumn)([{ name: "UsuarioId", referencedColumnName: "id" }]),
         __metadata("design:type", Usuarios_1.Usuarios)
     ], Convenios.prototype, "usuario", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.convenios2; }),
-        typeorm_1.JoinColumn([{ name: "UsuarioExclusao", referencedColumnName: "id" }]),
+        (0, typeorm_1.ManyToOne)(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.convenios2; }),
+        (0, typeorm_1.JoinColumn)([{ name: "UsuarioExclusao", referencedColumnName: "id" }]),
         __metadata("design:type", Usuarios_1.Usuarios)
     ], Convenios.prototype, "usuarioExclusao", void 0);
     __decorate([
-        typeorm_1.OneToMany(function () { return Pacientes_1.Pacientes; }, function (pacientes) { return pacientes.convenio; }),
+        (0, typeorm_1.OneToMany)(function () { return Pacientes_1.Pacientes; }, function (pacientes) { return pacientes.convenio; }),
         __metadata("design:type", Array)
     ], Convenios.prototype, "pacientes", void 0);
     __decorate([
-        typeorm_1.OneToMany(function () { return ProfissionaisConvenios_1.ProfissionaisConvenios; }, function (profissionaisConvenios) { return profissionaisConvenios.convenio; }),
+        (0, typeorm_1.OneToMany)(function () { return ProfissionaisConvenios_1.ProfissionaisConvenios; }, function (profissionaisConvenios) { return profissionaisConvenios.convenio; }),
         __metadata("design:type", Array)
     ], Convenios.prototype, "profissionaisConvenios", void 0);
     Convenios = __decorate([
-        typeorm_1.Index("PK_CONVENIOS", ["id"], { unique: true }),
-        typeorm_1.Entity("Convenios", { schema: "dbo" })
+        (0, typeorm_1.Index)("PK_CONVENIOS", ["id"], { unique: true }),
+        (0, typeorm_1.Entity)("Convenios", { schema: "dbo" })
     ], Convenios);
     return Convenios;
 }());

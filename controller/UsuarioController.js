@@ -100,7 +100,7 @@ var UsuarioController = /** @class */ (function (_super) {
                                     status: 200,
                                     message: {
                                         user: _payload,
-                                        token: jsonwebtoken_1.sign(__assign(__assign({}, _payload), { tm: new Date().getTime() }), config_1.default.secretyKey)
+                                        token: (0, jsonwebtoken_1.sign)(__assign(__assign({}, _payload), { tm: new Date().getTime() }), config_1.default.secretyKey)
                                     }
                                 }];
                         }

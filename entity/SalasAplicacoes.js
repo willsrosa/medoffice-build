@@ -16,21 +16,21 @@ var SalasAplicacoes = /** @class */ (function () {
     function SalasAplicacoes() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "Id" }),
+        (0, typeorm_1.PrimaryGeneratedColumn)({ type: "int", name: "Id" }),
         __metadata("design:type", Number)
     ], SalasAplicacoes.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column("char", { name: "Sala", nullable: true, length: 5 }),
+        (0, typeorm_1.Column)("char", { name: "Sala", nullable: true, length: 5 }),
         __metadata("design:type", String)
     ], SalasAplicacoes.prototype, "sala", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return ProfissionaisAgendas_1.ProfissionaisAgendas; }, function (profissionaisAgendas) { return profissionaisAgendas.salasAplicacoes; }),
-        typeorm_1.JoinColumn([{ name: "ProfissionaisAgendasId", referencedColumnName: "id" }]),
+        (0, typeorm_1.ManyToOne)(function () { return ProfissionaisAgendas_1.ProfissionaisAgendas; }, function (profissionaisAgendas) { return profissionaisAgendas.salasAplicacoes; }),
+        (0, typeorm_1.JoinColumn)([{ name: "ProfissionaisAgendasId", referencedColumnName: "id" }]),
         __metadata("design:type", ProfissionaisAgendas_1.ProfissionaisAgendas)
     ], SalasAplicacoes.prototype, "profissionaisAgendas", void 0);
     SalasAplicacoes = __decorate([
-        typeorm_1.Index("PK_SalasAplicacoes", ["id"], { unique: true }),
-        typeorm_1.Entity("SalasAplicacoes", { schema: "dbo" })
+        (0, typeorm_1.Index)("PK_SalasAplicacoes", ["id"], { unique: true }),
+        (0, typeorm_1.Entity)("SalasAplicacoes", { schema: "dbo" })
     ], SalasAplicacoes);
     return SalasAplicacoes;
 }());

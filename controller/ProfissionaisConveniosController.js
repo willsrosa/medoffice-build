@@ -59,7 +59,7 @@ var ProfissionaisConveniosController = /** @class */ (function (_super) {
     __extends(ProfissionaisConveniosController, _super);
     function ProfissionaisConveniosController() {
         var _this = _super.call(this, ProfissionaisConvenios_1.ProfissionaisConvenios) || this;
-        _this._convenio = typeorm_1.getRepository(ProfissionaisConvenios_1.ProfissionaisConvenios);
+        _this._convenio = (0, typeorm_1.getRepository)(ProfissionaisConvenios_1.ProfissionaisConvenios);
         return _this;
     }
     ProfissionaisConveniosController.prototype.save = function (request) {
@@ -77,7 +77,7 @@ var ProfissionaisConveniosController = /** @class */ (function (_super) {
         return this._convenio.find({
             where: {
                 profissional: request.params.id,
-                dataExclusao: typeorm_1.IsNull()
+                dataExclusao: (0, typeorm_1.IsNull)()
             }
         });
     };

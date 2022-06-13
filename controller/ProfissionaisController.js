@@ -60,7 +60,7 @@ var ProfissionaisController = /** @class */ (function (_super) {
     __extends(ProfissionaisController, _super);
     function ProfissionaisController() {
         var _this = _super.call(this, Profissionais_1.Profissionais) || this;
-        _this._empresa = typeorm_1.getRepository(UsuariosEmpresas_1.UsuariosEmpresas);
+        _this._empresa = (0, typeorm_1.getRepository)(UsuariosEmpresas_1.UsuariosEmpresas);
         return _this;
     }
     ProfissionaisController.prototype.save = function (request) {
@@ -99,7 +99,7 @@ var ProfissionaisController = /** @class */ (function (_super) {
                                 where: {
                                     profissionalAgenda: request.params.id,
                                     empresaid: empresas,
-                                    dataExclusao: typeorm_1.IsNull()
+                                    dataExclusao: (0, typeorm_1.IsNull)()
                                 }
                             })];
                 }

@@ -59,7 +59,7 @@ var PacientesController = /** @class */ (function (_super) {
     __extends(PacientesController, _super);
     function PacientesController() {
         var _this = _super.call(this, Pacientes_1.Pacientes) || this;
-        _this._paciente = typeorm_1.getRepository(Pacientes_1.Pacientes);
+        _this._paciente = (0, typeorm_1.getRepository)(Pacientes_1.Pacientes);
         return _this;
     }
     PacientesController.prototype.save = function (request) {
@@ -89,7 +89,7 @@ var PacientesController = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        connection = typeorm_1.getConnection();
+                        connection = (0, typeorm_1.getConnection)();
                         sql = "select  convert(varchar, p.PacienteNome) COLLATE SQL_Latin1_General_Cp1251_CS_AS as nome from AgendasConsultas p  where p.ProfissionaisAgendasId =" + request.params.id + " group by p.PacienteNome ";
                         console.log(sql);
                         return [4 /*yield*/, connection.manager.query("select  convert(varchar, p.PacienteNome) COLLATE SQL_Latin1_General_Cp1251_CS_AS as nome from AgendasConsultas p  where p.ProfissionaisAgendasId =" + request.params.id + " group by p.PacienteNome ")];
@@ -107,7 +107,7 @@ var PacientesController = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         data = request.params.data;
-                        connection = typeorm_1.getConnection();
+                        connection = (0, typeorm_1.getConnection)();
                         return [4 /*yield*/, connection.manager.query("EXECUTE SP_ListarPacientes @ProfissionalId=" + request.params.id + "")];
                     case 1:
                         ret = _a.sent();
@@ -193,7 +193,7 @@ var PacientesController = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        connection = typeorm_1.getConnection();
+                        connection = (0, typeorm_1.getConnection)();
                         return [4 /*yield*/, connection.manager.query("EXECUTE sp_ultimonrprontuario " + request.params.id + "")];
                     case 1:
                         ret = _a.sent();

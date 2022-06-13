@@ -59,7 +59,7 @@ var UsuariosEmpresasController = /** @class */ (function (_super) {
     __extends(UsuariosEmpresasController, _super);
     function UsuariosEmpresasController() {
         var _this = _super.call(this, UsuariosEmpresas_1.UsuariosEmpresas) || this;
-        _this._usuarioempresa = typeorm_1.getRepository(UsuariosEmpresas_1.UsuariosEmpresas);
+        _this._usuarioempresa = (0, typeorm_1.getRepository)(UsuariosEmpresas_1.UsuariosEmpresas);
         return _this;
     }
     UsuariosEmpresasController.prototype.save = function (request) {
@@ -77,7 +77,7 @@ var UsuariosEmpresasController = /** @class */ (function (_super) {
         return this._usuarioempresa.find({
             where: {
                 usuario: request.params.id,
-                dataExclusao: typeorm_1.IsNull()
+                dataExclusao: (0, typeorm_1.IsNull)()
             }
         });
     };

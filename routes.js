@@ -42,6 +42,7 @@ exports.Routes = [
     { method: "get", route: "/agenda/:profissional/:data/profissional", controller: AgendasConsultasController_1.AgendaConsultasController, action: "getProfissionalAgendas" },
     { method: "get", route: "/agenda/:profissionalagenda/:id/pesquisarconsultas", controller: AgendasConsultasController_1.AgendaConsultasController, action: "getconsultas" },
     { method: "get", route: "/agenda/:profissionalagenda/:paciente/consultaspaciente", controller: AgendasConsultasController_1.AgendaConsultasController, action: "getconsultasPaciente" },
+    { method: "get", route: "/agenda/:profissionalagenda/:dataagenda/pacientesatendidos", controller: AgendasConsultasController_1.AgendaConsultasController, action: "getProfissionalAgendaPacientesAtendidos" },
     { method: "get", route: "/agenda/:profissionalagenda/:inicio/:termino", controller: AgendasConsultasController_1.AgendaConsultasController, action: "getDisponibilidade" },
     { method: "get", route: "/agenda/:id/vinculos", controller: AgendasConsultasController_1.AgendaConsultasController, action: "GetVinculos" },
     { method: "get", route: "/agenda/:profissionalagenda/:id/:data/trintadias", controller: AgendasConsultasController_1.AgendaConsultasController, action: "getconsultasTrintaDias" },

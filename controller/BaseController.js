@@ -59,8 +59,8 @@ var BaseController = /** @class */ (function (_super) {
     __extends(BaseController, _super);
     function BaseController(entity) {
         var _this = _super.call(this) || this;
-        _this._usuario = typeorm_1.getRepository(Usuarios_1.Usuarios);
-        _this._repository = typeorm_1.getRepository(entity);
+        _this._usuario = (0, typeorm_1.getRepository)(Usuarios_1.Usuarios);
+        _this._repository = (0, typeorm_1.getRepository)(entity);
         return _this;
     }
     BaseController.prototype.all = function () {
@@ -68,7 +68,7 @@ var BaseController = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 return [2 /*return*/, this._repository.find({
                         where: {
-                            dataExclusao: typeorm_1.IsNull()
+                            dataExclusao: (0, typeorm_1.IsNull)()
                         }
                     })];
             });

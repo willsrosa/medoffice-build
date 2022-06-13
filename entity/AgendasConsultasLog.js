@@ -15,24 +15,24 @@ var AgendasConsultasLog = /** @class */ (function () {
     function AgendasConsultasLog() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "Id" }),
+        (0, typeorm_1.PrimaryGeneratedColumn)({ type: "int", name: "Id" }),
         __metadata("design:type", Number)
     ], AgendasConsultasLog.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "AgendasConsultasId", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "AgendasConsultasId", nullable: true }),
         __metadata("design:type", Number)
     ], AgendasConsultasLog.prototype, "agendasConsultasId", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "Usuario", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "Usuario", nullable: true }),
         __metadata("design:type", Number)
     ], AgendasConsultasLog.prototype, "usuario", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "DataHora", nullable: true }),
+        (0, typeorm_1.Column)("smalldatetime", { name: "DataHora", nullable: true }),
         __metadata("design:type", Date)
     ], AgendasConsultasLog.prototype, "dataHora", void 0);
     AgendasConsultasLog = __decorate([
-        typeorm_1.Index("PK_AGENDASCONSULTASLOG", ["id"], { unique: true }),
-        typeorm_1.Entity("AgendasConsultasLog", { schema: "dbo" })
+        (0, typeorm_1.Index)("PK_AGENDASCONSULTASLOG", ["id"], { unique: true }),
+        (0, typeorm_1.Entity)("AgendasConsultasLog", { schema: "dbo" })
     ], AgendasConsultasLog);
     return AgendasConsultasLog;
 }());

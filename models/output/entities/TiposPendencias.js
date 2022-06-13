@@ -15,36 +15,36 @@ var TiposPendencias = /** @class */ (function () {
     function TiposPendencias() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "Id" }),
+        (0, typeorm_1.PrimaryGeneratedColumn)({ type: "int", name: "Id" }),
         __metadata("design:type", Number)
     ], TiposPendencias.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column("varchar", { name: "Descricao", nullable: true, length: 100 }),
+        (0, typeorm_1.Column)("varchar", { name: "Descricao", nullable: true, length: 100 }),
         __metadata("design:type", String)
     ], TiposPendencias.prototype, "descricao", void 0);
     __decorate([
-        typeorm_1.Column("char", { name: "CreditoDebito", nullable: true, length: 1 }),
+        (0, typeorm_1.Column)("char", { name: "CreditoDebito", nullable: true, length: 1 }),
         __metadata("design:type", String)
     ], TiposPendencias.prototype, "creditoDebito", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "Usuario", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "Usuario", nullable: true }),
         __metadata("design:type", Number)
     ], TiposPendencias.prototype, "usuario", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "DataHora", nullable: true }),
+        (0, typeorm_1.Column)("smalldatetime", { name: "DataHora", nullable: true }),
         __metadata("design:type", Date)
     ], TiposPendencias.prototype, "dataHora", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "UsuarioExclusao", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "UsuarioExclusao", nullable: true }),
         __metadata("design:type", Number)
     ], TiposPendencias.prototype, "usuarioExclusao", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "DataExclusao", nullable: true }),
+        (0, typeorm_1.Column)("smalldatetime", { name: "DataExclusao", nullable: true }),
         __metadata("design:type", Date)
     ], TiposPendencias.prototype, "dataExclusao", void 0);
     TiposPendencias = __decorate([
-        typeorm_1.Index("PK_TIPOSPENDENCIAS", ["id"], { unique: true }),
-        typeorm_1.Entity("TiposPendencias", { schema: "dbo" })
+        (0, typeorm_1.Index)("PK_TIPOSPENDENCIAS", ["id"], { unique: true }),
+        (0, typeorm_1.Entity)("TiposPendencias", { schema: "dbo" })
     ], TiposPendencias);
     return TiposPendencias;
 }());

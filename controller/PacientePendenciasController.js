@@ -60,7 +60,7 @@ var PacientePendenciasController = /** @class */ (function (_super) {
     __extends(PacientePendenciasController, _super);
     function PacientePendenciasController() {
         var _this = _super.call(this, PacientesPendencias_1.PacientesPendencias) || this;
-        _this._tipo = typeorm_1.getRepository(TiposPendencias_1.TiposPendencias);
+        _this._tipo = (0, typeorm_1.getRepository)(TiposPendencias_1.TiposPendencias);
         return _this;
     }
     PacientePendenciasController.prototype.save = function (request) {
@@ -92,7 +92,7 @@ var PacientePendenciasController = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         profissional = request.params.id;
-                        connection = typeorm_1.getConnection();
+                        connection = (0, typeorm_1.getConnection)();
                         return [4 /*yield*/, connection.manager.query('select Pacientes.Nome as nome, Pacientes.Prontuario as prontuario, SUM(valor) as saldo from PacientesPendencias inner join Pacientes on PacientesPendencias.PacienteId = Pacientes.Id  where Pacientes.ProfissionalId =' + profissional + ' group by Pacientes.Nome, Pacientes.Prontuario having SUM(valor) <> 0 order by Pacientes.Nome')];
                     case 1:
                         ret = _a.sent();

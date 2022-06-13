@@ -89,11 +89,11 @@ httpsServer.listen(config_1.default.port, '0.0.0.0', function () { return __awai
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                console.log("Api initilze in port " + config_1.default.port);
+                console.log("Api initilze in port ".concat(config_1.default.port));
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, typeorm_1.createConnection()];
+                return [4 /*yield*/, (0, typeorm_1.createConnection)()];
             case 2:
                 _a.sent();
                 console.log('Database connected');

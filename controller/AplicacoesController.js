@@ -61,8 +61,8 @@ var AplicacoesController = /** @class */ (function (_super) {
     __extends(AplicacoesController, _super);
     function AplicacoesController() {
         var _this = _super.call(this, Aplicacoes_1.Aplicacoes) || this;
-        _this._aplicacoes = typeorm_1.getRepository(Aplicacoes_1.Aplicacoes);
-        _this._agendas = typeorm_1.getRepository(AgendasConsultas_1.AgendasConsultas);
+        _this._aplicacoes = (0, typeorm_1.getRepository)(Aplicacoes_1.Aplicacoes);
+        _this._agendas = (0, typeorm_1.getRepository)(AgendasConsultas_1.AgendasConsultas);
         return _this;
     }
     AplicacoesController.prototype.save = function (request) {
@@ -104,7 +104,7 @@ var AplicacoesController = /** @class */ (function (_super) {
                                 dataAgenda: data,
                                 profissionaisAgendas: agenda,
                                 // tipoAtendimento: 1,
-                                dataExclusao: typeorm_1.IsNull()
+                                dataExclusao: (0, typeorm_1.IsNull)()
                             })];
                     case 2:
                         agendaall = _b.sent();

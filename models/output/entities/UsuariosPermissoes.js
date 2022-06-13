@@ -17,22 +17,22 @@ var UsuariosPermissoes = /** @class */ (function () {
     function UsuariosPermissoes() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "Id" }),
+        (0, typeorm_1.PrimaryGeneratedColumn)({ type: "int", name: "Id" }),
         __metadata("design:type", Number)
     ], UsuariosPermissoes.prototype, "id", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return Permissoes_1.Permissoes; }, function (permissoes) { return permissoes.usuariosPermissoes; }),
-        typeorm_1.JoinColumn([{ name: "PermissaoId", referencedColumnName: "id" }]),
+        (0, typeorm_1.ManyToOne)(function () { return Permissoes_1.Permissoes; }, function (permissoes) { return permissoes.usuariosPermissoes; }),
+        (0, typeorm_1.JoinColumn)([{ name: "PermissaoId", referencedColumnName: "id" }]),
         __metadata("design:type", Permissoes_1.Permissoes)
     ], UsuariosPermissoes.prototype, "permissao", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.usuariosPermissoes; }),
-        typeorm_1.JoinColumn([{ name: "UsuarioId", referencedColumnName: "id" }]),
+        (0, typeorm_1.ManyToOne)(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.usuariosPermissoes; }),
+        (0, typeorm_1.JoinColumn)([{ name: "UsuarioId", referencedColumnName: "id" }]),
         __metadata("design:type", Usuarios_1.Usuarios)
     ], UsuariosPermissoes.prototype, "usuario", void 0);
     UsuariosPermissoes = __decorate([
-        typeorm_1.Index("PK_USUARIOSPERMISSOES", ["id"], { unique: true }),
-        typeorm_1.Entity("UsuariosPermissoes", { schema: "dbo" })
+        (0, typeorm_1.Index)("PK_USUARIOSPERMISSOES", ["id"], { unique: true }),
+        (0, typeorm_1.Entity)("UsuariosPermissoes", { schema: "dbo" })
     ], UsuariosPermissoes);
     return UsuariosPermissoes;
 }());

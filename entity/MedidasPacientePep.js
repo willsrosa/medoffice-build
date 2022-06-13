@@ -15,32 +15,32 @@ var MedidasPacientePep = /** @class */ (function () {
     function MedidasPacientePep() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "Id" }),
+        (0, typeorm_1.PrimaryGeneratedColumn)({ type: "int", name: "Id" }),
         __metadata("design:type", Number)
     ], MedidasPacientePep.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "ProntuarioEletronicoPacienteId", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "ProntuarioEletronicoPacienteId", nullable: true }),
         __metadata("design:type", Number)
     ], MedidasPacientePep.prototype, "prontuarioEletronicoPacienteId", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "DataMedidas", nullable: true }),
+        (0, typeorm_1.Column)("smalldatetime", { name: "DataMedidas", nullable: true }),
         __metadata("design:type", Date)
     ], MedidasPacientePep.prototype, "dataMedidas", void 0);
     __decorate([
-        typeorm_1.Column("decimal", { name: "Peso", nullable: true, precision: 10, scale: 3 }),
+        (0, typeorm_1.Column)("decimal", { name: "Peso", nullable: true, precision: 10, scale: 3 }),
         __metadata("design:type", Number)
     ], MedidasPacientePep.prototype, "peso", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "Altura", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "Altura", nullable: true }),
         __metadata("design:type", Number)
     ], MedidasPacientePep.prototype, "altura", void 0);
     __decorate([
-        typeorm_1.Column("decimal", { name: "Imc", nullable: true, precision: 5, scale: 1 }),
+        (0, typeorm_1.Column)("decimal", { name: "Imc", nullable: true, precision: 5, scale: 1 }),
         __metadata("design:type", Number)
     ], MedidasPacientePep.prototype, "imc", void 0);
     MedidasPacientePep = __decorate([
-        typeorm_1.Index("PK_MedidasPacientePEP", ["id"], { unique: true }),
-        typeorm_1.Entity("MedidasPacientePEP", { schema: "dbo" })
+        (0, typeorm_1.Index)("PK_MedidasPacientePEP", ["id"], { unique: true }),
+        (0, typeorm_1.Entity)("MedidasPacientePEP", { schema: "dbo" })
     ], MedidasPacientePep);
     return MedidasPacientePep;
 }());

@@ -17,39 +17,39 @@ var UsuariosAgendas = /** @class */ (function () {
     function UsuariosAgendas() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "Id" }),
+        (0, typeorm_1.PrimaryGeneratedColumn)({ type: "int", name: "Id" }),
         __metadata("design:type", Number)
     ], UsuariosAgendas.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "Usuario" }),
+        (0, typeorm_1.Column)("int", { name: "Usuario" }),
         __metadata("design:type", Number)
     ], UsuariosAgendas.prototype, "usuario", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "DataHora", nullable: true }),
+        (0, typeorm_1.Column)("smalldatetime", { name: "DataHora", nullable: true }),
         __metadata("design:type", Date)
     ], UsuariosAgendas.prototype, "dataHora", void 0);
     __decorate([
-        typeorm_1.Column("smalldatetime", { name: "DataExclusao", nullable: true }),
+        (0, typeorm_1.Column)("smalldatetime", { name: "DataExclusao", nullable: true }),
         __metadata("design:type", Date)
     ], UsuariosAgendas.prototype, "dataExclusao", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return ProfissionaisAgendas_1.ProfissionaisAgendas; }, function (profissionaisAgendas) { return profissionaisAgendas.usuariosAgendas; }),
-        typeorm_1.JoinColumn([{ name: "AgendaConsultaId", referencedColumnName: "id" }]),
+        (0, typeorm_1.ManyToOne)(function () { return ProfissionaisAgendas_1.ProfissionaisAgendas; }, function (profissionaisAgendas) { return profissionaisAgendas.usuariosAgendas; }),
+        (0, typeorm_1.JoinColumn)([{ name: "AgendaConsultaId", referencedColumnName: "id" }]),
         __metadata("design:type", ProfissionaisAgendas_1.ProfissionaisAgendas)
     ], UsuariosAgendas.prototype, "agendaConsulta", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.usuariosAgendas; }),
-        typeorm_1.JoinColumn([{ name: "UsuarioId", referencedColumnName: "id" }]),
+        (0, typeorm_1.ManyToOne)(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.usuariosAgendas; }),
+        (0, typeorm_1.JoinColumn)([{ name: "UsuarioId", referencedColumnName: "id" }]),
         __metadata("design:type", Usuarios_1.Usuarios)
     ], UsuariosAgendas.prototype, "usuario2", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.usuariosAgendas2; }),
-        typeorm_1.JoinColumn([{ name: "UsuarioExclusao", referencedColumnName: "id" }]),
+        (0, typeorm_1.ManyToOne)(function () { return Usuarios_1.Usuarios; }, function (usuarios) { return usuarios.usuariosAgendas2; }),
+        (0, typeorm_1.JoinColumn)([{ name: "UsuarioExclusao", referencedColumnName: "id" }]),
         __metadata("design:type", Usuarios_1.Usuarios)
     ], UsuariosAgendas.prototype, "usuarioExclusao", void 0);
     UsuariosAgendas = __decorate([
-        typeorm_1.Index("PK_UsuariosAgendas", ["id"], { unique: true }),
-        typeorm_1.Entity("UsuariosAgendas", { schema: "dbo" })
+        (0, typeorm_1.Index)("PK_UsuariosAgendas", ["id"], { unique: true }),
+        (0, typeorm_1.Entity)("UsuariosAgendas", { schema: "dbo" })
     ], UsuariosAgendas);
     return UsuariosAgendas;
 }());

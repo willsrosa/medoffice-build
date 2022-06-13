@@ -15,31 +15,31 @@ var ProntuarioEletronicoPacientes = /** @class */ (function () {
     function ProntuarioEletronicoPacientes() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn({ type: "int", name: "Id" }),
+        (0, typeorm_1.PrimaryGeneratedColumn)({ type: "int", name: "Id" }),
         __metadata("design:type", Number)
     ], ProntuarioEletronicoPacientes.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "PacienteId" }),
+        (0, typeorm_1.Column)("int", { name: "PacienteId" }),
         __metadata("design:type", Number)
     ], ProntuarioEletronicoPacientes.prototype, "pacienteId", void 0);
     __decorate([
-        typeorm_1.Column("datetime", { name: "DataLancamento", nullable: true }),
+        (0, typeorm_1.Column)("datetime", { name: "DataLancamento", nullable: true }),
         __metadata("design:type", Date)
     ], ProntuarioEletronicoPacientes.prototype, "dataLancamento", void 0);
     __decorate([
-        typeorm_1.Column("int", { name: "ProfissionalId", nullable: true }),
+        (0, typeorm_1.Column)("int", { name: "ProfissionalId", nullable: true }),
         __metadata("design:type", Number)
     ], ProntuarioEletronicoPacientes.prototype, "profissionalId", void 0);
     __decorate([
-        typeorm_1.Column("nvarchar", { name: "DescritivoAtendimento", nullable: true }),
+        (0, typeorm_1.Column)("nvarchar", { name: "DescritivoAtendimento", nullable: true }),
         __metadata("design:type", String)
     ], ProntuarioEletronicoPacientes.prototype, "descritivoAtendimento", void 0);
     __decorate([
-        typeorm_1.Column("nvarchar", { name: "TempoConsulta", nullable: true }),
+        (0, typeorm_1.Column)("nvarchar", { name: "TempoConsulta", nullable: true }),
         __metadata("design:type", String)
     ], ProntuarioEletronicoPacientes.prototype, "tempoConsulta", void 0);
     ProntuarioEletronicoPacientes = __decorate([
-        typeorm_1.Entity("ProntuarioEletronicoPacientes", { schema: "dbo" })
+        (0, typeorm_1.Entity)("ProntuarioEletronicoPacientes", { schema: "dbo" })
     ], ProntuarioEletronicoPacientes);
     return ProntuarioEletronicoPacientes;
 }());

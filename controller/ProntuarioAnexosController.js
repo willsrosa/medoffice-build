@@ -52,6 +52,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProntuariosAnexosController = void 0;
+var typeorm_1 = require("typeorm");
 var ProntuarioEletronicoPacienteAnexos_1 = require("../entity/ProntuarioEletronicoPacienteAnexos");
 var BaseController_1 = require("./BaseController");
 var ProntuariosAnexosController = /** @class */ (function (_super) {
@@ -73,6 +74,7 @@ var ProntuariosAnexosController = /** @class */ (function (_super) {
     ProntuariosAnexosController.prototype.getProntuario = function (request) {
         return this.repository.find({
             where: {
+                dataExclusao: (0, typeorm_1.IsNull)(),
                 prontuarioId: request.params.id,
             }
         });
