@@ -66,7 +66,7 @@ var Pacientes = /** @class */ (function () {
         __metadata("design:type", String)
     ], Pacientes.prototype, "endereco", void 0);
     __decorate([
-        (0, typeorm_1.Column)("char", { name: "Numero", nullable: true, length: 20, default: "S/N" }),
+        (0, typeorm_1.Column)("varchar", { name: "Numero", nullable: true, length: 20, default: "S/N" }),
         __metadata("design:type", String)
     ], Pacientes.prototype, "numero", void 0);
     __decorate([
@@ -82,11 +82,11 @@ var Pacientes = /** @class */ (function () {
         __metadata("design:type", String)
     ], Pacientes.prototype, "cidade", void 0);
     __decorate([
-        (0, typeorm_1.Column)("char", { name: "Uf", nullable: true, length: 2 }),
+        (0, typeorm_1.Column)("varchar", { name: "Uf", nullable: true, length: 2 }),
         __metadata("design:type", String)
     ], Pacientes.prototype, "uf", void 0);
     __decorate([
-        (0, typeorm_1.Column)("char", { name: "Sexo", nullable: true, length: 1 }),
+        (0, typeorm_1.Column)("varchar", { name: "Sexo", nullable: true, length: 1 }),
         __metadata("design:type", String)
     ], Pacientes.prototype, "sexo", void 0);
     __decorate([
@@ -98,7 +98,7 @@ var Pacientes = /** @class */ (function () {
         __metadata("design:type", Date)
     ], Pacientes.prototype, "dtNasc", void 0);
     __decorate([
-        (0, typeorm_1.Column)("char", { name: "Cid", nullable: true, length: 8 }),
+        (0, typeorm_1.Column)("varchar", { name: "Cid", nullable: true, length: 8 }),
         __metadata("design:type", String)
     ], Pacientes.prototype, "cid", void 0);
     __decorate([
@@ -150,7 +150,7 @@ var Pacientes = /** @class */ (function () {
         __metadata("design:type", Date)
     ], Pacientes.prototype, "dataExclusao", void 0);
     __decorate([
-        (0, typeorm_1.Column)("char", { name: "Cep", nullable: true, length: 8 }),
+        (0, typeorm_1.Column)("varchar", { name: "Cep", nullable: true, length: 8 }),
         __metadata("design:type", String)
     ], Pacientes.prototype, "cep", void 0);
     __decorate([

@@ -49,6 +49,8 @@ exports.Routes = [
     { method: "post", route: "/agenda", controller: AgendasConsultasController_1.AgendaConsultasController, action: "save" },
     { method: "delete", route: "/agenda/:id", controller: AgendasConsultasController_1.AgendaConsultasController, action: "remove" },
     { method: "delete", route: "/agenda/:id/:usuario", controller: AgendasConsultasController_1.AgendaConsultasController, action: "removeSenha" },
+    { method: "post", route: "/confirmaragendamento", controller: AgendasConsultasController_1.AgendaConsultasController, action: "confirmaragendamento" },
+    { method: "post", route: "/enviaragendamento", controller: AgendasConsultasController_1.AgendaConsultasController, action: "enviaragendamento" },
     { method: "get", route: "/convenio", controller: ConveniosController_1.ConveniosController, action: "all" },
     { method: "get", route: "/convenio/:id", controller: ConveniosController_1.ConveniosController, action: "one" },
     { method: "post", route: "/convenio", controller: ConveniosController_1.ConveniosController, action: "save" },

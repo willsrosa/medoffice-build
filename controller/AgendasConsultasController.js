@@ -126,6 +126,49 @@ var AgendaConsultasController = /** @class */ (function (_super) {
             });
         });
     };
+    AgendaConsultasController.prototype.enviaragendamento = function (request) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _obj;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.repository.findOne({
+                            where: {
+                                id: request.body.id,
+                            }
+                        })];
+                    case 1:
+                        _obj = _a.sent();
+                        if (_obj) {
+                            _obj.confirmacaoenviadaem = new Date();
+                        }
+                        return [2 /*return*/, _super.prototype.save.call(this, _obj, request)];
+                }
+            });
+        });
+    };
+    AgendaConsultasController.prototype.confirmaragendamento = function (request) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _obj;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.repository.findOne({
+                            where: {
+                                id: request.body.id,
+                            }
+                        })];
+                    case 1:
+                        _obj = _a.sent();
+                        if (request.body.tipo == "recusou") {
+                            _obj.confirmacaorecebidaem = null;
+                        }
+                        else {
+                            _obj.confirmacaorecebidaem = new Date();
+                        }
+                        return [2 /*return*/, _super.prototype.save.call(this, _obj, request)];
+                }
+            });
+        });
+    };
     AgendaConsultasController.prototype.getProfissionalAgendas = function (request) {
         return __awaiter(this, void 0, void 0, function () {
             var profissional, data, connection, ret;

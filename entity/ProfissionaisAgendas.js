@@ -30,6 +30,14 @@ var ProfissionaisAgendas = /** @class */ (function () {
         __metadata("design:type", String)
     ], ProfissionaisAgendas.prototype, "nomeAgenda", void 0);
     __decorate([
+        (0, typeorm_1.Column)("varchar", { name: "UrlServico", length: 80 }),
+        __metadata("design:type", String)
+    ], ProfissionaisAgendas.prototype, "urlServico", void 0);
+    __decorate([
+        (0, typeorm_1.Column)("varchar", { name: "MensagemWhatsapp ", length: 1500 }),
+        __metadata("design:type", String)
+    ], ProfissionaisAgendas.prototype, "mensagemWhatsapp", void 0);
+    __decorate([
         (0, typeorm_1.Column)("int", { name: "PermitirEncaixe", nullable: true }),
         __metadata("design:type", Number)
     ], ProfissionaisAgendas.prototype, "permitirEncaixe", void 0);

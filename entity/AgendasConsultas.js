@@ -54,6 +54,14 @@ var AgendasConsultas = /** @class */ (function () {
         __metadata("design:type", Date)
     ], AgendasConsultas.prototype, "confirmado", void 0);
     __decorate([
+        (0, typeorm_1.Column)("smalldatetime", { name: "ConfirmacaoRecebidaEm", nullable: true }),
+        __metadata("design:type", Date)
+    ], AgendasConsultas.prototype, "confirmacaorecebidaem", void 0);
+    __decorate([
+        (0, typeorm_1.Column)("smalldatetime", { name: "ConfirmacaoEnviadaEm", nullable: true }),
+        __metadata("design:type", Date)
+    ], AgendasConsultas.prototype, "confirmacaoenviadaem", void 0);
+    __decorate([
         (0, typeorm_1.Column)("int", { name: "ProcedimentoPrincipal", nullable: true }),
         __metadata("design:type", Number)
     ], AgendasConsultas.prototype, "procedimentoPrincipal", void 0);

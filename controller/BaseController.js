@@ -88,25 +88,28 @@ var BaseController = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         model.dataHora = new Date();
+                        if (!request.headers['x-user-include']) return [3 /*break*/, 2];
                         id = this.numeros(request.headers['x-user-include']);
                         return [4 /*yield*/, this._usuario.findOne(id)];
                     case 1:
                         user = _a.sent();
                         model.usuarioId = user.id;
-                        if (!model.id) return [3 /*break*/, 3];
+                        _a.label = 2;
+                    case 2:
+                        if (!model.id) return [3 /*break*/, 4];
                         uid = model.id;
                         return [4 /*yield*/, this._repository.findOne(uid)];
-                    case 2:
+                    case 3:
                         _modelInDB = _a.sent();
                         if (_modelInDB) {
                             Object.assign(_modelInDB, model);
                         }
-                        _a.label = 3;
-                    case 3:
-                        if (!this.valid()) return [3 /*break*/, 5];
+                        _a.label = 4;
+                    case 4:
+                        if (!this.valid()) return [3 /*break*/, 6];
                         return [4 /*yield*/, this._repository.save(model)];
-                    case 4: return [2 /*return*/, _a.sent()];
-                    case 5: return [2 /*return*/, {
+                    case 5: return [2 /*return*/, _a.sent()];
+                    case 6: return [2 /*return*/, {
                             status: 400,
                             errors: this.allNotifications
                         }];
