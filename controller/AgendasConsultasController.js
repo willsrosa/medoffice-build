@@ -160,9 +160,11 @@ var AgendaConsultasController = /** @class */ (function (_super) {
                         _obj = _a.sent();
                         if (request.body.tipo == "recusou") {
                             _obj.confirmacaorecebidaem = null;
+                            _obj.faseAtendimento = 1;
                         }
                         else {
                             _obj.confirmacaorecebidaem = new Date();
+                            _obj.faseAtendimento = 14;
                         }
                         return [2 /*return*/, _super.prototype.save.call(this, _obj, request)];
                 }
